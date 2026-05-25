@@ -1,0 +1,213 @@
+aid: rocket-lawyer
+url: https://raw.githubusercontent.com/api-evangelist/rocket-lawyer/refs/heads/main/apis.yml
+apis:
+- aid: rocket-lawyer:rocket-lawyer-authentication-api
+  name: Rocket Lawyer Authentication API
+  tags:
+  - Authentication
+  - OAuth
+  - Access Tokens
+  - Service Tokens
+  humanURL: https://developer.rocketlawyer.com/docs/partner-auth-service-product-sandbox/1/overview
+  baseURL: https://api.rocketlawyer.com/partners/v1/auth
+  properties:
+  - url: https://developer.rocketlawyer.com/docs/partner-auth-service-product-sandbox/1/overview
+    type: Documentation
+  - url: openapi/rocket-lawyer-authentication-api-openapi.yml
+    type: OpenAPI
+  description: OAuth 2.0 authentication mechanism for accessing Rocket Lawyer partner APIs. Issues three token types
+    — Access Tokens (server-to-server, 10-hour TTL), Service Tokens (backend-to-frontend delegation, 1-year TTL
+    scoped by purpose / interviewId / UPID), and Scoped Access Tokens (front-end calls, derived from a Service
+    Token). Supports `client_credentials` and `authorization_code` grant types. Apps can be created with either
+    backend or frontend scope from the Rocket Lawyer Developer Portal.
+- aid: rocket-lawyer:rocket-lawyer-rocketdocument-api
+  name: Rocket Lawyer RocketDocument v2 API
+  tags:
+  - Legal Documents
+  - Document Creation
+  - Document Templates
+  - Interviews
+  - Legal Technology
+  humanURL: https://developer.rocketlawyer.com/docs/rocketdoc-api-product-sandbox/1/overview
+  baseURL: https://api.rocketlawyer.com/rocketdoc/v2
+  properties:
+  - url: https://developer.rocketlawyer.com/rocketdocument-v2-embedded-ux
+    type: Documentation
+  - url: https://developer.rocketlawyer.com/rocketdocument-v2-build-your-own-ux
+    type: Documentation
+  - url: https://developer.rocketlawyer.com/rocketdocument-v2-release-notes
+    type: ReleaseNotes
+  - url: openapi/rocket-lawyer-rocketdocument-api-openapi.yml
+    type: OpenAPI
+  description: Create and customize lawyer-vetted legal documents on behalf of your customers. Drives a stateful
+    Interview that walks an end-user through the questions for a chosen Template (NDAs, leases, operating
+    agreements, wills, etc.), captures answers (including tagged-answer reuse across documents), renders preview /
+    thumbnail / final documents, and exposes the resulting Document for download. Pairs with the Embedded UX
+    component or a build-your-own front end driven by Service / Scoped Access Tokens.
+- aid: rocket-lawyer:rocket-lawyer-rocketsign-binders-api
+  name: Rocket Lawyer RocketSign and Binders API
+  tags:
+  - Electronic Signature
+  - eSignature
+  - RocketSign
+  - Binders
+  - Document Management
+  - Legal Documents
+  humanURL: https://developer.rocketlawyer.com/docs/binders-product-document-manager-sandbox/1/overview
+  baseURL: https://api.rocketlawyer.com/document-manager/v1
+  properties:
+  - url: https://developer.rocketlawyer.com/rocketsign-embedded-ux
+    type: Documentation
+  - url: openapi/rocket-lawyer-rocketsign-binders-api-openapi.yml
+    type: OpenAPI
+  description: Bundle one or more documents into a Binder and run them through Rocket Lawyer's electronic signature
+    workflow. Manage binder lifecycle (status, locks), parties (signers, viewers, owners), documents and their
+    pages / inputs, and orchestrate signature requests — invitations, signatures, reminders, finalisations,
+    cancellations, declines, and viewer access. Supports email invites, embedded signing, and a single-call
+    multi-document signing flow.
+- aid: rocket-lawyer:rocket-lawyer-events-api
+  name: Rocket Lawyer Events API
+  tags:
+  - Events
+  - Webhooks
+  - Notifications
+  - Subscriptions
+  - Event Pull
+  humanURL: https://developer.rocketlawyer.com/docs/partner-event-api-subscription-product-sandbox/1/overview
+  baseURL: https://api.rocketlawyer.com/events/v1
+  properties:
+  - url: https://developer.rocketlawyer.com/docs/partner-event-api-subscription-product-sandbox/1/overview
+    type: Documentation
+  - url: openapi/rocket-lawyer-events-api-openapi.yml
+    type: OpenAPI
+  description: Subscribe to and consume notifications about activity within your tenant (interviews started /
+    completed, documents signed, binders finalised, etc.). Provides Subscription Management (create, get, update,
+    delete subscriptions) and a pull-based Event Consumption model with eventPulls, eventAcknowledgements, and
+    seekRequests so partners can resume from a known position.
+name: Rocket Lawyer
+description: >-
+  Rocket Lawyer is a San Francisco, California online legal technology company
+  that has helped over 20 million businesses and individuals get online legal
+  help. Founded in 2008, Rocket Lawyer offers self-service lawyer-vetted legal
+  documents (contracts, NDAs, leases, wills, living trusts, power of attorney,
+  business formation paperwork) plus DIY business services (LLC and corporation
+  formation, registered agent service, DBA filings, annual reports, trademark
+  registration), RocketTax tax preparation, and an "Ask a Legal Pro" attorney
+  network for live consultations and document review. The platform is anchored
+  by a membership model — Standard, Plus, and Pro tiers — that bundles
+  unlimited documents, e-signatures, Rocket Copilot AI contract review, and
+  varying numbers of Legal Pro questions and live consultations. Rocket Lawyer
+  also operates a partner developer program with public REST APIs — exposed
+  through an Apigee-backed developer portal at developer.rocketlawyer.com —
+  that lets third parties embed lawyer-vetted document creation, electronic
+  signature, and event-driven workflows into their own products. Four APIs are
+  published with OpenAPI 3.0 specifications and live sandbox + production
+  environments: the Authentication API (OAuth 2.0 access / service / scoped
+  tokens), the RocketDocument v2 API (interview-driven document creation), the
+  RocketSign and Binders API (electronic signature and document bundle
+  management), and the Events API (subscription + pull-based event
+  notifications). Both Embedded UX components and a "build your own UX" path
+  are supported, and partner onboarding is managed through api@rocketlawyer.com
+  and a self-service developer portal.
+tags:
+- Legal
+- Legal Technology
+- LegalTech
+- Legal Documents
+- Electronic Signature
+- eSignature
+- Document Creation
+- Document Management
+- Business Formation
+- LLC Formation
+- Registered Agent
+- Trademark
+- Wills
+- Estate Planning
+- Attorney Network
+- Small Business
+- Membership
+- Embedded UX
+- Partner API
+- Apigee
+- OpenAPI
+type: Index
+kind: contract
+position: Provider
+access: 3rd-Party
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+common:
+- type: Website
+  url: https://www.rocketlawyer.com
+- type: Portal
+  url: https://developer.rocketlawyer.com/
+- type: GettingStarted
+  url: https://developer.rocketlawyer.com/welcome-guide
+- type: Documentation
+  url: https://developer.rocketlawyer.com/welcome-guide
+- type: Documentation
+  url: https://docs.rocketlawyer.net/
+- type: Documentation
+  url: https://developer.rocketlawyer.com/rocketdocument-v2-embedded-ux
+  name: RocketDocument v2 Embedded UX
+- type: Documentation
+  url: https://developer.rocketlawyer.com/rocketdocument-v2-build-your-own-ux
+  name: RocketDocument v2 Build Your Own UX
+- type: Documentation
+  url: https://developer.rocketlawyer.com/rocketsign-embedded-ux
+  name: RocketSign Embedded UX
+- type: ReleaseNotes
+  url: https://developer.rocketlawyer.com/rocketdocument-v2-release-notes
+- type: Glossary
+  url: https://developer.rocketlawyer.com/glossary
+- type: SignUp
+  url: https://developer.rocketlawyer.com/accounts/create
+- type: Login
+  url: https://developer.rocketlawyer.com/accounts/login
+- type: Contact
+  url: https://www.rocketlawyer.com/developers
+- type: TermsOfService
+  url: https://developer.rocketlawyer.com/terms
+- type: DeveloperTermsOfService
+  url: https://www.rocketlawyer.com/developer-terms-and-conditions
+- type: Support
+  url: https://www.rocketlawyer.com/help
+- type: Postman
+  url: https://www.postman.com/rocket-lawyer/workspaces
+- type: Postman
+  url: https://documenter.getpostman.com/view/36551580/2sAXjGbtoR
+  name: RocketDocument v2 API Postman Documentation
+- type: LegalDocuments
+  url: https://www.rocketlawyer.com/legal-documents
+- type: BusinessFormation
+  url: https://www.rocketlawyer.com/business/business-operations/start-a-business
+- type: RocketSign
+  url: https://www.rocketlawyer.com/rocketsign-digital-signatures
+- type: Pricing
+  url: https://www.rocketlawyer.com/pricing
+- type: About
+  url: https://www.rocketlawyer.com/about-us
+- type: Press
+  url: https://www.rocketlawyer.com/news
+- type: Careers
+  url: https://www.rocketlawyer.com/about-us/careers
+- type: Blog
+  url: https://www.rocketlawyer.com/blog
+- type: PrivacyPolicy
+  url: https://www.rocketlawyer.com/privacy
+- type: GitHubOrganization
+  url: https://github.com/rocketlawyer
+- type: LinkedIn
+  url: https://www.linkedin.com/company/rocket-lawyer
+- type: Twitter
+  url: https://twitter.com/rocketlawyer
+- type: Facebook
+  url: https://www.facebook.com/RocketLawyer
+- type: YouTube
+  url: https://www.youtube.com/user/rocketlawyer
+created: '2026-05-25'
+modified: '2026-05-25'
+specificationVersion: '0.20'
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
