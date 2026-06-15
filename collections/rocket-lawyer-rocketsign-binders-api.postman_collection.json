@@ -1,0 +1,3583 @@
+{
+  "item": [
+    {
+      "id": "6a42412f-5bb4-4d48-aa53-dd4f38579ea5",
+      "name": "POST binders",
+      "request": {
+        "name": "POST binders",
+        "description": {
+          "content": "<b>Allowed roles:</b> BACKEND<br/>\nCreates the new Binder\n<ul>\n  <li>Creates full binder with documents, inputs and parties.</li>\n  <li>Note that binder status is still <b>IN_PREPARATION</b> as document(s) need to be uploaded.</li>\n</ul>\n",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "binders"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"<string>\",\n  \"parties\": [\n    {\n      \"reference\": \"<string>\",\n      \"legalName\": \"<string>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"jobTitle\": \"<string>\",\n      \"companyName\": \"<string>\",\n      \"email\": \"<string>\",\n      \"metaData\": \"<string>\"\n    },\n    {\n      \"reference\": \"<string>\",\n      \"legalName\": \"<string>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"jobTitle\": \"<string>\",\n      \"companyName\": \"<string>\",\n      \"email\": \"<string>\",\n      \"metaData\": \"<string>\"\n    }\n  ],\n  \"documents\": [\n    {\n      \"name\": \"<string>\",\n      \"order\": \"<integer>\",\n      \"signable\": true,\n      \"inputs\": [\n        {\n          \"type\": \"<string>\",\n          \"partyReference\": \"<string>\",\n          \"position\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"pageId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"xOffset\": \"<double>\",\n            \"yOffset\": \"<double>\",\n            \"width\": \"<double>\",\n            \"height\": \"<double>\",\n            \"unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"identifier\": \"<string>\",\n            \"vAlignment\": \"<string>\",\n            \"hAlignment\": \"<string>\",\n            \"corner\": \"<string>\",\n            \"direction\": \"<string>\",\n            \"hOffset\": \"<double>\",\n            \"vOffset\": \"<double>\"\n          },\n          \"optional\": \"<boolean>\",\n          \"prompt\": \"<string>\",\n          \"font\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sizeInPx\": \"<integer>\",\n            \"minFontSizeInPx\": \"<integer>\",\n            \"weight\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"color\": \"<string>\"\n          },\n          \"configuration\": {\n            \"autoComplete\": \"<boolean>\"\n          }\n        },\n        {\n          \"type\": \"<string>\",\n          \"partyReference\": \"<string>\",\n          \"position\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"pageId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"xOffset\": \"<double>\",\n            \"yOffset\": \"<double>\",\n            \"width\": \"<double>\",\n            \"height\": \"<double>\",\n            \"unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"identifier\": \"<string>\",\n            \"vAlignment\": \"<string>\",\n            \"hAlignment\": \"<string>\",\n            \"corner\": \"<string>\",\n            \"direction\": \"<string>\",\n            \"hOffset\": \"<double>\",\n            \"vOffset\": \"<double>\"\n          },\n          \"optional\": \"<boolean>\",\n          \"prompt\": \"<string>\",\n          \"font\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sizeInPx\": \"<integer>\",\n            \"minFontSizeInPx\": \"<integer>\",\n            \"weight\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"color\": \"<string>\"\n          },\n          \"configuration\": {\n            \"autoComplete\": \"<boolean>\"\n          }\n        }\n      ],\n      \"metaData\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"order\": \"<integer>\",\n      \"signable\": true,\n      \"inputs\": [\n        {\n          \"type\": \"<string>\",\n          \"partyReference\": \"<string>\",\n          \"position\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"pageId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"xOffset\": \"<double>\",\n            \"yOffset\": \"<double>\",\n            \"width\": \"<double>\",\n            \"height\": \"<double>\",\n            \"unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"identifier\": \"<string>\",\n            \"vAlignment\": \"<string>\",\n            \"hAlignment\": \"<string>\",\n            \"corner\": \"<string>\",\n            \"direction\": \"<string>\",\n            \"hOffset\": \"<double>\",\n            \"vOffset\": \"<double>\"\n          },\n          \"optional\": \"<boolean>\",\n          \"prompt\": \"<string>\",\n          \"font\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sizeInPx\": \"<integer>\",\n            \"minFontSizeInPx\": \"<integer>\",\n            \"weight\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"color\": \"<string>\"\n          },\n          \"configuration\": {\n            \"autoComplete\": \"<boolean>\"\n          }\n        },\n        {\n          \"type\": \"<string>\",\n          \"partyReference\": \"<string>\",\n          \"position\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"pageId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"xOffset\": \"<double>\",\n            \"yOffset\": \"<double>\",\n            \"width\": \"<double>\",\n            \"height\": \"<double>\",\n            \"unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"identifier\": \"<string>\",\n            \"vAlignment\": \"<string>\",\n            \"hAlignment\": \"<string>\",\n            \"corner\": \"<string>\",\n            \"direction\": \"<string>\",\n            \"hOffset\": \"<double>\",\n            \"vOffset\": \"<double>\"\n          },\n          \"optional\": \"<boolean>\",\n          \"prompt\": \"<string>\",\n          \"font\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sizeInPx\": \"<integer>\",\n            \"minFontSizeInPx\": \"<integer>\",\n            \"weight\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"color\": \"<string>\"\n          },\n          \"configuration\": {\n            \"autoComplete\": \"<boolean>\"\n          }\n        }\n      ],\n      \"metaData\": \"<string>\"\n    }\n  ],\n  \"defaultMessage\": \"<string>\",\n  \"metaData\": \"<string>\",\n  \"timeOffset\": \"-08:00\",\n  \"dateFormat\": \"Default value for particular brand is taken from your configuration. If this parameter is not configured then default value is 'MM-dd-yyyy'.\\n\",\n  \"configuration\": {\n    \"locale\": {\n      \"language\": \"Value from Partner's Configuration, or \\\"en\\\"\\n\",\n      \"country\": \"Value from Partner's Configuration, or \\\"US\\\"\\n\"\n    }\n  }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "02ba8e9c-6d00-4983-b7a0-26d0aefe837a",
+          "name": "The binder has been created",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "binders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Binder1\",\n  \"defaultMessage\": \"Invitation to sign\",\n  \"parties\": [\n    {\n      \"reference\": \"partyTest-001\",\n      \"legalName\": \"Owner Test\",\n      \"email\": \"user1@rocketlawyer.co.uk\",\n      \"roles\": [\n        \"OWNER\",\n        \"SIGNER\"\n      ],\n      \"metaData\": {\n        \"partyMetaData1\": \"stringValue1\",\n        \"partyMetaData2\": 3.14159,\n        \"partyMetaData3\": false\n      }\n    },\n    {\n      \"reference\": \"partyTest-002\",\n      \"legalName\": \"Signer1 Test\",\n      \"email\": \"user2@rocketlawyer.co.uk\",\n      \"roles\": [\n        \"SIGNER\"\n      ]\n    }\n  ],\n  \"documents\": [\n    {\n      \"name\": \"Assured Shorthold Tenancy Agreement\",\n      \"order\": 1,\n      \"inputs\": [\n        {\n          \"type\": \"SIGNATURE_TEXT\",\n          \"partyReference\": \"partyTest-001\",\n          \"position\": {\n            \"type\": \"PLACEHOLDER\",\n            \"identifier\": \"signature-001\"\n          }\n        },\n        {\n          \"type\": \"SIGNATURE_TEXT\",\n          \"partyReference\": \"partyTest-002\",\n          \"position\": {\n            \"type\": \"PLACEHOLDER\",\n            \"identifier\": \"signature-002\"\n          }\n        }\n      ]\n    },\n    {\n      \"name\": \"Addendum to tenancy agreement\",\n      \"order\": 2,\n      \"metaData\": {\n        \"externalDocId\": \"0178-4aa6-803f\"\n      }\n    }\n  ],\n  \"timeOffset\": \"-09:00\",\n  \"dateFormat\": \"MM/DD/YYYY\",\n  \"configuration\": {\n    \"locale\": {\n      \"country\": \"US\",\n      \"language\": \"en\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"id\": \"936b41f1-66bc-4076-8d0e-5025b8f4b700\",\n  \"name\": \"Assured shorthold tenancy binder\",\n  \"status\": \"IN_PREPARATION\",\n  \"parties\": [\n    {\n      \"id\": \"9ba431fa-2dba-425b-a8cc-3b301c93d403\",\n      \"reference\": \"partyTest-001\",\n      \"legalName\": \"Owner Test\",\n      \"email\": \"user1@rocketlawyer.co.uk\",\n      \"personId\": \"b83a1b1e-04b2-4c74-b4eb-c1d3da1a9831\",\n      \"roles\": [\n        \"OWNER\",\n        \"SIGNER\"\n      ],\n      \"metaData\": {\n        \"partyMetaData1\": \"stringValue1\",\n        \"partyMetaData2\": 3.14159,\n        \"partyMetaData3\": false\n      },\n      \"status\": \"PENDING\"\n    },\n    {\n      \"id\": \"74eaab2f-7e0a-4d04-a6f9-224d481a53be\",\n      \"reference\": \"partyTest-002\",\n      \"legalName\": \"Signer1 Test\",\n      \"email\": \"user2@rocketlawyer.co.uk\",\n      \"roles\": [\n        \"SIGNER\"\n      ],\n      \"status\": \"PENDING\"\n    }\n  ],\n  \"documents\": [\n    {\n      \"id\": \"22feb59b-678b-40bf-9ced-3d8458b8e153\",\n      \"name\": \"Assured Shorthold Tenancy Agreement 2\",\n      \"signable\": true,\n      \"order\": 1,\n      \"inputs\": [\n        {\n          \"id\": \"cc82f7ea-f914-4e29-b0d3-bd913c6a1615\",\n          \"type\": \"SIGNATURE_TEXT\",\n          \"partyReference\": \"partyTest-001\",\n          \"status\": \"PENDING\",\n          \"position\": {\n            \"type\": \"PLACEHOLDER\",\n            \"identifier\": \"signature-001\"\n          }\n        },\n        {\n          \"id\": \"6feb3cb5-12b9-4fcf-b2ed-c1f620556068\",\n          \"type\": \"SIGNATURE_TEXT\",\n          \"partyReference\": \"partyTest-002\",\n          \"status\": \"PENDING\",\n          \"position\": {\n            \"type\": \"PLACEHOLDER\",\n            \"identifier\": \"signature-002\"\n          }\n        }\n      ],\n      \"pages\": []\n    },\n    {\n      \"id\": \"e14e4809-4c31-4e8b-8e06-6f3dbb289b0d\",\n      \"name\": \"Addendum to tenancy agreement\",\n      \"signable\": false,\n      \"order\": 2,\n      \"inputs\": [],\n      \"metaData\": {\n        \"externalDocId\": \"0178-4aa6-803f\"\n      }\n    }\n  ],\n  \"events\": [\n    {\n      \"id\": \"ba593f45-6f68-459e-8217-5b0b1d110535\",\n      \"partyId\": \"9ba431fa-2dba-425b-a8cc-3b301c93d403\",\n      \"occurredAt\": \"2020-09-16T07:45:06.493086+00:00\",\n      \"type\": \"BINDER_CREATED\"\n    }\n  ],\n  \"created\": \"2017-07-05T13:47:49+01:00\",\n  \"defaultMessage\": \"Invitation to sign\",\n  \"requests\": [],\n  \"timeOffset\": \"-09:00\",\n  \"dateFormat\": \"MM/DD/YYYY\",\n  \"configuration\": {\n    \"locale\": {\n      \"country\": \"US\",\n      \"language\": \"en\"\n    }\n  }\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "64003f09-04dd-45f8-9ec1-ce91e1a11d2b",
+      "name": "GET binders",
+      "request": {
+        "name": "GET binders",
+        "description": {
+          "content": "<b>Allowed roles:</b> BACKEND<br/>\nList of Binders\n",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "binders"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "q",
+              "value": "<string>",
+              "description": "Specify filters in format: 'key:value|key:value'.\nPossible keys: [partyEmail]\n"
+            },
+            {
+              "disabled": false,
+              "key": "limit",
+              "value": "10",
+              "description": "Specify limit of results\nLimits upper bound is 100."
+            },
+            {
+              "disabled": false,
+              "key": "offset",
+              "value": "0",
+              "description": "Specify offset of result\n"
+            },
+            {
+              "disabled": false,
+              "key": "sort",
+              "value": "id ASC",
+              "description": "Comma-separated list of pairs &lt;field_name&gt; &lt;direction&gt;.<br/>\nDirection can be ascending (ASC) or descending (DESC) and is \"ASC\" by default therefore can be omitted.<br/>\nPossible field names are: created.\n"
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "f77e67d8-5256-4a10-aeae-44481fa8745a",
+          "name": "The array of binder objects in JSON format <br>Note: email addresses are only visible for Owner role. Non-owner Party only sees it's own email.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "binders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "<string>"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "key": "sort",
+                  "value": "id ASC"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "[\n  {\n    \"id\": \"7649c348-2a7c-4b49-960c-5bcae8e05b2c\",\n    \"name\": \"Simple binder\",\n    \"status\": \"IN_PREPARATION\",\n    \"documents\": [\n      {\n        \"id\": \"80e31904-5947-4d21-a345-b0a2e62da4af\",\n        \"name\": \"Employment contract\",\n        \"signable\": true,\n        \"order\": 1,\n        \"originalContentChecksum\": \"0da8395a881e5fc36cd7e272ff3b16d9fbed243c7b936278c7299da9d2c788ab\",\n        \"contentType\": \"application/pdf\",\n        \"inputs\": [\n          {\n            \"id\": \"91780f76-91a6-4e06-95c2-b5b1509ad6d0\",\n            \"type\": \"SIGNATURE_TEXT\",\n            \"position\": {\n              \"type\": \"SIGNATURE_PAGE\"\n            },\n            \"status\": \"PENDING\",\n            \"partyReference\": \"partyReference1\",\n            \"optional\": false,\n            \"content\": {}\n          },\n          {\n            \"id\": \"787e3e50-d091-4ae1-ac98-9ef688a1d2cb\",\n            \"type\": \"DATE_SIGNED\",\n            \"position\": {\n              \"type\": \"SIGNATURE_PAGE\"\n            },\n            \"status\": \"PENDING\",\n            \"partyReference\": \"partyReference1\",\n            \"optional\": false,\n            \"configuration\": {\n              \"autoComplete\": false\n            },\n            \"content\": {}\n          },\n          {\n            \"id\": \"92538fe2-0317-430a-9581-989cdce193f1\",\n            \"type\": \"SIGNATURE_TEXT\",\n            \"position\": {\n              \"type\": \"SIGNATURE_PAGE\"\n            },\n            \"status\": \"PENDING\",\n            \"partyReference\": \"partyReference2\",\n            \"optional\": false,\n            \"content\": {}\n          },\n          {\n            \"id\": \"d2e11512-8981-4ecb-a761-223c9a5817c3\",\n            \"type\": \"DATE_SIGNED\",\n            \"position\": {\n              \"type\": \"SIGNATURE_PAGE\"\n            },\n            \"status\": \"PENDING\",\n            \"partyReference\": \"partyReference2\",\n            \"optional\": false,\n            \"configuration\": {\n              \"autoComplete\": false\n            },\n            \"content\": {}\n          }\n        ],\n        \"pages\": [\n          {\n            \"id\": \"0dc384d6-edcb-5c60-8bad-771a225a092e\"\n          }\n        ]\n      }\n    ],\n    \"parties\": [\n      {\n        \"id\": \"1d411047-e1a0-4509-9ea2-809ec22c4fd2\",\n        \"reference\": \"partyReference1\",\n        \"legalName\": \"Ryszard\",\n        \"email\": \"user+owner@rocketlawyer.co.uk\",\n        \"jobTitle\": \"Full time document signer\",\n        \"personId\": \"b9a03570-06a5-4815-89d9-23cbb54ebff4\",\n        \"roles\": [\n          \"OWNER\",\n          \"SIGNER\"\n        ],\n        \"status\": \"PENDING\"\n      },\n      {\n        \"id\": \"f60881fd-e1db-4fb1-b095-86311a870bba\",\n        \"reference\": \"partyReference2\",\n        \"legalName\": \"Adam\",\n        \"email\": \"user+signer@rocketlawyer.co.uk\",\n        \"jobTitle\": \"Car seller\",\n        \"roles\": [\n          \"SIGNER\"\n        ],\n        \"status\": \"PENDING\"\n      },\n      {\n        \"id\": \"b0ba924c-959b-42e2-8116-4d1e3bbb4c3f\",\n        \"reference\": \"partyReference3\",\n        \"legalName\": \"Julian Stanford\",\n        \"email\": \"user+viewer@rocketlawyer.co.uk\",\n        \"jobTitle\": \"Lawyer\",\n        \"roles\": [\n          \"VIEWER\"\n        ],\n        \"status\": \"PENDING\"\n      }\n    ],\n    \"events\": [\n      {\n        \"id\": \"ddb56dbe-b8db-4cef-8ecd-10245f212b03\",\n        \"partyId\": \"1d411047-e1a0-4509-9ea2-809ec22c4fd2\",\n        \"occurredAt\": \"2021-08-23T09:30:21.135033+00:00\",\n        \"type\": \"BINDER_CREATED\",\n        \"details\": {}\n      }\n    ],\n    \"locks\": [],\n    \"created\": \"2021-08-23T09:30:21.042213+00:00\",\n    \"requests\": [],\n    \"timeOffset\": \"-08:00\",\n    \"dateFormat\": \"MM/dd/yyyy\",\n    \"configuration\": {\n      \"locale\": {\n        \"country\": \"US\",\n        \"language\": \"en\"\n      },\n      \"notification\": true\n    }\n  }\n]",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "83687c49-2471-464c-bb8a-4a864c6cbd86",
+      "name": "GET binders-binder Id",
+      "request": {
+        "name": "GET binders-binder Id",
+        "description": {
+          "content": "<b>Allowed roles:</b> FRONTEND (all parties), BACKEND<br/>\nRetrieves binder\n",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "binders",
+            ":binderId"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "unsigned",
+              "value": "<string>",
+              "description": "If present, then unsigned versions of all documents are served as a merged PDF.\nUnsigned is in fact the last uploaded version of the document (just before invitation was triggered).\n"
+            }
+          ],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "binderId",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "e2a712f1-8f10-48f7-8edf-d6c7d03148b4",
+          "name": "The binder object in JSON format or all documents uploaded to the Binder merged into one PDF.<br>Note: email addresses are only visible for Owner role. Non-owner Party only sees it's own email.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "binders",
+                ":binderId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "unsigned",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "binderId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "Accept",
+                "value": "application/pdf"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"id\": \"936b41f1-66bc-4076-8d0e-5025b8f4b700\",\n  \"name\": \"Assured shorthold tenancy binder\",\n  \"status\": \"IN_PREPARATION\",\n  \"parties\": [\n    {\n      \"id\": \"9ba431fa-2dba-425b-a8cc-3b301c93d403\",\n      \"reference\": \"partyTest-001\",\n      \"legalName\": \"Owner Test\",\n      \"email\": \"user1@rocketlawyer.co.uk\",\n      \"personId\": \"b83a1b1e-04b2-4c74-b4eb-c1d3da1a9831\",\n      \"roles\": [\n        \"OWNER\",\n        \"SIGNER\"\n      ],\n      \"metaData\": {\n        \"partyMetaData1\": \"stringValue1\",\n        \"partyMetaData2\": 3.14159,\n        \"partyMetaData3\": false\n      },\n      \"status\": \"PENDING\"\n    },\n    {\n      \"id\": \"74eaab2f-7e0a-4d04-a6f9-224d481a53be\",\n      \"reference\": \"partyTest-002\",\n      \"legalName\": \"Signer1 Test\",\n      \"email\": \"user2@rocketlawyer.co.uk\",\n      \"roles\": [\n        \"SIGNER\"\n      ],\n      \"status\": \"PENDING\"\n    }\n  ],\n  \"documents\": [\n    {\n      \"id\": \"22feb59b-678b-40bf-9ced-3d8458b8e153\",\n      \"name\": \"Assured Shorthold Tenancy Agreement 2\",\n      \"signable\": true,\n      \"order\": 1,\n      \"inputs\": [\n        {\n          \"id\": \"cc82f7ea-f914-4e29-b0d3-bd913c6a1615\",\n          \"type\": \"SIGNATURE_TEXT\",\n          \"partyReference\": \"partyTest-001\",\n          \"status\": \"PENDING\",\n          \"position\": {\n            \"type\": \"PLACEHOLDER\",\n            \"identifier\": \"signature-001\"\n          }\n        },\n        {\n          \"id\": \"6feb3cb5-12b9-4fcf-b2ed-c1f620556068\",\n          \"type\": \"SIGNATURE_TEXT\",\n          \"partyReference\": \"partyTest-002\",\n          \"status\": \"PENDING\",\n          \"position\": {\n            \"type\": \"PLACEHOLDER\",\n            \"identifier\": \"signature-002\"\n          }\n        }\n      ],\n      \"pages\": []\n    },\n    {\n      \"id\": \"e14e4809-4c31-4e8b-8e06-6f3dbb289b0d\",\n      \"name\": \"Addendum to tenancy agreement\",\n      \"signable\": false,\n      \"order\": 2,\n      \"inputs\": [],\n      \"metaData\": {\n        \"externalDocId\": \"0178-4aa6-803f\"\n      }\n    }\n  ],\n  \"events\": [\n    {\n      \"id\": \"ba593f45-6f68-459e-8217-5b0b1d110535\",\n      \"partyId\": \"9ba431fa-2dba-425b-a8cc-3b301c93d403\",\n      \"occurredAt\": \"2020-09-16T07:45:06.493086+00:00\",\n      \"type\": \"BINDER_CREATED\"\n    }\n  ],\n  \"created\": \"2017-07-05T13:47:49+01:00\",\n  \"defaultMessage\": \"Invitation to sign\",\n  \"requests\": [],\n  \"timeOffset\": \"-09:00\",\n  \"dateFormat\": \"MM/DD/YYYY\",\n  \"configuration\": {\n    \"locale\": {\n      \"country\": \"US\",\n      \"language\": \"en\"\n    }\n  }\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "5d4c3764-51e3-4c3a-9eb7-f31f28b96365",
+      "name": "DELETE binders-binder Id",
+      "request": {
+        "name": "DELETE binders-binder Id",
+        "description": {
+          "content": "<b>Allowed roles:</b> BACKEND<br/>\nDeletes binder\n",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "binders",
+            ":binderId"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "binderId",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "method": "DELETE",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "82846e84-2cbd-442e-acae-85575251018e",
+          "name": "The binder has been deleted",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "binders",
+                ":binderId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "binderId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              }
+            ],
+            "method": "DELETE",
+            "body": {}
+          },
+          "status": "No Content",
+          "code": 204,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "7443fec9-7ee9-4572-b8d4-74965e0e9f21",
+      "name": "PATCH binders-binder Id",
+      "request": {
+        "name": "PATCH binders-binder Id",
+        "description": {
+          "content": "<b>Allowed roles:</b> FRONTEND (OWNER only), BACKEND<br/>\nUpdates binder\n<ul>\n<li>A binder can be updated only when it is in the IN_PREPARATION status.</li>\n<li>Updates comply as per RFC-7396</li>\n</ul>\n",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "binders",
+            ":binderId"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "binderId",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "PATCH",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"<string>\",\n  \"defaultMessage\": \"<string>\",\n  \"parties\": [\n    {\n      \"id\": \"<string>\",\n      \"reference\": \"<string>\",\n      \"legalName\": \"<string>\",\n      \"email\": \"<string>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"metaData\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"reference\": \"<string>\",\n      \"legalName\": \"<string>\",\n      \"email\": \"<string>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"metaData\": \"<string>\"\n    }\n  ],\n  \"documents\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"signable\": true,\n      \"order\": \"<integer>\",\n      \"inputs\": [\n        {\n          \"id\": \"<string>\",\n          \"type\": \"<string>\",\n          \"partyReference\": \"<string>\",\n          \"optional\": \"<boolean>\",\n          \"prompt\": \"<string>\",\n          \"position\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"pageId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"xOffset\": \"<double>\",\n            \"yOffset\": \"<double>\",\n            \"width\": \"<double>\",\n            \"height\": \"<double>\",\n            \"unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"identifier\": \"<string>\",\n            \"vAlignment\": \"<string>\",\n            \"hAlignment\": \"<string>\",\n            \"corner\": \"<string>\",\n            \"direction\": \"<string>\",\n            \"hOffset\": \"<double>\",\n            \"vOffset\": \"<double>\"\n          },\n          \"font\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sizeInPx\": \"<integer>\",\n            \"minFontSizeInPx\": \"<integer>\",\n            \"weight\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"color\": \"<string>\"\n          },\n          \"configuration\": {\n            \"autoComplete\": \"<boolean>\"\n          }\n        },\n        {\n          \"id\": \"<string>\",\n          \"type\": \"<string>\",\n          \"partyReference\": \"<string>\",\n          \"optional\": \"<boolean>\",\n          \"prompt\": \"<string>\",\n          \"position\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"pageId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"xOffset\": \"<double>\",\n            \"yOffset\": \"<double>\",\n            \"width\": \"<double>\",\n            \"height\": \"<double>\",\n            \"unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"identifier\": \"<string>\",\n            \"vAlignment\": \"<string>\",\n            \"hAlignment\": \"<string>\",\n            \"corner\": \"<string>\",\n            \"direction\": \"<string>\",\n            \"hOffset\": \"<double>\",\n            \"vOffset\": \"<double>\"\n          },\n          \"font\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sizeInPx\": \"<integer>\",\n            \"minFontSizeInPx\": \"<integer>\",\n            \"weight\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"color\": \"<string>\"\n          },\n          \"configuration\": {\n            \"autoComplete\": \"<boolean>\"\n          }\n        }\n      ],\n      \"metaData\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"signable\": true,\n      \"order\": \"<integer>\",\n      \"inputs\": [\n        {\n          \"id\": \"<string>\",\n          \"type\": \"<string>\",\n          \"partyReference\": \"<string>\",\n          \"optional\": \"<boolean>\",\n          \"prompt\": \"<string>\",\n          \"position\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"pageId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"xOffset\": \"<double>\",\n            \"yOffset\": \"<double>\",\n            \"width\": \"<double>\",\n            \"height\": \"<double>\",\n            \"unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"identifier\": \"<string>\",\n            \"vAlignment\": \"<string>\",\n            \"hAlignment\": \"<string>\",\n            \"corner\": \"<string>\",\n            \"direction\": \"<string>\",\n            \"hOffset\": \"<double>\",\n            \"vOffset\": \"<double>\"\n          },\n          \"font\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sizeInPx\": \"<integer>\",\n            \"minFontSizeInPx\": \"<integer>\",\n            \"weight\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"color\": \"<string>\"\n          },\n          \"configuration\": {\n            \"autoComplete\": \"<boolean>\"\n          }\n        },\n        {\n          \"id\": \"<string>\",\n          \"type\": \"<string>\",\n          \"partyReference\": \"<string>\",\n          \"optional\": \"<boolean>\",\n          \"prompt\": \"<string>\",\n          \"position\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"pageId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"xOffset\": \"<double>\",\n            \"yOffset\": \"<double>\",\n            \"width\": \"<double>\",\n            \"height\": \"<double>\",\n            \"unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"identifier\": \"<string>\",\n            \"vAlignment\": \"<string>\",\n            \"hAlignment\": \"<string>\",\n            \"corner\": \"<string>\",\n            \"direction\": \"<string>\",\n            \"hOffset\": \"<double>\",\n            \"vOffset\": \"<double>\"\n          },\n          \"font\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sizeInPx\": \"<integer>\",\n            \"minFontSizeInPx\": \"<integer>\",\n            \"weight\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"color\": \"<string>\"\n          },\n          \"configuration\": {\n            \"autoComplete\": \"<boolean>\"\n          }\n        }\n      ],\n      \"metaData\": \"<string>\"\n    }\n  ],\n  \"metaData\": \"<string>\",\n  \"configuration\": {\n    \"locale\": {\n      \"language\": \"Value from Partner's Configuration, or \\\"en\\\"\\n\",\n      \"country\": \"Value from Partner's Configuration, or \\\"US\\\"\\n\"\n    }\n  }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "6c62ce0f-737b-4768-a591-f4a86c1a7d37",
+          "name": "The binder has been updated",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "binders",
+                ":binderId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "binderId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "Content-Type",
+                "value": "application/merge-patch+json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Binder1 name changed\",\n  \"parties\": [\n    {\n      \"id\": \"9ba431fa-2dba-425b-a8cc-3b301c93d403\",\n      \"legalName\": \"Owner Test changed\",\n      \"email\": \"user1_changed@rocketlawyer.co.uk\",\n      \"metaData\": null\n    },\n    {\n      \"id\": \"74eaab2f-7e0a-4d04-a6f9-224d481a53be\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"id\": \"936b41f1-66bc-4076-8d0e-5025b8f4b700\",\n  \"name\": \"Assured shorthold tenancy binder\",\n  \"status\": \"IN_PREPARATION\",\n  \"parties\": [\n    {\n      \"id\": \"9ba431fa-2dba-425b-a8cc-3b301c93d403\",\n      \"reference\": \"partyTest-001\",\n      \"legalName\": \"Owner Test\",\n      \"email\": \"user1@rocketlawyer.co.uk\",\n      \"personId\": \"b83a1b1e-04b2-4c74-b4eb-c1d3da1a9831\",\n      \"roles\": [\n        \"OWNER\",\n        \"SIGNER\"\n      ],\n      \"metaData\": {\n        \"partyMetaData1\": \"stringValue1\",\n        \"partyMetaData2\": 3.14159,\n        \"partyMetaData3\": false\n      },\n      \"status\": \"PENDING\"\n    },\n    {\n      \"id\": \"74eaab2f-7e0a-4d04-a6f9-224d481a53be\",\n      \"reference\": \"partyTest-002\",\n      \"legalName\": \"Signer1 Test\",\n      \"email\": \"user2@rocketlawyer.co.uk\",\n      \"roles\": [\n        \"SIGNER\"\n      ],\n      \"status\": \"PENDING\"\n    }\n  ],\n  \"documents\": [\n    {\n      \"id\": \"22feb59b-678b-40bf-9ced-3d8458b8e153\",\n      \"name\": \"Assured Shorthold Tenancy Agreement 2\",\n      \"signable\": true,\n      \"order\": 1,\n      \"inputs\": [\n        {\n          \"id\": \"cc82f7ea-f914-4e29-b0d3-bd913c6a1615\",\n          \"type\": \"SIGNATURE_TEXT\",\n          \"partyReference\": \"partyTest-001\",\n          \"status\": \"PENDING\",\n          \"position\": {\n            \"type\": \"PLACEHOLDER\",\n            \"identifier\": \"signature-001\"\n          }\n        },\n        {\n          \"id\": \"6feb3cb5-12b9-4fcf-b2ed-c1f620556068\",\n          \"type\": \"SIGNATURE_TEXT\",\n          \"partyReference\": \"partyTest-002\",\n          \"status\": \"PENDING\",\n          \"position\": {\n            \"type\": \"PLACEHOLDER\",\n            \"identifier\": \"signature-002\"\n          }\n        }\n      ],\n      \"pages\": []\n    },\n    {\n      \"id\": \"e14e4809-4c31-4e8b-8e06-6f3dbb289b0d\",\n      \"name\": \"Addendum to tenancy agreement\",\n      \"signable\": false,\n      \"order\": 2,\n      \"inputs\": [],\n      \"metaData\": {\n        \"externalDocId\": \"0178-4aa6-803f\"\n      }\n    }\n  ],\n  \"events\": [\n    {\n      \"id\": \"ba593f45-6f68-459e-8217-5b0b1d110535\",\n      \"partyId\": \"9ba431fa-2dba-425b-a8cc-3b301c93d403\",\n      \"occurredAt\": \"2020-09-16T07:45:06.493086+00:00\",\n      \"type\": \"BINDER_CREATED\"\n    }\n  ],\n  \"created\": \"2017-07-05T13:47:49+01:00\",\n  \"defaultMessage\": \"Invitation to sign\",\n  \"requests\": [],\n  \"timeOffset\": \"-09:00\",\n  \"dateFormat\": \"MM/DD/YYYY\",\n  \"configuration\": {\n    \"locale\": {\n      \"country\": \"US\",\n      \"language\": \"en\"\n    }\n  }\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "0514656c-3379-41b5-a0b5-1e040354e2b2",
+      "name": "GET binders-binder Id-status",
+      "request": {
+        "name": "GET binders-binder Id-status",
+        "description": {
+          "content": "<b>Allowed roles:</b> FRONTEND (all parties), BACKEND<br/>\nSeries of validations (preflight check) is performed on binder with status IN_PREPARATION.\nResponse clearly indicates if binder is ready to be FINALISED or if some changes are still needed.\n",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "binders",
+            ":binderId",
+            "status"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "binderId",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "8efd02f7-301a-452d-a932-16f0a64b2030",
+          "name": "Status of the binder and result of preflight validations",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "binders",
+                ":binderId",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "binderId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"status\": \"IN_PREPARATION\",\n  \"readyForSign\": false,\n  \"unfilledConditions\": [\n    {\n      \"status\": 400,\n      \"code\": \"error.client.condition.singleMatchingPlaceholderIdentifier\",\n      \"title\": \"Unfilled condition\",\n      \"detail\": \"Invalid identifier (_ID_1234_), not found in uploaded document\",\n      \"source\": {\n        \"pointer\": \"/documents/0/inputs/3/position/identifier\"\n      }\n    },\n    {\n      \"status\": 400,\n      \"code\": \"error.client.condition.documentContentUploaded\",\n      \"title\": \"Unfilled condition\",\n      \"detail\": \"Document content has to be uploaded\",\n      \"source\": {\n        \"pointer\": \"/documents/1\"\n      }\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "5dc037d8-73a7-4431-99ec-d0d3cf7bf715",
+      "name": "POST binders-binder Id-locks",
+      "request": {
+        "name": "POST binders-binder Id-locks",
+        "description": {
+          "content": "<b>Allowed roles:</b> BACKEND <br/>\nCreates of lock preventing certain actions on the binder. In example having a cancellation lock on a binder will prevent signing from being cancelled.\n",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "binders",
+            ":binderId",
+            "locks"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "binderId",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"reason\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "ebec9b2c-0a7f-4a75-b059-567f9cfaa085",
+          "name": "The lock has been created (acquired).",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "binders",
+                ":binderId",
+                "locks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "binderId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"CANCELLATION\",\n  \"reason\": \"Reason for the Lock\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"id\": \"373b69fc-9c60-47b1-85f5-0f6f179fde18\",\n  \"reason\": \"Reason for the Lock\",\n  \"type\": \"CANCELLATION\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "4162dfe5-59f2-4e40-b0a5-c0e5e7fd74da",
+      "name": "DELETE binders-binder Id-locks-lock Id",
+      "request": {
+        "name": "DELETE binders-binder Id-locks-lock Id",
+        "description": {
+          "content": "<b>Allowed roles:</b> BACKEND <br/>\nDelete a lock from the binder.\nLocks can be deleted only by the client that acquired the lock\n",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "binders",
+            ":binderId",
+            "locks",
+            ":lockId"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "lockId",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "binderId",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "method": "DELETE",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "f45aadba-4edb-4e60-9c54-1b47b86dc436",
+          "name": "The lock has been deleted (released).",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "binders",
+                ":binderId",
+                "locks",
+                ":lockId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "lockId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "binderId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "body": {}
+          },
+          "status": "No Content",
+          "code": 204,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "d8ab748b-2b9b-4670-aeff-9bd0509f3186",
+      "name": "GET binders-binder Id-parties",
+      "request": {
+        "name": "GET binders-binder Id-parties",
+        "description": {
+          "content": "<b>Allowed roles:</b> FRONTEND (OWNER only), BACKEND<br/>\nGet party represented by service token.\n",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "binders",
+            ":binderId",
+            "parties"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "serviceToken",
+              "value": "<string>",
+              "description": "(Required) Service Token of a party to check the details about"
+            }
+          ],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "binderId",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "5399b017-398f-4454-9386-6b957082b6e5",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "binders",
+                ":binderId",
+                "parties"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "serviceToken",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "binderId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"id\": \"03cf517c-dee7-4e72-b2b7-dc6086dc4f47\",\n  \"reference\": \"partyTest-003\",\n  \"legalName\": \"Ashima 'SIGNER'\",\n  \"email\": \"aParty+SIGNER@rocketlawyer.co.uk\",\n  \"personId\": \"b83a1b1e-04b2-4c74-b4eb-c1d3da1a9831\",\n  \"roles\": [\n    \"SIGNER\"\n  ],\n  \"status\": \"PENDING\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "caeb48bb-16b6-44aa-bf30-b6211dafeed1",
+          "name": "The party ID from the passed Service Token is not present in the Binder object.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "binders",
+                ":binderId",
+                "parties"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "serviceToken",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "binderId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "id": "4dd93f44-e00e-4fa9-9217-32269ad12aed",
+          "name": "Passed service token does not give permission to view parties of this Binder.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "binders",
+                ":binderId",
+                "parties"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "serviceToken",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "binderId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Forbidden",
+          "code": 403,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "e9b2c38d-ef1d-4754-960a-e8d9586baddc",
+      "name": "POST binders-binder Id-parties",
+      "request": {
+        "name": "POST binders-binder Id-parties",
+        "description": {
+          "content": "<b>Allowed roles:</b> FRONTEND (OWNER only), BACKEND<br/>\nAdd a party to a binder\n<ul>\n  <li>Normally a party can be added only when the binder is in the `IN_PREPARATION` state.</li>\n  <li>A party with the `VIEWER` role can be added even after sign invitation is triggered. If the party is added\n  after sign invitation, an email containing link to binder will be send to the recently\n  added viewer.</li>\n</ul>\n",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "binders",
+            ":binderId",
+            "parties"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "binderId",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"reference\": \"<string>\",\n  \"legalName\": \"<string>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"jobTitle\": \"<string>\",\n  \"companyName\": \"<string>\",\n  \"email\": \"<string>\",\n  \"metaData\": \"<string>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "193af324-ba31-4928-b5c7-c271849fb570",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "binders",
+                ":binderId",
+                "parties"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "binderId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reference\": \"partyTest-002\",\n  \"legalName\": \"Ashima 'SIGNER'\",\n  \"email\": \"example+SIGNER@rocketlawyer.co.uk\",\n  \"roles\": [\n    \"SIGNER\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"id\": \"03cf517c-dee7-4e72-b2b7-dc6086dc4f47\",\n  \"reference\": \"partyTest-003\",\n  \"legalName\": \"He Who Must Not Be Named\",\n  \"email\": \"signer@rocketlawyer.co.uk\",\n  \"personId\": \"b83a1b1e-04b2-4c74-b4eb-c1d3da1a9831\",\n  \"roles\": [\n    \"SIGNER\"\n  ],\n  \"status\": \"PENDING\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "4a05fe2f-7663-4728-a650-0163c8e408ec",
+      "name": "PATCH binders-binder Id-parties-party Id",
+      "request": {
+        "name": "PATCH binders-binder Id-parties-party Id",
+        "description": {
+          "content": "<b>Allowed roles:</b> FRONTEND (OWNER only), BACKEND<br/>\nUpdate party.\n  <ul>\n  <li>A party can be updated only when binder is in the `IN_PREPARATION` state.</li>\n  <li>Updates comply with RFC-7396</li>\n  </ul>\n",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "binders",
+            ":binderId",
+            "parties",
+            ":partyId"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "partyId",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "binderId",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "PATCH",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"reference\": \"<string>\",\n  \"legalName\": \"<string>\",\n  \"email\": \"<string>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"metaData\": \"<string>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "38b3577c-c464-44ec-a6b5-02bba5113a2b",
+          "name": "The binder has been updated",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "binders",
+                ":binderId",
+                "parties",
+                ":partyId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "partyId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "binderId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "Content-Type",
+                "value": "application/merge-patch+json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"legalName\": \"Owner Test changed\",\n  \"email\": \"user1_changed@rocketlawyer.co.uk\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"legalName\": \"Owner Test changed\",\n  \"email\": \"user1_changed@rocketlawyer.co.uk\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "d1ab0ecb-f11d-4ce6-a01c-1ba19daced88",
+      "name": "DELETE binders-binder Id-parties-party Id",
+      "request": {
+        "name": "DELETE binders-binder Id-parties-party Id",
+        "description": {
+          "content": "<b>Allowed roles:</b> FRONTEND (OWNER only), BACKEND<br/>\nDelete a party.\n<ul>\n  <li>Normally a party can only be deleted when binder is in the `IN_PREPARATION` state.</li>\n  <li>If the party has the `VIEWER` role, it may be deleted even when the binder is in a different state.</li>\n  <li>The owning party cannot be deleted.</li>\n</ul>\n",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "binders",
+            ":binderId",
+            "parties",
+            ":partyId"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "partyId",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "binderId",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "method": "DELETE",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "6fae20ec-b803-47bc-906d-622341695022",
+          "name": "Party has been deleted",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "binders",
+                ":binderId",
+                "parties",
+                ":partyId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "partyId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "binderId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              }
+            ],
+            "method": "DELETE",
+            "body": {}
+          },
+          "status": "No Content",
+          "code": 204,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "d647a9ef-a629-453f-bb28-958470a7f6ce",
+      "name": "POST binders-binder Id-documents",
+      "request": {
+        "name": "POST binders-binder Id-documents",
+        "description": {
+          "content": "<b>Allowed roles:</b> FRONTEND (OWNER only), BACKEND<br/>\nAdds a document to a binder.\n",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "binders",
+            ":binderId",
+            "documents"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "binderId",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"<string>\",\n  \"order\": \"<integer>\",\n  \"signable\": true,\n  \"inputs\": [\n    {\n      \"type\": \"<string>\",\n      \"partyReference\": \"<string>\",\n      \"position\": {\n        \"type\": \"<string>\",\n        \"pageId\": \"<string>\",\n        \"xOffset\": \"<double>\",\n        \"yOffset\": \"<double>\",\n        \"width\": \"<double>\",\n        \"height\": \"<double>\",\n        \"unit\": \"<string>\",\n        \"identifier\": \"<string>\",\n        \"vAlignment\": \"<string>\",\n        \"hAlignment\": \"<string>\",\n        \"corner\": \"<string>\",\n        \"direction\": \"<string>\",\n        \"hOffset\": \"<double>\",\n        \"vOffset\": \"<double>\"\n      },\n      \"optional\": \"<boolean>\",\n      \"prompt\": \"<string>\",\n      \"font\": {\n        \"type\": \"<string>\",\n        \"sizeInPx\": \"<integer>\",\n        \"minFontSizeInPx\": \"<integer>\",\n        \"weight\": \"<string>\",\n        \"color\": \"<string>\"\n      },\n      \"configuration\": {\n        \"autoComplete\": \"<boolean>\"\n      }\n    },\n    {\n      \"type\": \"<string>\",\n      \"partyReference\": \"<string>\",\n      \"position\": {\n        \"type\": \"<string>\",\n        \"pageId\": \"<string>\",\n        \"xOffset\": \"<double>\",\n        \"yOffset\": \"<double>\",\n        \"width\": \"<double>\",\n        \"height\": \"<double>\",\n        \"unit\": \"<string>\",\n        \"identifier\": \"<string>\",\n        \"vAlignment\": \"<string>\",\n        \"hAlignment\": \"<string>\",\n        \"corner\": \"<string>\",\n        \"direction\": \"<string>\",\n        \"hOffset\": \"<double>\",\n        \"vOffset\": \"<double>\"\n      },\n      \"optional\": \"<boolean>\",\n      \"prompt\": \"<string>\",\n      \"font\": {\n        \"type\": \"<string>\",\n        \"sizeInPx\": \"<integer>\",\n        \"minFontSizeInPx\": \"<integer>\",\n        \"weight\": \"<string>\",\n        \"color\": \"<string>\"\n      },\n      \"configuration\": {\n        \"autoComplete\": \"<boolean>\"\n      }\n    }\n  ],\n  \"metaData\": \"<string>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "f074616c-8393-4214-afc9-2bf9d9439b19",
+          "name": "Document created",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "binders",
+                ":binderId",
+                "documents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "binderId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Tenancy agreement\",\n  \"order\": 1,\n  \"inputs\": [\n    {\n      \"type\": \"SIGNATURE_TEXT\",\n      \"partyReference\": \"partyTest-001\",\n      \"position\": {\n        \"type\": \"SIGNATURE_PAGE\"\n      }\n    },\n    {\n      \"type\": \"SIGNATURE_TEXT\",\n      \"partyReference\": \"partyTest-002\",\n      \"position\": {\n        \"type\": \"SIGNATURE_PAGE\"\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"id\": \"a023c3c5-5859-40a1-a2a6-150a75c35ab6\",\n  \"name\": \"Tenancy agreement\",\n  \"signable\": true,\n  \"order\": 1,\n  \"inputs\": [\n    {\n      \"id\": \"3071aec4-94c7-490e-a721-f9008f418dbb\",\n      \"type\": \"SIGNATURE_TEXT\",\n      \"position\": {\n        \"type\": \"SIGNATURE_PAGE\"\n      },\n      \"status\": \"PENDING\",\n      \"partyReference\": \"partyTest-001\"\n    },\n    {\n      \"id\": \"8e48c3f5-1957-43af-91bc-7fe5358e55b2\",\n      \"type\": \"SIGNATURE_TEXT\",\n      \"position\": {\n        \"type\": \"SIGNATURE_PAGE\"\n      },\n      \"status\": \"PENDING\",\n      \"partyReference\": \"partyTest-002\"\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "8c9145c5-2546-4be1-972d-ff898204389e",
+      "name": "GET binders-binder Id-documents-document Id",
+      "request": {
+        "name": "GET binders-binder Id-documents-document Id",
+        "description": {
+          "content": "<b>Allowed roles:</b> FRONTEND, BACKEND<br/>\nRetrieves a document in the format defined by Accept header.<br/>\nIf the file type is not supported, a status code of 412 (Precondition Failed) is returned.\n",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "binders",
+            ":binderId",
+            "documents",
+            ":documentId"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "unsigned",
+              "value": "<string>",
+              "description": "If present, then an unsigned version of the document is served.\nUnsigned is in fact the last uploaded version of the document (just before invitation was triggered).\n"
+            }
+          ],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "documentId",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "binderId",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "91faa978-53a4-402f-a0b2-7b532865203b",
+          "name": "Redirection to the file",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "binders",
+                ":binderId",
+                "documents",
+                ":documentId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "unsigned",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "documentId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "binderId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              },
+              {
+                "disabled": false,
+                "key": "Accept",
+                "value": "text/html",
+                "description": ""
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "See Other",
+          "code": 303,
+          "header": [
+            {
+              "disabled": false,
+              "description": "location of the resource where the client should be redirected to",
+              "key": "location",
+              "value": "string"
+            },
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "961fda52-edbe-4669-93b3-d9fea15dba2c",
+      "name": "PUT binders-binder Id-documents-document Id",
+      "request": {
+        "name": "PUT binders-binder Id-documents-document Id",
+        "description": {
+          "content": "<b>Allowed roles:</b> FRONTEND (OWNER only), BACKEND<br/>\nUploads content of document\n",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "binders",
+            ":binderId",
+            "documents",
+            ":documentId"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "documentId",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "binderId",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "text/html"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "PUT",
+        "auth": null,
+        "body": {
+          "mode": "file"
+        }
+      },
+      "response": [
+        {
+          "id": "a6fd4597-0b9c-405f-9b95-af49c520387a",
+          "name": "Content of document has been uploaded",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "binders",
+                ":binderId",
+                "documents",
+                ":documentId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "documentId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "binderId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "Content-Type",
+                "value": "text/html"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "body": {
+              "mode": "file"
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"id\": \"0a2fcbd7-1067-41b3-b8b5-0465c25aa444\",\n  \"name\": \"Assured Shorthold Tenancy Agreement\",\n  \"signable\": true,\n  \"order\": 1,\n  \"originalContentChecksum\": \"c72bb8592e2299f1d1d7ef2aa940015d36380f029234943e09684606416fdaf5\",\n  \"inputs\": [\n    {\n      \"id\": \"678f5202-ef56-4a05-9923-369c87bac6a4\",\n      \"type\": \"SIGNATURE_TEXT\",\n      \"partyReference\": \"partyTest-001\",\n      \"status\": \"PENDING\",\n      \"position\": {\n        \"type\": \"SIGNATURE_PAGE\"\n      }\n    },\n    {\n      \"id\": \"abedaa7d-71c4-4e2f-b019-b72489ef1dbd\",\n      \"type\": \"SIGNATURE_TEXT\",\n      \"partyReference\": \"partyTest-002\",\n      \"status\": \"PENDING\",\n      \"position\": {\n        \"type\": \"SIGNATURE_PAGE\"\n      }\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "89a03872-1467-46b4-9876-24b9c42f7f4e",
+      "name": "PATCH binders-binder Id-documents-document Id",
+      "request": {
+        "name": "PATCH binders-binder Id-documents-document Id",
+        "description": {
+          "content": "<b>Allowed roles:</b> FRONTEND (OWNER only), BACKEND<br/>\nUpdate document:\n<ul>\n  <li>A document can be updated only when the binder containing it is in the `IN_PREPARATION` state.</li>\n  <li>Non-editable parts are: id, originalContentChecksum, contentType</li>\n  <li>Updates comply with RFC-7396</li>\n</ul>\n",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "binders",
+            ":binderId",
+            "documents",
+            ":documentId"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "documentId",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "binderId",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "PATCH",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"<string>\",\n  \"signable\": true,\n  \"order\": \"<integer>\",\n  \"inputs\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"partyReference\": \"<string>\",\n      \"optional\": \"<boolean>\",\n      \"prompt\": \"<string>\",\n      \"position\": {\n        \"type\": \"<string>\",\n        \"pageId\": \"<string>\",\n        \"xOffset\": \"<double>\",\n        \"yOffset\": \"<double>\",\n        \"width\": \"<double>\",\n        \"height\": \"<double>\",\n        \"unit\": \"<string>\",\n        \"identifier\": \"<string>\",\n        \"vAlignment\": \"<string>\",\n        \"hAlignment\": \"<string>\",\n        \"corner\": \"<string>\",\n        \"direction\": \"<string>\",\n        \"hOffset\": \"<double>\",\n        \"vOffset\": \"<double>\"\n      },\n      \"font\": {\n        \"type\": \"<string>\",\n        \"sizeInPx\": \"<integer>\",\n        \"minFontSizeInPx\": \"<integer>\",\n        \"weight\": \"<string>\",\n        \"color\": \"<string>\"\n      },\n      \"configuration\": {\n        \"autoComplete\": \"<boolean>\"\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"partyReference\": \"<string>\",\n      \"optional\": \"<boolean>\",\n      \"prompt\": \"<string>\",\n      \"position\": {\n        \"type\": \"<string>\",\n        \"pageId\": \"<string>\",\n        \"xOffset\": \"<double>\",\n        \"yOffset\": \"<double>\",\n        \"width\": \"<double>\",\n        \"height\": \"<double>\",\n        \"unit\": \"<string>\",\n        \"identifier\": \"<string>\",\n        \"vAlignment\": \"<string>\",\n        \"hAlignment\": \"<string>\",\n        \"corner\": \"<string>\",\n        \"direction\": \"<string>\",\n        \"hOffset\": \"<double>\",\n        \"vOffset\": \"<double>\"\n      },\n      \"font\": {\n        \"type\": \"<string>\",\n        \"sizeInPx\": \"<integer>\",\n        \"minFontSizeInPx\": \"<integer>\",\n        \"weight\": \"<string>\",\n        \"color\": \"<string>\"\n      },\n      \"configuration\": {\n        \"autoComplete\": \"<boolean>\"\n      }\n    }\n  ],\n  \"metaData\": \"<string>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "8621986e-d9f6-4139-b3a8-6dccd823e924",
+          "name": "Document was updated",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "binders",
+                ":binderId",
+                "documents",
+                ":documentId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "documentId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "binderId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "Content-Type",
+                "value": "application/merge-patch+json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"new document name\",\n  \"inputs\": [\n    {\n      \"type\": \"SIGNATURE_TEXT\",\n      \"partyReference\": \"partyTest-002\",\n      \"position\": {\n        \"type\": \"PLACEHOLDER\",\n        \"identifier\": \"signature-002\"\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"id\": \"0a2fcbd7-1067-41b3-b8b5-0465c25aa444\",\n  \"name\": \"Assured Shorthold Tenancy Agreement\",\n  \"signable\": true,\n  \"order\": 1,\n  \"originalContentChecksum\": \"c72bb8592e2299f1d1d7ef2aa940015d36380f029234943e09684606416fdaf5\",\n  \"inputs\": [\n    {\n      \"id\": \"abedaa7d-71c4-4e2f-b019-b72489ef1dbd\",\n      \"type\": \"SIGNATURE_TEXT\",\n      \"partyReference\": \"partyTest-002\",\n      \"status\": \"PENDING\",\n      \"position\": {\n        \"type\": \"PLACEHOLDER\",\n        \"identifier\": \"signature-002\"\n      }\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "187b6737-11a5-4276-b083-61538b4a6a5b",
+      "name": "DELETE binders-binder Id-documents-document Id",
+      "request": {
+        "name": "DELETE binders-binder Id-documents-document Id",
+        "description": {
+          "content": "<b>Allowed roles:</b> FRONTEND (OWNER only), BACKEND<br/>\nDelete document:\n<ul>\n  <li>A document can be deleted only when the binder containing it is in the `IN_PREPARATION` state.</li>\n</ul>\n",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "binders",
+            ":binderId",
+            "documents",
+            ":documentId"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "documentId",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "binderId",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "method": "DELETE",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "c9218e7e-c80f-4400-b877-dd02aaf0f122",
+          "name": "The document has been deleted",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "binders",
+                ":binderId",
+                "documents",
+                ":documentId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "documentId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "binderId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              }
+            ],
+            "method": "DELETE",
+            "body": {}
+          },
+          "status": "No Content",
+          "code": 204,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "b69519d5-f701-4f6b-a896-4c6e9b6e760c",
+      "name": "POST binders-binder Id-documents-document Id-inputs",
+      "request": {
+        "name": "POST binders-binder Id-documents-document Id-inputs",
+        "description": {
+          "content": "<b>Allowed roles:</b> FRONTEND (OWNER only), BACKEND<br/>\nAdds a new input to the given document\n",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "binders",
+            ":binderId",
+            "documents",
+            ":documentId",
+            "inputs"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "documentId",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "binderId",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\": \"<string>\",\n  \"partyReference\": \"<string>\",\n  \"position\": {\n    \"type\": \"<string>\",\n    \"pageId\": \"<string>\",\n    \"xOffset\": \"<double>\",\n    \"yOffset\": \"<double>\",\n    \"width\": \"<double>\",\n    \"height\": \"<double>\",\n    \"unit\": \"<string>\",\n    \"identifier\": \"<string>\",\n    \"vAlignment\": \"<string>\",\n    \"hAlignment\": \"<string>\",\n    \"corner\": \"<string>\",\n    \"direction\": \"<string>\",\n    \"hOffset\": \"<double>\",\n    \"vOffset\": \"<double>\"\n  },\n  \"optional\": \"<boolean>\",\n  \"prompt\": \"<string>\",\n  \"font\": {\n    \"type\": \"<string>\",\n    \"sizeInPx\": \"<integer>\",\n    \"minFontSizeInPx\": \"<integer>\",\n    \"weight\": \"<string>\",\n    \"color\": \"<string>\"\n  },\n  \"configuration\": {\n    \"autoComplete\": \"<boolean>\"\n  }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "5f1a8569-e48c-4081-a5fe-9385e9a65f0f",
+          "name": "Input created",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "binders",
+                ":binderId",
+                "documents",
+                ":documentId",
+                "inputs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "documentId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "binderId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"SIGNATURE_TEXT\",\n  \"position\": {\n    \"type\": \"ABSOLUTE\",\n    \"pageId\": \"9b4e639c-b9b7-444d-8c76-fd505c09589a\",\n    \"xOffset\": 0,\n    \"yOffset\": 0,\n    \"width\": 100,\n    \"height\": 100,\n    \"hAlignment\": \"CENTER\",\n    \"vAlignment\": \"MIDDLE\"\n  },\n  \"partyReference\": \"partyTest-002\",\n  \"configuration\": {\n    \"autoComplete\": true\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"id\": \"92caa253-b3fd-43a3-947b-38694906804d\",\n  \"type\": \"SIGNATURE_TEXT\",\n  \"position\": {\n    \"type\": \"ABSOLUTE\",\n    \"pageId\": \"9b4e639c-b9b7-444d-8c76-fd505c09589a\",\n    \"xOffset\": 0,\n    \"yOffset\": 0,\n    \"width\": 100,\n    \"height\": 100,\n    \"hAlignment\": \"CENTER\",\n    \"vAlignment\": \"MIDDLE\"\n  },\n  \"status\": \"PENDING\",\n  \"partyReference\": \"partyTest-002\",\n  \"configuration\": {\n    \"autoComplete\": true\n  }\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "53dab862-367c-4c68-821b-6ba719812400",
+      "name": "PATCH binders-binder Id-documents-document Id-inputs-input Id",
+      "request": {
+        "name": "PATCH binders-binder Id-documents-document Id-inputs-input Id",
+        "description": {
+          "content": "<b>Allowed roles:</b> FRONTEND (OWNER only), BACKEND<br/>\nUpdate input.\n<ul>\n   <li>An input can be updated only when the binder that contains it is in the `IN_PREPARATION` state.</li>\n   <li>Updates comply with RFC-7396</li>\n </ul>\n",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "binders",
+            ":binderId",
+            "documents",
+            ":documentId",
+            "inputs",
+            ":inputId"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "inputId",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "documentId",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "binderId",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "PATCH",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\": \"<string>\",\n  \"partyReference\": \"<string>\",\n  \"optional\": \"<boolean>\",\n  \"prompt\": \"<string>\",\n  \"position\": {\n    \"type\": \"<string>\",\n    \"pageId\": \"<string>\",\n    \"xOffset\": \"<double>\",\n    \"yOffset\": \"<double>\",\n    \"width\": \"<double>\",\n    \"height\": \"<double>\",\n    \"unit\": \"<string>\",\n    \"identifier\": \"<string>\",\n    \"vAlignment\": \"<string>\",\n    \"hAlignment\": \"<string>\",\n    \"corner\": \"<string>\",\n    \"direction\": \"<string>\",\n    \"hOffset\": \"<double>\",\n    \"vOffset\": \"<double>\"\n  },\n  \"font\": {\n    \"type\": \"<string>\",\n    \"sizeInPx\": \"<integer>\",\n    \"minFontSizeInPx\": \"<integer>\",\n    \"weight\": \"<string>\",\n    \"color\": \"<string>\"\n  },\n  \"configuration\": {\n    \"autoComplete\": \"<boolean>\"\n  }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "ccf6d2de-1e57-4331-9a22-67d9ec3e6b22",
+          "name": "Input was updated",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "binders",
+                ":binderId",
+                "documents",
+                ":documentId",
+                "inputs",
+                ":inputId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "inputId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "documentId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "binderId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "Content-Type",
+                "value": "application/merge-patch+json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"SIGNATURE_TEXT\",\n  \"partyReference\": \"partyTest-002\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"id\": \"92caa253-b3fd-43a3-947b-38694906804d\",\n  \"type\": \"SIGNATURE_TEXT\",\n  \"position\": {\n    \"type\": \"ABSOLUTE\",\n    \"pageId\": \"9b4e639c-b9b7-444d-8c76-fd505c09589a\",\n    \"xOffset\": 0,\n    \"yOffset\": 0,\n    \"width\": 100,\n    \"height\": 100,\n    \"hAlignment\": \"CENTER\",\n    \"vAlignment\": \"MIDDLE\"\n  },\n  \"status\": \"PENDING\",\n  \"partyReference\": \"partyTest-002\",\n  \"configuration\": {\n    \"autoComplete\": true\n  }\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "96034c48-182a-4a59-b80c-5fea59fad30e",
+      "name": "DELETE binders-binder Id-documents-document Id-inputs-input Id",
+      "request": {
+        "name": "DELETE binders-binder Id-documents-document Id-inputs-input Id",
+        "description": {
+          "content": "<b>Allowed roles:</b> FRONTEND (OWNER only), BACKEND<br/>\nDelete input.\n<ul>\n  <li>A input can be deleted only when the binder that contains it is in the `IN_PREPARATION` status.</li>\n</ul>\n",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "binders",
+            ":binderId",
+            "documents",
+            ":documentId",
+            "inputs",
+            ":inputId"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "inputId",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "documentId",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "binderId",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "method": "DELETE",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "52199581-0a4b-4d75-a39d-b548626e0c18",
+          "name": "The input has been deleted",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "binders",
+                ":binderId",
+                "documents",
+                ":documentId",
+                "inputs",
+                ":inputId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "inputId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "documentId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "binderId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              }
+            ],
+            "method": "DELETE",
+            "body": {}
+          },
+          "status": "No Content",
+          "code": 204,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "6cc005b0-4186-475d-b69d-3bab21d7fedc",
+      "name": "GET binders-binder Id-documents-document Id-pages-page Id",
+      "request": {
+        "name": "GET binders-binder Id-documents-document Id-pages-page Id",
+        "description": {
+          "content": "<b>Allowed roles:</b> FRONTEND (all parties), BACKEND<br/>\nRetrieves single page in specified format. Only supported format is PNG for now.\n",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "binders",
+            ":binderId",
+            "documents",
+            ":documentId",
+            "pages",
+            ":pageId"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "resolution",
+              "value": "<string>",
+              "description": "Resolution of generated PNG in DPIs.<br/><ul><li>Minimum value: 10</li><li>Maximum value: 300</li><li>Default value: 150</li></ul>Predefined values:\n<ul>\n  <li><b>thumbnail</b> - 72dpi</li>\n  <li><b>small</b> - 92dpi</li>\n  <li><b>medium</b> - 150dpi</li>\n  <li><b>large</b> - 300dpi</li>\n</ul>\n"
+            }
+          ],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "pageId",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "documentId",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "binderId",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "ae760fc9-d376-413b-b63f-de8d5274ffef",
+          "name": "Address of PNG image in storage",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "binders",
+                ":binderId",
+                "documents",
+                ":documentId",
+                "pages",
+                ":pageId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "resolution",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pageId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "documentId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "binderId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "Accept",
+                "value": "image/png"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "See Other",
+          "code": 303,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "f15e3447-95b7-4c4b-a237-3db77edf745a",
+      "name": "POST binders-binder Id-requests-finalisations",
+      "request": {
+        "name": "POST binders-binder Id-requests-finalisations",
+        "description": {
+          "content": "<b>Allowed roles:</b> FRONTEND (only document owner), BACKEND<br/>\nPerforms pre-flight checks and moves binder into `REVIEW_AND_SHARE` state. Invitations are also sent to `VIEWER`s\n",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "binders",
+            ":binderId",
+            "requests",
+            "finalisations"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "binderId",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"subject\": \"<string>\",\n  \"message\": \"<string>\",\n  \"recipients\": [\n    {\n      \"partyId\": \"<string>\",\n      \"binderUrl\": \"<string>\",\n      \"customMessage\": \"<string>\",\n      \"notification\": \"<boolean>\"\n    },\n    {\n      \"partyId\": \"<string>\",\n      \"binderUrl\": \"<string>\",\n      \"customMessage\": \"<string>\",\n      \"notification\": \"<boolean>\"\n    }\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "e9f08cce-bf6b-4642-8c84-a59e87a4ea99",
+          "name": "The request to send reminder was registered",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "binders",
+                ":binderId",
+                "requests",
+                "finalisations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "binderId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"message\": \"You were invited to review document\",\n  \"recipients\": [\n    {\n      \"partyId\": \"097b9e7f-b715-45f6-903b-238a297a5346\",\n      \"emailUsed\": \"leia.organa@starwars.com\",\n      \"binderUrl\": \"https://www.rocketlawyer.com/us/en/sign#serviceToken=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJyb2NrZXRsYXd5ZXIuY29tIiwiYXVkIjpbInJvY2tldGxhd3llci5jb20vc2VydmljZS10b2tlbnMiXSwiZXhwIjoxNTM1NzkzMDk3LCJpYXQiOjE1Mjc4NDQyOTcsInNydiI6eyJleHBpcmF0aW9uVGltZSI6MTUzNTc5MzA5Nywib3JpZ2luYWxDbGllbnRJZCI6ImQ1YmY2MGEwLWU2MTgtNDM1Yi05MDg1LTQxMGIwYjQ0M2E5MiIsInB1cnBvc2UiOiJhcGkucm9ja2V0bGF3eWVyLmNvbS9yb2NrZXRzaWduL2JpbmRlci9zaWduIiwidXBpZCI6ImY1NDkyODM3LTM4NDUtNDZjMi1hNDRhLWE2YTJmYmY2OTIzNyJ9fQ.cAkcatMQYu_epyacNPBeAuEjiMEadk1HCyGHIFlBXVA\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"id\": \"d017e8a7-1330-4812-8093-4be0124e12a1\",\n  \"type\": \"FINALISATION\",\n  \"message\": \"You were invited to review document\",\n  \"recipients\": [\n    {\n      \"partyId\": \"097b9e7f-b715-45f6-903b-238a297a5346\",\n      \"emailUsed\": \"leia.organa@starwars.com\",\n      \"binderUrl\": \"https://www.rocketlawyer.com/us/en/sign#serviceToken=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJyb2NrZXRsYXd5ZXIuY29tIiwiYXVkIjpbInJvY2tldGxhd3llci5jb20vc2VydmljZS10b2tlbnMiXSwiZXhwIjoxNTM1NzkzMDk3LCJpYXQiOjE1Mjc4NDQyOTcsInNydiI6eyJleHBpcmF0aW9uVGltZSI6MTUzNTc5MzA5Nywib3JpZ2luYWxDbGllbnRJZCI6ImQ1YmY2MGEwLWU2MTgtNDM1Yi05MDg1LTQxMGIwYjQ0M2E5MiIsInB1cnBvc2UiOiJhcGkucm9ja2V0bGF3eWVyLmNvbS9yb2NrZXRzaWduL2JpbmRlci9zaWduIiwidXBpZCI6ImY1NDkyODM3LTM4NDUtNDZjMi1hNDRhLWE2YTJmYmY2OTIzNyJ9fQ.cAkcatMQYu_epyacNPBeAuEjiMEadk1HCyGHIFlBXVA\"\n    }\n  ],\n  \"created\": \"2018-05-25T17:16:38+01:00\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "3b6c07e3-6b8d-43f7-bd53-f6ea4b45e5e4",
+      "name": "POST binders-binder Id-requests-invitations",
+      "request": {
+        "name": "POST binders-binder Id-requests-invitations",
+        "description": {
+          "content": "<b>Allowed roles:</b> FRONTEND (OWNER only), BACKEND<br/>\nStarts the signing process by creating invitations\n<ul>\n  <li>Collect signers as recipients if not provided in request</li>\n  <li>Change binder status changed to SIGN_IN_PROGRESS </li>\n  <li>Send invitation emails</li>\n</ul>\nIf <b>recipients</b> list is not provided or is empty all signers (parties with SIGNER role) are invited.\n",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "binders",
+            ":binderId",
+            "requests",
+            "invitations"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "binderId",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"subject\": \"<string>\",\n  \"message\": \"<string>\",\n  \"recipients\": [\n    {\n      \"partyId\": \"<string>\",\n      \"binderUrl\": \"<string>\",\n      \"customMessage\": \"<string>\",\n      \"notification\": \"<boolean>\"\n    },\n    {\n      \"partyId\": \"<string>\",\n      \"binderUrl\": \"<string>\",\n      \"customMessage\": \"<string>\",\n      \"notification\": \"<boolean>\"\n    }\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "98568bc7-60be-4339-a019-79383cd4bd2b",
+          "name": "The invitation request was successfully processed",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "binders",
+                ":binderId",
+                "requests",
+                "invitations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "binderId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"subject\": \"Tenancy agreement to be signed\",\n  \"message\": \"Please sign our tenancy agreement\",\n  \"recipients\": [\n    {\n      \"partyId\": \"087b9e7f-b715-45f6-903b-238a297a5346\",\n      \"notification\": false,\n      \"customMessage\": \"hello, signer 1\"\n    },\n    {\n      \"partyId\": \"2e3e39cd-498a-41d4-8d90-028869b34fbb\",\n      \"binderUrl\": \"https://www.starwars.com/sign#token=a97062b6b583ee7c464e825a\",\n      \"notification\": true,\n      \"customMessage\": \"hello, signer 2\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"id\": \"a017e8a7-1330-4812-8093-4be0124e12a1\",\n  \"type\": \"SIGN_INVITATION\",\n  \"subject\": \"Tenancy agreement to be signed\",\n  \"message\": \"Please sign our tenancy agreement\",\n  \"recipients\": [\n    {\n      \"partyId\": \"087b9e7f-b715-45f6-903b-238a297a5346\",\n      \"binderUrl\": \"https://www.rocketlawyer.com/us/en/sign#serviceToken=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJyb2NrZXRsYXd5ZXIuY29tIiwiYXVkIjpbInJvY2tldGxhd3llci5jb20vc2VydmljZS10b2tlbnMiXSwiZXhwIjoxNTM1NzkzMDk3LCJpYXQiOjE1Mjc4NDQyOTcsInNydiI6eyJleHBpcmF0aW9uVGltZSI6MTUzNTc5MzA5Nywib3JpZ2luYWxDbGllbnRJZCI6ImQ1YmY2MGEwLWU2MTgtNDM1Yi05MDg1LTQxMGIwYjQ0M2E5MiIsInB1cnBvc2UiOiJhcGkucm9ja2V0bGF3eWVyLmNvbS9yb2NrZXRzaWduL2JpbmRlci9zaWduIiwidXBpZCI6ImY1NDkyODM3LTM4NDUtNDZjMi1hNDRhLWE2YTJmYmY2OTIzNyJ9fQ.cAkcatMQYu_epyacNPBeAuEjiMEadk1HCyGHIFlBXVA\",\n      \"emailUsed\": \"leia.organa@starwars.com\",\n      \"notification\": false\n    },\n    {\n      \"partyId\": \"2e3e39cd-498a-41d4-8d90-028869b34fbb\",\n      \"binderUrl\": \"https://www.starwars.com/sign#token=a97062b6b583ee7c464e825a\",\n      \"emailUsed\": \"luke.skywalker@starwars.com\",\n      \"notification\": true\n    }\n  ],\n  \"created\": \"2017-07-06T17:16:38+01:00\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "554e0315-30b1-41b1-a2b3-e7b5f90863d3",
+      "name": "POST binders-binder Id-requests-cancellations",
+      "request": {
+        "name": "POST binders-binder Id-requests-cancellations",
+        "description": {
+          "content": "<b>Allowed roles:</b> FRONTEND (OWNER only), BACKEND<br/>\nStops the signing process by cancelling invitations\n<ul>\n  <li>Capture signers as notification recipients if recipients not specified in request</li>\n  <li>Bring binder and documents to state BEFORE invitation</li>\n  <li>Change binder status to `IN_PREPARATION`</li>\n  <li>Send cancellation notifications</li>\n</ul>\nIf <b>recipients</b> list is not provided or is empty all signers (parties with SIGNER role) are notified.\n",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "binders",
+            ":binderId",
+            "requests",
+            "cancellations"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "binderId",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"reason\": \"<string>\",\n  \"message\": \"<string>\",\n  \"recipients\": [\n    {\n      \"partyId\": \"<string>\",\n      \"binderUrl\": \"<string>\",\n      \"customMessage\": \"<string>\",\n      \"notification\": \"<boolean>\"\n    },\n    {\n      \"partyId\": \"<string>\",\n      \"binderUrl\": \"<string>\",\n      \"customMessage\": \"<string>\",\n      \"notification\": \"<boolean>\"\n    }\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "40865255-e712-4316-9949-d048986921d6",
+          "name": "The cancellation request was successfully processed",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "binders",
+                ":binderId",
+                "requests",
+                "cancellations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "binderId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reason\": \"I found an error on contract\",\n  \"message\": \"Sorry, signing was cancelled!\",\n  \"recipients\": [\n    {\n      \"partyId\": \"087b9e7f-b715-45f6-903b-238a297a5346\",\n      \"notification\": false,\n      \"customMessage\": \"hello, signer 1\"\n    },\n    {\n      \"partyId\": \"2e3e39cd-498a-41d4-8d90-028869b34fbb\",\n      \"binderUrl\": \"https://www.starwars.com/sign#token=a97062b6b583ee7c464e825a\",\n      \"notification\": true,\n      \"customMessage\": \"hello, signer 2\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"id\": \"a017e8a7-1330-4812-8093-4be0124e12a1\",\n  \"type\": \"SIGN_CANCELLATION\",\n  \"reason\": \"I found an error on contract\",\n  \"message\": \"Sorry, signing was cancelled!\",\n  \"recipients\": [\n    {\n      \"partyId\": \"087b9e7f-b715-45f6-903b-238a297a5346\",\n      \"binderUrl\": \"N/A\",\n      \"emailUsed\": \"leia.organa@starwars.com\",\n      \"notification\": true\n    },\n    {\n      \"partyId\": \"2e3e39cd-498a-41d4-8d90-028869b34fbb\",\n      \"binderUrl\": \"N/A\",\n      \"emailUsed\": \"luke.skywalker@starwars.com\",\n      \"notification\": true\n    }\n  ],\n  \"created\": \"2017-07-06T17:16:38+01:00\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "071aa0b0-6626-4bb1-b32f-140292663314",
+      "name": "POST binders-binder Id-requests-signatures",
+      "request": {
+        "name": "POST binders-binder Id-requests-signatures",
+        "description": {
+          "content": "<b>Allowed roles:</b> FRONTEND (all parties), BACKEND<br/>\nRecords signature inputs provided by a signer. All inputs provided should reference same party (related to a single signer).\n",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "binders",
+            ":binderId",
+            "requests",
+            "signatures"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "binderId",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"data\": {\n    \"signatures\": [\n      {\n        \"id\": \"<string>\",\n        \"value\": \"<string>\",\n        \"type\": \"<string>\",\n        \"font\": {\n          \"type\": \"<string>\",\n          \"sizeInPx\": \"<integer>\",\n          \"minFontSizeInPx\": \"<integer>\",\n          \"weight\": \"<string>\",\n          \"color\": \"<string>\"\n        },\n        \"position\": {\n          \"type\": \"<string>\",\n          \"xOffset\": \"<double>\",\n          \"yOffset\": \"<double>\",\n          \"width\": \"<double>\",\n          \"height\": \"<double>\",\n          \"vAlignment\": \"<string>\",\n          \"hAlignment\": \"<string>\",\n          \"hOffset\": \"<double>\",\n          \"vOffset\": \"<double>\"\n        }\n      },\n      {\n        \"id\": \"<string>\",\n        \"value\": \"<string>\",\n        \"type\": \"<string>\",\n        \"font\": {\n          \"type\": \"<string>\",\n          \"sizeInPx\": \"<integer>\",\n          \"minFontSizeInPx\": \"<integer>\",\n          \"weight\": \"<string>\",\n          \"color\": \"<string>\"\n        },\n        \"position\": {\n          \"type\": \"<string>\",\n          \"xOffset\": \"<double>\",\n          \"yOffset\": \"<double>\",\n          \"width\": \"<double>\",\n          \"height\": \"<double>\",\n          \"vAlignment\": \"<string>\",\n          \"hAlignment\": \"<string>\",\n          \"hOffset\": \"<double>\",\n          \"vOffset\": \"<double>\"\n        }\n      }\n    ]\n  },\n  \"recipients\": [\n    {\n      \"partyId\": \"<string>\",\n      \"binderUrl\": \"<string>\",\n      \"customMessage\": \"<string>\",\n      \"notification\": \"<boolean>\"\n    },\n    {\n      \"partyId\": \"<string>\",\n      \"binderUrl\": \"<string>\",\n      \"customMessage\": \"<string>\",\n      \"notification\": \"<boolean>\"\n    }\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "92befdb4-0cc5-43c3-93cd-b6dfe9723bef",
+          "name": "All signatures were recorded",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "binders",
+                ":binderId",
+                "requests",
+                "signatures"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "binderId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"signatures\": [\n      {\n        \"id\": \"cc82f7ea-f914-4e29-b0d3-bd913c6a1615\",\n        \"font\": {\n          \"type\": \"DANCING_SCRIPT\",\n          \"minFontSizeInPx\": 10\n        },\n        \"value\": \"John Doe\"\n      },\n      {\n        \"id\": \"0541e916-3088-461f-835b-e15038f135f7\",\n        \"value\": \"2017-07-05\"\n      },\n      {\n        \"id\": \"0541e916-3088-461f-835b-e150354261324\",\n        \"value\": \"PHN2ZyBoZWlnaHQ9IjEwMCIgd2lkdGg9IjEwMCI+CiAgPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgcj0iNDAiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMyIgZmlsbD0icmVkIiAvPgo8L3N2Zz4g\",\n        \"type\": \"IMAGE\"\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"id\": \"0726ca46-e938-42cd-af09-25f5666f4b3f\",\n  \"type\": \"SIGNATURE_RECORD\",\n  \"created\": \"2018-05-18T14:54:08.750898+00:00\",\n  \"recipients\": [\n    {\n      \"partyId\": \"ace6783e-b311-4429-81d2-aee89ec4ccf5\",\n      \"emailUsed\": \"leia.organa@starwars.com\",\n      \"binderUrl\": \"https://www.rocketlawyer.eu/us/en/sign#serviceToken=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJyb2NrZXRsYXd5ZXIuY29tIiwiYXVkIjpbInJvY2tldGxhd3llci5jb20vc2VydmljZS10b2tlbnMiXSwiZXhwIjoxNTM1NzkzMDk3LCJpYXQiOjE1Mjc4NDQyOTcsInNydiI6eyJleHBpcmF0aW9uVGltZSI6MTUzNTc5MzA5Nywib3JpZ2luYWxDbGllbnRJZCI6ImQ1YmY2MGEwLWU2MTgtNDM1Yi05MDg1LTQxMGIwYjQ0M2E5MiIsInB1cnBvc2UiOiJhcGkucm9ja2V0bGF3eWVyLmNvbS9yb2NrZXRzaWduL2JpbmRlci9zaWduIiwidXBpZCI6ImY1NDkyODM3LTM4NDUtNDZjMi1hNDRhLWE2YTJmYmY2OTIzNyJ9fQ.cAkcatMQYu_epyacNPBeAuEjiMEadk1HCyGHIFlBXVA\",\n      \"notification\": true\n    },\n    {\n      \"partyId\": \"26ac2136-d1c6-4be7-af83-263b7aa48f2d\",\n      \"emailUsed\": \"luke.skywalker@starwars.com\",\n      \"binderUrl\": \"https://www.rocketlawyer.eu/us/en/sign#serviceToken=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJyb2NrZXRsYXd5ZXIuY29tIiwiYXVkIjpbInJvY2tldGxhd3llci5jb20vc2VydmljZS10b2tlbnMiXSwiZXhwIjoxNTM1NzkzMDk3LCJpYXQiOjE1Mjc4NDQyOTcsInNydiI6eyJleHBpcmF0aW9uVGltZSI6MTUzNTc5MzA5Nywib3JpZ2luYWxDbGllbnRJZCI6ImQ1YmY2MGEwLWU2MTgtNDM1Yi05MDg1LTQxMGIwYjQ0M2E5MiIsInB1cnBvc2UiOiJhcGkucm9ja2V0bGF3eWVyLmNvbS9yb2NrZXRzaWduL2JpbmRlci9zaWduIiwidXBpZCI6ImY1NDkyODM3LTM4NDUtNDZjMi1hNDRhLWE2YTJmYmY2OTIzNyJ9fQ.cAkcatMQYu_epyacNPBeAuEjiMEadk1HCyGHIFlBXVA\",\n      \"notification\": true\n    }\n  ],\n  \"data\": {\n    \"signatures\": [\n      {\n        \"id\": \"cc82f7ea-f914-4e29-b0d3-bd913c6a1615\",\n        \"font\": {\n          \"type\": \"DANCING_SCRIPT\"\n        },\n        \"value\": \"John Doe\"\n      },\n      {\n        \"id\": \"0541e916-3088-461f-835b-e15038f135f7\",\n        \"value\": \"2017-07-05\"\n      },\n      {\n        \"id\": \"0541e916-3088-461f-835b-e150354261324\",\n        \"type\": \"IMAGE\"\n      }\n    ]\n  }\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "d3a9072d-19c4-4a0b-bb0f-acbde3cc304b",
+      "name": "POST binders-binder Id-requests-declines",
+      "request": {
+        "name": "POST binders-binder Id-requests-declines",
+        "description": {
+          "content": "<b>Allowed roles:</b> FRONTEND (all parties with SIGNER role), BACKEND<br/>\nRecords that the signer declined to sign. The `OWNER` will be notified that this `SIGNER` has declined.\n",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "binders",
+            ":binderId",
+            "requests",
+            "declines"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "binderId",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"data\": {\n    \"partyId\": \"<string>\"\n  },\n  \"reason\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "a1073a14-80aa-4d18-9608-04caccbe946d",
+          "name": "The signature decline was recorded",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "binders",
+                ":binderId",
+                "requests",
+                "declines"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "binderId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reason\": \"Other\",\n  \"message\": \"I changed my mind\",\n  \"data\": {\n    \"partyId\": \"087b9e7f-b715-45f6-903b-238a297a5346\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"id\": \"a017e8a7-1330-4812-8093-4be0124e12a1\",\n  \"type\": \"SIGNATURE_DECLINE\",\n  \"reason\": \"Other\",\n  \"message\": \"I changed my mind\",\n  \"recipients\": [\n    {\n      \"partyId\": \"087b9e7f-b715-45f6-903b-238a297a5346\",\n      \"binderUrl\": \"N/A\",\n      \"emailUsed\": \"leia.organa@starwars.com\",\n      \"notification\": true\n    },\n    {\n      \"partyId\": \"2e3e39cd-498a-41d4-8d90-028869b34fbb\",\n      \"binderUrl\": \"N/A\",\n      \"emailUsed\": \"luke.skywalker@starwars.com\",\n      \"notification\": true\n    }\n  ],\n  \"created\": \"2017-07-06T17:16:38+01:00\",\n  \"data\": {\n    \"partyId\": \"087b9e7f-b715-45f6-903b-238a297a5346\"\n  }\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "84c0579a-5b71-4566-9d8d-3a09c7659ca4",
+      "name": "POST binders-binder Id-requests-reminders",
+      "request": {
+        "name": "POST binders-binder Id-requests-reminders",
+        "description": {
+          "content": "<b>Allowed roles:</b> FRONTEND (only document owner), BACKEND<br/>\nSends a reminders to sign or view the document to the given signers and/or viewers. It is possible to send the reminder only if the binder state is `SIGN_IN_PROGRESS`. Reminder requests will be ignored for signers that have already signed.\n",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "binders",
+            ":binderId",
+            "requests",
+            "reminders"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "binderId",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"message\": \"<string>\",\n  \"recipients\": [\n    {\n      \"partyId\": \"<string>\",\n      \"binderUrl\": \"<string>\"\n    },\n    {\n      \"partyId\": \"<string>\",\n      \"binderUrl\": \"<string>\"\n    }\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "1462c636-f518-448c-8519-cd7702b1e703",
+          "name": "The request to send a reminder was registered",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "binders",
+                ":binderId",
+                "requests",
+                "reminders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "binderId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"message\": \"This is to remind you that you have one document awaiting for your signature\",\n  \"recipients\": [\n    {\n      \"partyId\": \"097b9e7f-b715-45f6-903b-238a297a5346\",\n      \"binderUrl\": \"https://www.rocketlawyer.com/us/en/sign#serviceToken=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJyb2NrZXRsYXd5ZXIuY29tIiwiYXVkIjpbInJvY2tldGxhd3llci5jb20vc2VydmljZS10b2tlbnMiXSwiZXhwIjoxNTM1NzkzMDk3LCJpYXQiOjE1Mjc4NDQyOTcsInNydiI6eyJleHBpcmF0aW9uVGltZSI6MTUzNTc5MzA5Nywib3JpZ2luYWxDbGllbnRJZCI6ImQ1YmY2MGEwLWU2MTgtNDM1Yi05MDg1LTQxMGIwYjQ0M2E5MiIsInB1cnBvc2UiOiJhcGkucm9ja2V0bGF3eWVyLmNvbS9yb2NrZXRzaWduL2JpbmRlci9zaWduIiwidXBpZCI6ImY1NDkyODM3LTM4NDUtNDZjMi1hNDRhLWE2YTJmYmY2OTIzNyJ9fQ.cAkcatMQYu_epyacNPBeAuEjiMEadk1HCyGHIFlBXVA\"\n    },\n    {\n      \"partyId\": \"8e3e39cd-498a-41d4-8d90-028869b34fbb\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"id\": \"d017e8a7-1330-4812-8093-4be0124e12a1\",\n  \"type\": \"SIGN_REMINDER\",\n  \"message\": \"This is to remind you that you have one document awaiting for your signature\",\n  \"recipients\": [\n    {\n      \"partyId\": \"097b9e7f-b715-45f6-903b-238a297a5346\",\n      \"emailUsed\": \"leia.organa@starwars.com\",\n      \"binderUrl\": \"https://www.rocketlawyer.com/us/en/sign#serviceToken=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJyb2NrZXRsYXd5ZXIuY29tIiwiYXVkIjpbInJvY2tldGxhd3llci5jb20vc2VydmljZS10b2tlbnMiXSwiZXhwIjoxNTM1NzkzMDk3LCJpYXQiOjE1Mjc4NDQyOTcsInNydiI6eyJleHBpcmF0aW9uVGltZSI6MTUzNTc5MzA5Nywib3JpZ2luYWxDbGllbnRJZCI6ImQ1YmY2MGEwLWU2MTgtNDM1Yi05MDg1LTQxMGIwYjQ0M2E5MiIsInB1cnBvc2UiOiJhcGkucm9ja2V0bGF3eWVyLmNvbS9yb2NrZXRzaWduL2JpbmRlci9zaWduIiwidXBpZCI6ImY1NDkyODM3LTM4NDUtNDZjMi1hNDRhLWE2YTJmYmY2OTIzNyJ9fQ.cAkcatMQYu_epyacNPBeAuEjiMEadk1HCyGHIFlBXVA\"\n    },\n    {\n      \"partyId\": \"8e3e39cd-498a-41d4-8d90-028869b34fbb\",\n      \"emailUsed\": \"luke.skywalker@starwars.com\",\n      \"binderUrl\": \"https://www.rocketlawyer.com/us/en/sign#serviceToken=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJyb2NrZXRsYXd5ZXIuY29tIiwiYXVkIjpbInJvY2tldGxhd3llci5jb20vc2VydmljZS10b2tlbnMiXSwiZXhwIjoxNTM1NzkzMDk3LCJpYXQiOjE1Mjc4NDQyOTcsInNydiI6eyJleHBpcmF0aW9uVGltZSI6MTUzNTc5MzA5Nywib3JpZ2luYWxDbGllbnRJZCI6ImQ1YmY2MGEwLWU2MTgtNDM1Yi05MDg1LTQxMGIwYjQ0M2E5MiIsInB1cnBvc2UiOiJhcGkucm9ja2V0bGF3eWVyLmNvbS9yb2NrZXRzaWduL2JpbmRlci9zaWduIiwidXBpZCI6ImY1NDkyODM3LTM4NDUtNDZjMi1hNDRhLWE2YTJmYmY2OTIzNyJ9fQ.cAkcatMQYu_epyacNPBeAuEjiMEadk1HCyGHIFlBXVA\"\n    }\n  ],\n  \"created\": \"2018-05-25T17:16:38+01:00\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "feb1c5a6-f1d2-42b8-ab0e-e779ee360617",
+      "name": "POST binders-binder Id-requests-viewers",
+      "request": {
+        "name": "POST binders-binder Id-requests-viewers",
+        "description": {
+          "content": "<b>Allowed roles:</b> FRONTEND (only document owner), BACKEND<br/>\nAdds a party with the `VIEWER` role to a binder and sends view invitation notifications.\nA `VIEWER` may be added during any binder state except in `IN_PREPARATION`.\n",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "binders",
+            ":binderId",
+            "requests",
+            "viewers"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "binderId",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"party\": {\n    \"reference\": \"<string>\",\n    \"legalName\": \"<string>\",\n    \"jobTitle\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"email\": \"<string>\",\n    \"metaData\": \"<string>\"\n  },\n  \"notification\": \"<boolean>\",\n  \"binderUrl\": \"<string>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "0f32a539-710c-4cfa-a17b-27d0a9e91815",
+          "name": "Viewer added to the binder",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "binders",
+                ":binderId",
+                "requests",
+                "viewers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "binderId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"party\": {\n    \"reference\": \"123435\",\n    \"legalName\": \"James Kirk\",\n    \"email\": \"JamesKirk+newAdded@startrekoriginal.com\",\n    \"metaData\": {\n      \"userGlobalId\": \"11876876-0502-4f5a-96d0-8befc17175d6\"\n    }\n  },\n  \"notification\": false,\n  \"binderUrl\": \"www.rocketlawyer.co.uk\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"id\": \"4fa31663-0de3-4d2a-be10-3e12170b54f2\",\n  \"type\": \"VIEWER_CREATION\",\n  \"created\": \"2019-02-26T11:29:12.576373+00:00\",\n  \"recipients\": [\n    {\n      \"partyId\": \"4231a730-3103-41e6-aa9d-b526b7f86326\",\n      \"emailUsed\": \"user+newAdded@rocketlawyer.co.uk\",\n      \"binderUrl\": \"http://www.rocketlawyer.com/\",\n      \"notification\": false\n    }\n  ],\n  \"party\": {\n    \"id\": \"4231a730-3103-41e6-aa9d-b526b7f86326\",\n    \"reference\": \"123435\",\n    \"legalName\": \"Christopher Pike\",\n    \"email\": \"ChristopherPike+newAdded@startrek.uss\",\n    \"roles\": [\n      \"VIEWER\"\n    ],\n    \"status\": \"INVITED\",\n    \"metaData\": {\n      \"userGlobalId\": \"11876876-0502-4f5a-96d0-8befc17175d6\"\n    }\n  }\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-sandbox.rocketlawyer.com/document-manager/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1ab906fe-d064-4c7d-872a-b9e9d6c85d4e",
+    "name": "RocketSign & Binders API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This API documentation describes the server-side contract by which complete documents can be managed and signed using the **RocketSign® & Binders API**.\n<br/><br/>\nFor a step-by-step walkthrough of how to display and interact with your documents so you can\nprepare them for signatures, sign and invite others to sign, check out [Quick Start: RocketSign\nEmbedded UX](/rocketsign-embedded-ux).\n\n\n\n\n## Binder Lifecycle Overview\n\nTo get started with our RocketSign & Binders API, it helps to first understand the binder lifecycle. Here is a quick summary of the four binder states:\n\n\n### IN_PREPARATION\n\nWhen a binder is first created, it will be `IN_PREPARATION`. It will stay in this state until the document owner begins to sign or until parties are invited to sign. A binder will also return to `IN_PREPARATION` anytime signing is cancelled.\n\nAPI calls to manipulate parties, documents and inputs can only be performed when a binder is `IN_PREPARATION`. It’s also the only time when the binder name can be changed.\n\n### REVIEW_AND_SHARE\n\nIf a document owner chooses to sign first or if they are otherwise determined to be the only signer, the binder state transitions to `REVIEW_AND_SHARE` (specifically, this occurs as soon as they begin to sign). In this state, no changes can be made to the binder and only the document owner can sign.\n\n### SIGN_IN_PROGRESS\n\nAfter non-owner parties have been invited to sign, the binder state transitions to `SIGN_IN_PROGRESS`. The binder will remain in this state until all parties have signed/completed all mandatory boxes, or until signing is cancelled.\n\n### SIGN_COMPLETED\n\nWhen all mandatory boxes have been completed, the binder state becomes `SIGN_COMPLETED`. Once a binder transitions to the `SIGN_COMPLETED` state, it will remain in this state forever.\n\n <img src=\"https://rl-cicdv2-apigee-public-prod.apigee.io/files/binder-lifecycle.png\" />",
+      "type": "text/plain"
+    }
+  }
+}

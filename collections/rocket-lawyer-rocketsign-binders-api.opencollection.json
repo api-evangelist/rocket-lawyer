@@ -1,0 +1,822 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "RocketSign & Binders API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "GET_binders",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api-sandbox.rocketlawyer.com/document-manager/v1/binders",
+        "params": [
+          {
+            "name": "q",
+            "value": "",
+            "type": "query",
+            "description": "Specify filters in format: 'key:value|key:value'.\nPossible keys: [partyEmail]\n"
+          },
+          {
+            "name": "limit",
+            "value": "",
+            "type": "query",
+            "description": "Specify limit of results\nLimits upper bound is 100."
+          },
+          {
+            "name": "offset",
+            "value": "",
+            "type": "query",
+            "description": "Specify offset of result\n"
+          },
+          {
+            "name": "sort",
+            "value": "",
+            "type": "query",
+            "description": "Comma-separated list of pairs &lt;field_name&gt; &lt;direction&gt;.<br/>\nDirection can be ascending (ASC) or descending (DESC) and is \"ASC\" by default therefore can be omitted.<br/>\nPossible field names are: created.\n"
+          }
+        ]
+      },
+      "docs": "<b>Allowed roles:</b> BACKEND<br/>\nList of Binders\n"
+    },
+    {
+      "info": {
+        "name": "POST_binders",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api-sandbox.rocketlawyer.com/document-manager/v1/binders",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "<b>Allowed roles:</b> BACKEND<br/>\nCreates the new Binder\n<ul>\n  <li>Creates full binder with documents, inputs and parties.</li>\n  <li>Note that binder status is still <b>IN_PREPARATION</b> as document(s) need to be uploaded.</li>\n</ul>\n"
+    },
+    {
+      "info": {
+        "name": "GET_binders-binderId",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api-sandbox.rocketlawyer.com/document-manager/v1/binders/:binderId",
+        "headers": [
+          {
+            "name": "Accept",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "binderId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "unsigned",
+            "value": "",
+            "type": "query",
+            "description": "If present, then unsigned versions of all documents are served as a merged PDF.\nUnsigned is in fact the last uploaded version of the document (just before invitation was triggered).\n"
+          }
+        ]
+      },
+      "docs": "<b>Allowed roles:</b> FRONTEND (all parties), BACKEND<br/>\nRetrieves binder\n"
+    },
+    {
+      "info": {
+        "name": "PATCH_binders-binderId",
+        "type": "http"
+      },
+      "http": {
+        "method": "PATCH",
+        "url": "https://api-sandbox.rocketlawyer.com/document-manager/v1/binders/:binderId",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "binderId",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "<b>Allowed roles:</b> FRONTEND (OWNER only), BACKEND<br/>\nUpdates binder\n<ul>\n<li>A binder can be updated only when it is in the IN_PREPARATION status.</li>\n<li>Updates comply as per RFC-7396</li>\n</ul>\n"
+    },
+    {
+      "info": {
+        "name": "DELETE_binders-binderId",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "https://api-sandbox.rocketlawyer.com/document-manager/v1/binders/:binderId",
+        "params": [
+          {
+            "name": "binderId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "<b>Allowed roles:</b> BACKEND<br/>\nDeletes binder\n"
+    },
+    {
+      "info": {
+        "name": "GET_binders-binderId-status",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api-sandbox.rocketlawyer.com/document-manager/v1/binders/:binderId/status",
+        "headers": [
+          {
+            "name": "Accept",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "binderId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "<b>Allowed roles:</b> FRONTEND (all parties), BACKEND<br/>\nSeries of validations (preflight check) is performed on binder with status IN_PREPARATION.\nResponse clearly indicates if binder is ready to be FINALISED or if some changes are still needed.\n"
+    },
+    {
+      "info": {
+        "name": "POST_binders-binderId-locks",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api-sandbox.rocketlawyer.com/document-manager/v1/binders/:binderId/locks",
+        "headers": [
+          {
+            "name": "Accept",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "binderId",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "<b>Allowed roles:</b> BACKEND <br/>\nCreates of lock preventing certain actions on the binder. In example having a cancellation lock on a binder will prevent signing from being cancelled.\n"
+    },
+    {
+      "info": {
+        "name": "DELETE_binders-binderId-locks-lockId",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "https://api-sandbox.rocketlawyer.com/document-manager/v1/binders/:binderId/locks/:lockId",
+        "headers": [
+          {
+            "name": "Accept",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "lockId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "binderId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "<b>Allowed roles:</b> BACKEND <br/>\nDelete a lock from the binder.\nLocks can be deleted only by the client that acquired the lock\n"
+    },
+    {
+      "info": {
+        "name": "GET_binders-binderId-parties",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api-sandbox.rocketlawyer.com/document-manager/v1/binders/:binderId/parties",
+        "params": [
+          {
+            "name": "binderId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "serviceToken",
+            "value": "",
+            "type": "query",
+            "description": "Service Token of a party to check the details about"
+          }
+        ]
+      },
+      "docs": "<b>Allowed roles:</b> FRONTEND (OWNER only), BACKEND<br/>\nGet party represented by service token.\n"
+    },
+    {
+      "info": {
+        "name": "POST_binders-binderId-parties",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api-sandbox.rocketlawyer.com/document-manager/v1/binders/:binderId/parties",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "binderId",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "<b>Allowed roles:</b> FRONTEND (OWNER only), BACKEND<br/>\nAdd a party to a binder\n<ul>\n  <li>Normally a party can be added only when the binder is in the `IN_PREPARATION` state.</li>\n  <li>A party with the `VIEWER` role can be added even after sign invitation is triggered. If the party is added\n  after sign invitation, an email containing link to binder will be send to the recently\n  added viewer.</li>\n</ul>\n"
+    },
+    {
+      "info": {
+        "name": "PATCH_binders-binderId-parties-partyId",
+        "type": "http"
+      },
+      "http": {
+        "method": "PATCH",
+        "url": "https://api-sandbox.rocketlawyer.com/document-manager/v1/binders/:binderId/parties/:partyId",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "partyId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "binderId",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "<b>Allowed roles:</b> FRONTEND (OWNER only), BACKEND<br/>\nUpdate party.\n  <ul>\n  <li>A party can be updated only when binder is in the `IN_PREPARATION` state.</li>\n  <li>Updates comply with RFC-7396</li>\n  </ul>\n"
+    },
+    {
+      "info": {
+        "name": "DELETE_binders-binderId-parties-partyId",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "https://api-sandbox.rocketlawyer.com/document-manager/v1/binders/:binderId/parties/:partyId",
+        "params": [
+          {
+            "name": "partyId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "binderId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "<b>Allowed roles:</b> FRONTEND (OWNER only), BACKEND<br/>\nDelete a party.\n<ul>\n  <li>Normally a party can only be deleted when binder is in the `IN_PREPARATION` state.</li>\n  <li>If the party has the `VIEWER` role, it may be deleted even when the binder is in a different state.</li>\n  <li>The owning party cannot be deleted.</li>\n</ul>\n"
+    },
+    {
+      "info": {
+        "name": "POST_binders-binderId-documents",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api-sandbox.rocketlawyer.com/document-manager/v1/binders/:binderId/documents",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "binderId",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "<b>Allowed roles:</b> FRONTEND (OWNER only), BACKEND<br/>\nAdds a document to a binder.\n"
+    },
+    {
+      "info": {
+        "name": "GET_binders-binderId-documents-documentId",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api-sandbox.rocketlawyer.com/document-manager/v1/binders/:binderId/documents/:documentId",
+        "headers": [
+          {
+            "name": "Accept",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "documentId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "binderId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "unsigned",
+            "value": "",
+            "type": "query",
+            "description": "If present, then an unsigned version of the document is served.\nUnsigned is in fact the last uploaded version of the document (just before invitation was triggered).\n"
+          }
+        ]
+      },
+      "docs": "<b>Allowed roles:</b> FRONTEND, BACKEND<br/>\nRetrieves a document in the format defined by Accept header.<br/>\nIf the file type is not supported, a status code of 412 (Precondition Failed) is returned.\n"
+    },
+    {
+      "info": {
+        "name": "PUT_binders-binderId-documents-documentId",
+        "type": "http"
+      },
+      "http": {
+        "method": "PUT",
+        "url": "https://api-sandbox.rocketlawyer.com/document-manager/v1/binders/:binderId/documents/:documentId",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "documentId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "binderId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "<b>Allowed roles:</b> FRONTEND (OWNER only), BACKEND<br/>\nUploads content of document\n"
+    },
+    {
+      "info": {
+        "name": "PATCH_binders-binderId-documents-documentId",
+        "type": "http"
+      },
+      "http": {
+        "method": "PATCH",
+        "url": "https://api-sandbox.rocketlawyer.com/document-manager/v1/binders/:binderId/documents/:documentId",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "documentId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "binderId",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "<b>Allowed roles:</b> FRONTEND (OWNER only), BACKEND<br/>\nUpdate document:\n<ul>\n  <li>A document can be updated only when the binder containing it is in the `IN_PREPARATION` state.</li>\n  <li>Non-editable parts are: id, originalContentChecksum, contentType</li>\n  <li>Updates comply with RFC-7396</li>\n</ul>\n"
+    },
+    {
+      "info": {
+        "name": "DELETE_binders-binderId-documents-documentId",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "https://api-sandbox.rocketlawyer.com/document-manager/v1/binders/:binderId/documents/:documentId",
+        "params": [
+          {
+            "name": "documentId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "binderId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "<b>Allowed roles:</b> FRONTEND (OWNER only), BACKEND<br/>\nDelete document:\n<ul>\n  <li>A document can be deleted only when the binder containing it is in the `IN_PREPARATION` state.</li>\n</ul>\n"
+    },
+    {
+      "info": {
+        "name": "POST_binders-binderId-documents-documentId-inputs",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api-sandbox.rocketlawyer.com/document-manager/v1/binders/:binderId/documents/:documentId/inputs",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "documentId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "binderId",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "<b>Allowed roles:</b> FRONTEND (OWNER only), BACKEND<br/>\nAdds a new input to the given document\n"
+    },
+    {
+      "info": {
+        "name": "PATCH_binders-binderId-documents-documentId-inputs-inputId",
+        "type": "http"
+      },
+      "http": {
+        "method": "PATCH",
+        "url": "https://api-sandbox.rocketlawyer.com/document-manager/v1/binders/:binderId/documents/:documentId/inputs/:inputId",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "inputId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "documentId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "binderId",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "<b>Allowed roles:</b> FRONTEND (OWNER only), BACKEND<br/>\nUpdate input.\n<ul>\n   <li>An input can be updated only when the binder that contains it is in the `IN_PREPARATION` state.</li>\n   <li>Updates comply with RFC-7396</li>\n </ul>\n"
+    },
+    {
+      "info": {
+        "name": "DELETE_binders-binderId-documents-documentId-inputs-inputId",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "https://api-sandbox.rocketlawyer.com/document-manager/v1/binders/:binderId/documents/:documentId/inputs/:inputId",
+        "params": [
+          {
+            "name": "inputId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "documentId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "binderId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "<b>Allowed roles:</b> FRONTEND (OWNER only), BACKEND<br/>\nDelete input.\n<ul>\n  <li>A input can be deleted only when the binder that contains it is in the `IN_PREPARATION` status.</li>\n</ul>\n"
+    },
+    {
+      "info": {
+        "name": "GET_binders-binderId-documents-documentId-pages-pageId",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api-sandbox.rocketlawyer.com/document-manager/v1/binders/:binderId/documents/:documentId/pages/:pageId",
+        "headers": [
+          {
+            "name": "Accept",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "pageId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "documentId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "binderId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "resolution",
+            "value": "",
+            "type": "query",
+            "description": "Resolution of generated PNG in DPIs.<br/><ul><li>Minimum value: 10</li><li>Maximum value: 300</li><li>Default value: 150</li></ul>Predefined values:\n<ul>\n  <li><b>thumbnail</b> - 72dpi</li>\n  <li><b>small</b> - 92dpi</li>\n  <li><b>medium</b> - 150dpi</li>\n  <li><b>large</b> - 300dpi</li>\n</ul>\n"
+          }
+        ]
+      },
+      "docs": "<b>Allowed roles:</b> FRONTEND (all parties), BACKEND<br/>\nRetrieves single page in specified format. Only supported format is PNG for now.\n"
+    },
+    {
+      "info": {
+        "name": "POST_binders-binderId-requests-finalisations",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api-sandbox.rocketlawyer.com/document-manager/v1/binders/:binderId/requests/finalisations",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "binderId",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "<b>Allowed roles:</b> FRONTEND (only document owner), BACKEND<br/>\nPerforms pre-flight checks and moves binder into `REVIEW_AND_SHARE` state. Invitations are also sent to `VIEWER`s\n"
+    },
+    {
+      "info": {
+        "name": "POST_binders-binderId-requests-invitations",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api-sandbox.rocketlawyer.com/document-manager/v1/binders/:binderId/requests/invitations",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "binderId",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "<b>Allowed roles:</b> FRONTEND (OWNER only), BACKEND<br/>\nStarts the signing process by creating invitations\n<ul>\n  <li>Collect signers as recipients if not provided in request</li>\n  <li>Change binder status changed to SIGN_IN_PROGRESS </li>\n  <li>Send invitation emails</li>\n</ul>\nIf <b>recipients</b> list is not provided or is empty all signers (parties with SIGNER role) are invited.\n"
+    },
+    {
+      "info": {
+        "name": "POST_binders-binderId-requests-cancellations",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api-sandbox.rocketlawyer.com/document-manager/v1/binders/:binderId/requests/cancellations",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "binderId",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "<b>Allowed roles:</b> FRONTEND (OWNER only), BACKEND<br/>\nStops the signing process by cancelling invitations\n<ul>\n  <li>Capture signers as notification recipients if recipients not specified in request</li>\n  <li>Bring binder and documents to state BEFORE invitation</li>\n  <li>Change binder status to `IN_PREPARATION`</li>\n  <li>Send cancellation notifications</li>\n</ul>\nIf <b>recipients</b> list is not provided or is empty all signers (parties with SIGNER role) are notified.\n"
+    },
+    {
+      "info": {
+        "name": "POST_binders-binderId-requests-signatures",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api-sandbox.rocketlawyer.com/document-manager/v1/binders/:binderId/requests/signatures",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "binderId",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "<b>Allowed roles:</b> FRONTEND (all parties), BACKEND<br/>\nRecords signature inputs provided by a signer. All inputs provided should reference same party (related to a single signer).\n"
+    },
+    {
+      "info": {
+        "name": "POST_binders-binderId-requests-declines",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api-sandbox.rocketlawyer.com/document-manager/v1/binders/:binderId/requests/declines",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "binderId",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "<b>Allowed roles:</b> FRONTEND (all parties with SIGNER role), BACKEND<br/>\nRecords that the signer declined to sign. The `OWNER` will be notified that this `SIGNER` has declined.\n"
+    },
+    {
+      "info": {
+        "name": "POST_binders-binderId-requests-reminders",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api-sandbox.rocketlawyer.com/document-manager/v1/binders/:binderId/requests/reminders",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "binderId",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "<b>Allowed roles:</b> FRONTEND (only document owner), BACKEND<br/>\nSends a reminders to sign or view the document to the given signers and/or viewers. It is possible to send the reminder only if the binder state is `SIGN_IN_PROGRESS`. Reminder requests will be ignored for signers that have already signed.\n"
+    },
+    {
+      "info": {
+        "name": "POST_binders-binderId-requests-viewers",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api-sandbox.rocketlawyer.com/document-manager/v1/binders/:binderId/requests/viewers",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "binderId",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "<b>Allowed roles:</b> FRONTEND (only document owner), BACKEND<br/>\nAdds a party with the `VIEWER` role to a binder and sends view invitation notifications.\nA `VIEWER` may be added during any binder state except in `IN_PREPARATION`.\n"
+    }
+  ],
+  "bundled": true
+}

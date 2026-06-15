@@ -1,0 +1,44 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Authentication API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Access Token Creation",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api-sandbox.rocketlawyer.com/partners/v1/auth/accesstoken",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Request the creation of an Access Token, whether or not it be associated with a Service Token. Requires passing credentials (App Key and Secret) in posted request body. For plain Access Tokens, grant type must be `client_credentials`. For Access Tokens associated with a Service Token, grant type must be `authorization_code` with Service Token passed in a request body field named `code`."
+    },
+    {
+      "info": {
+        "name": "Service Token Creation",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api-sandbox.rocketlawyer.com/partners/v1/auth/servicetoken",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        },
+        "auth": {
+          "type": "bearer",
+          "token": "{{bearerToken}}"
+        }
+      },
+      "docs": "Request the creation of a Service Token by posting one purpose with a related claim claim parameter. In order for the Client Application to be allowed to request Service Tokens, its associated RL Api Client must have been created with at least one of the recognized RL backend System Roles."
+    }
+  ],
+  "bundled": true
+}

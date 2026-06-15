@@ -1,0 +1,1328 @@
+{
+  "item": [
+    {
+      "id": "2aa22b88-eeb7-4413-8ea8-0c0daafb129a",
+      "name": "Subscription Management",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2e02f677-dfa6-4de1-a7c2-6aaed60d1029",
+          "name": "create Subscription",
+          "request": {
+            "name": "create Subscription",
+            "description": {
+              "content": "Create a subscription. <br/><br/>\n<b>Note</b>: If your application already has a subscription it will be returned instead of creating a new one.\n<br/>\n<b>Subscription Expiration</b>: If there is no interaction with the subscription over the period of 31 days, \nit will be automatically deleted.\n<br/><br/>\nAuthorization\\: Requires a general access token.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "92378f18-c675-4f2d-a1fa-e689e36b5a40",
+              "name": "The subscription was created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"subscriptionId\": \"f3443a23-301d-4b6b-a178-3840d8cb9e5f\",\n  \"createdAt\": \"2021-04-12T04:20:50Z\",\n  \"updatedAt\": \"2021-05-11T23:10:51Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e16aaa4d-435d-4509-acad-54f4d6929b14",
+              "name": "You do not have sufficient permission to create a subscription",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ed2699ea-4c54-4da1-a125-954151d168b6",
+          "name": "get Subscription",
+          "request": {
+            "name": "get Subscription",
+            "description": {
+              "content": "Get a subscription. This can be used to confirm that a subscription exists.\n<br/>\n<b>Subscription Expiration</b>: If there is no interaction with the subscription over the period of 31 days, \nit will be automatically deleted.\n<br/><br/>\nAuthorization\\: Requires a general access or scoped access token.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "subscriptionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c98dc523-4554-4240-b6fb-34487c500e2e",
+              "name": "The subscription exists",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"subscriptionId\": \"f3443a23-301d-4b6b-a178-3840d8cb9e5f\",\n  \"createdAt\": \"2021-04-12T04:20:50Z\",\n  \"updatedAt\": \"2021-05-11T23:10:51Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cf6edeec-2634-43c1-93c1-2b37c2f387df",
+              "name": "The subscription does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e377ffdf-0f29-4e3d-9f20-e3377f458d22",
+              "name": "You do not have sufficient permission to access this subscription",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5f226172-4f2c-4a51-8c92-57bab42e4247",
+          "name": "delete Subscription",
+          "request": {
+            "name": "delete Subscription",
+            "description": {
+              "content": "Delete a subscription. This will cause the acknowledgement state of all events to be\nforgotten. If you wish to \"undo\" a deletion, you may create a new subscription and\nperform a seek request to just before the time of deletion, though you must be\nprepared to handle a few duplicate events.\n<br/><br/>\nAuthorization\\: Requires a general access or scoped access token.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "subscriptionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3ab1de3d-93ad-4ca2-977f-1703d77e83f4",
+              "name": "The subscription is deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ee81bfc2-e020-4c8d-9894-8ef01b749da2",
+              "name": "You do not have sufficient permission to delete this subscription",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6ba7a668-2ddc-4725-b2a7-846b08825669",
+              "name": "The subscription does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5458e8d0-c22d-4e92-95f1-efebbaa7ec38",
+          "name": "create Subscription Seek Request",
+          "request": {
+            "name": "create Subscription Seek Request",
+            "description": {
+              "content": "Move a subscription to a specified time. If the specified time is in the past and within\nthe event retention timeframe (7 days), already-acknowledged events may be replayed. It is also\npossible to use this operation to \"skip\" events by seeking to a time that is _after_ some number of\nnon-acknowledged events.\n<br/><br/>\nAuthorization\\: Requires a general access or scoped access token.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "seekRequests"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "subscriptionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"seekTo\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5f7f8be2-ba10-45bc-a3e6-06efeea80f79",
+              "name": "The seek request has been fulfilled. Events from roughly the specified time will be replayed for\nthis subscription.\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "seekRequests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"seekTo\": \"2021-10-01T10:22:02Z\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"seekRequestId\": \"2acbdced-121d-4896-a02c-5b77528f8b77\",\n  \"seekTo\": \"2021-10-01T10:22:02Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2b2465f6-bc26-4dd5-b1b2-06eb30506fc4",
+              "name": "You do not have sufficient permission to request seeks for this subscription",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "seekRequests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"seekTo\": \"2021-10-01T10:22:02Z\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5fc68c44-08a9-45f2-9c8a-8f2566e3c965",
+              "name": "The subscription does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "seekRequests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"seekTo\": \"2021-10-01T10:22:02Z\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "24901196-d9e6-46b6-8afc-07f68f5897f7",
+              "name": "The request could not be performed, as the timestamp is outside of the event retention period.\nThis is returned on a best-effort basis, so it is possible that a \"success\" response will be\nreturned but a few events will be missed.\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "seekRequests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"seekTo\": \"2021-10-01T10:22:02Z\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "07aba39e-4879-495f-a96c-b95765ba0e9f",
+      "name": "Event Consumption",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6de2676c-8248-43f9-bcad-b8df079db160",
+          "name": "create Event Pull",
+          "request": {
+            "name": "create Event Pull",
+            "description": {
+              "content": "Pull a batch of pending events for this subscription. Pulled events must be acknowledged promptly\nor else they will be redelivered in subsequent event pulls.\n<br/>\n<b>Retention</b>: Events have a retention period of <b>7 days</b>.\n<br/><br/>\nAuthorization\\: Requires a general access or scoped access token.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "eventPulls"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "subscriptionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"maxEvents\": \"<unsigned-int32>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2baba2f0-a18d-452d-b04b-42492a74b338",
+              "name": "The event pull request has been performed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "eventPulls"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"maxEvents\": \"20\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"eventPullId\": \"bd329b6c-f4d0-4606-b179-4dbbc69ecedf\",\n  \"maxEvents\": \"20\",\n  \"events\": [\n    {\n      \"eventHandle\": \"RVNEUAYWLF1GSFE3GQhoUQ5PXiM_NSAoRREICBQFfH1yQ1V1VTN1B1ENGXN6MnI7XkUBBRcFdF9RGx9ZXET_zPq2L1BdYndrWBUJAERSfFtYGQlqVHTo_4y_tfqXVG9WYpnKqf5lXv6uhbtZZiE9XxJLLD5-LTJFQV5AEkwmB0RJUytDCypYEU4EISE-MD4\",\n      \"coreProperties\": {\n        \"eventTimestamp\": \"2021-12-11T15:00:50.338Z\",\n        \"eventUniqueId\": \"4a42d30f-a13a-4034-90fd-7cb2679c0253\",\n        \"relatedRlRequestId\": \"ac871cfc-1f21-4a02-b81e-11a48eef0386\",\n        \"relatedSessionId\": \"1b305d40-7c28-4d2f-8e36-4726179d38b9\"\n      },\n      \"name\": \"session-established\",\n      \"payload\": {\n        \"userAgent\": \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36\"\n      }\n    },\n    {\n      \"eventHandle\": \"RVNEUAYWLF1GSFE3GQhoUQ5PXiM_NSAoRREICBQFfH1yQ1V1VTN1B1ENGXN6MnI7XkUBBRcFdF9RGx9ZXET_zPq2L1BdYndrWBUJAERSfFtYGQlqVHTo_4y_tfqXVG9WYpnKqf5lXv6uhbtZZiE9XxJLLD5-LTJFQV5AEkwmB0RJUytDCypYEU4EISE-MD4\",\n      \"coreProperties\": {\n        \"eventTimestamp\": \"2021-12-11T15:00:50.338Z\",\n        \"eventUniqueId\": \"4a42d30f-a13a-4034-90fd-7cb2679c0253\",\n        \"relatedRlRequestId\": \"ac871cfc-1f21-4a02-b81e-11a48eef0386\",\n        \"relatedSessionId\": \"1b305d40-7c28-4d2f-8e36-4726179d38b9\"\n      },\n      \"name\": \"session-established\",\n      \"payload\": {\n        \"userAgent\": \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "63f47df2-ce62-444b-88c0-cf1701ca4ca5",
+              "name": "You do not have sufficient permission to pull events from this subscription",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "eventPulls"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"maxEvents\": \"20\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4e9862c7-e8e6-4d38-8300-9b6002d90d9e",
+              "name": "The subscription does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "eventPulls"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"maxEvents\": \"20\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5aecc8d6-10e5-4ec1-a22d-26c18de18905",
+          "name": "create Event Acknowledgement",
+          "request": {
+            "name": "create Event Acknowledgement",
+            "description": {
+              "content": "Acknowledge a set of events to prevent them from being re-delivered\n<br/><br/>\nAuthorization\\: Requires a general access or scoped access token.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "eventAcknowledgements"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "subscriptionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"eventHandles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "083bf4b3-e3e7-4b30-a59a-3bb4de7fa723",
+              "name": "The events are acknowledged",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "eventAcknowledgements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"eventHandles\": [\n    \"RVNEUAYWLF1GSFE3GQhoUQ5PXiM_NSAoRREICBQFfH1yQ1V1VTN1B1ENGXN6MnI7XkUBBRcFdF9RGx9ZXET_zPq2L1BdYndrWBUJAERSfFtYGQlqVHTo_4y_tfqXVG9WYpnKqf5lXv6uhbtZZiE9XxJLLD5-LTJFQV5AEkwmB0RJUytDCypYEU4EISE-MD4\",\n    \"RVNEUAYWLF1GSFE3GQhoUQ5PXiM_NSAoRREICBQFfH1yQ1V1VTN1B1ENGXN6MnI7XkUBBRcFdF9RGx9ZXET_zPq2L1BdYndrWBUJAERSfFtYGQlqVHTo_4y_tfqXVG9WYpnKqf5lXv6uhbtZZiE9XxJLLD5-LTJFQV5AEkwmB0RJUytDCypYEU4EISE-MD4\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"eventHandles\": [\n    \"RVNEUAYWLF1GSFE3GQhoUQ5PXiM_NSAoRREICBQFfH1yQ1V1VTN1B1ENGXN6MnI7XkUBBRcFdF9RGx9ZXET_zPq2L1BdYndrWBUJAERSfFtYGQlqVHTo_4y_tfqXVG9WYpnKqf5lXv6uhbtZZiE9XxJLLD5-LTJFQV5AEkwmB0RJUytDCypYEU4EISE-MD4\",\n    \"RVNEUAYWLF1GSFE3GQhoUQ5PXiM_NSAoRREICBQFfH1yQ1V1VTN1B1ENGXN6MnI7XkUBBRcFdF9RGx9ZXET_zPq2L1BdYndrWBUJAERSfFtYGQlqVHTo_4y_tfqXVG9WYpnKqf5lXv6uhbtZZiE9XxJLLD5-LTJFQV5AEkwmB0RJUytDCypYEU4EISE-MD4\"\n  ],\n  \"eventAcknowledementId\": \"ae416a84-f5cc-49f5-8706-e0e2fa57c21c\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f47a3a38-d86e-46a9-88b4-9aea8d8d9e47",
+              "name": "You do not have sufficient permission to acknowledge events from this subscription",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "eventAcknowledgements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"eventHandles\": [\n    \"RVNEUAYWLF1GSFE3GQhoUQ5PXiM_NSAoRREICBQFfH1yQ1V1VTN1B1ENGXN6MnI7XkUBBRcFdF9RGx9ZXET_zPq2L1BdYndrWBUJAERSfFtYGQlqVHTo_4y_tfqXVG9WYpnKqf5lXv6uhbtZZiE9XxJLLD5-LTJFQV5AEkwmB0RJUytDCypYEU4EISE-MD4\",\n    \"RVNEUAYWLF1GSFE3GQhoUQ5PXiM_NSAoRREICBQFfH1yQ1V1VTN1B1ENGXN6MnI7XkUBBRcFdF9RGx9ZXET_zPq2L1BdYndrWBUJAERSfFtYGQlqVHTo_4y_tfqXVG9WYpnKqf5lXv6uhbtZZiE9XxJLLD5-LTJFQV5AEkwmB0RJUytDCypYEU4EISE-MD4\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ce938f36-df5b-44ec-ab2d-5cf01f48a158",
+              "name": "The subscription does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "eventAcknowledgements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"eventHandles\": [\n    \"RVNEUAYWLF1GSFE3GQhoUQ5PXiM_NSAoRREICBQFfH1yQ1V1VTN1B1ENGXN6MnI7XkUBBRcFdF9RGx9ZXET_zPq2L1BdYndrWBUJAERSfFtYGQlqVHTo_4y_tfqXVG9WYpnKqf5lXv6uhbtZZiE9XxJLLD5-LTJFQV5AEkwmB0RJUytDCypYEU4EISE-MD4\",\n    \"RVNEUAYWLF1GSFE3GQhoUQ5PXiM_NSAoRREICBQFfH1yQ1V1VTN1B1ENGXN6MnI7XkUBBRcFdF9RGx9ZXET_zPq2L1BdYndrWBUJAERSfFtYGQlqVHTo_4y_tfqXVG9WYpnKqf5lXv6uhbtZZiE9XxJLLD5-LTJFQV5AEkwmB0RJUytDCypYEU4EISE-MD4\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-sandbox.rocketlawyer.com/events/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "8d154416-c494-4c54-b010-af2093f74411",
+    "name": "Events API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This API documentation describes the server-side contract by which Rocket Lawyer Events can be subscribed to and events can be pulled using the Partner Events API.\n<br/><br/>\nSteps to pull events - \n1. Use POST /subscriptions API to create a subscription\n2. Use POST /subscriptions/{subscriptionId}/eventPulls API to pull events\n3. Use POST /subscriptions/{subscriptionId}/eventAcknowledgements to acknowledge the pulled events\n",
+      "type": "text/plain"
+    }
+  }
+}

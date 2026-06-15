@@ -1,0 +1,395 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "RocketDocument v2 API",
+    "version": "2.2"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Interviews",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Interviews",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.rocketlawyer.com/rocketdoc/v2/interviews",
+            "params": [
+              {
+                "name": "partnerEndUserId",
+                "value": "",
+                "type": "query",
+                "description": "The unique identifier of the partner's end user used to filter the list of interviews. If provided, only interviews associated with this end user will be returned.\n"
+              }
+            ]
+          },
+          "docs": "TThis endpoint retrieves a list of interviews in the requesting partner tenancy. You can optionally filter the results by `partnerEndUserId` to narrow the list to a specific end user. The response includes the interview names, IDs, templates used, current statuses, and storage types.\n"
+        },
+        {
+          "info": {
+            "name": "Create an Interview",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.rocketlawyer.com/rocketdoc/v2/interviews",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint allows you to create a new interview session.\n\n- Provide a reference to a Binder (`binderId`) or an owner email (`partyEmailAddress`).\n- If a `binderId` is provided, the new interview will be created within the context of this Binder.\n- If `binderId` isn't provided, a new binder will be created.\n- User-entered information will be stored by Rocket Lawyer.\n\n**Service Token**:\n- A service token is provided in the response header, scoped to the `partyId`.\n"
+        },
+        {
+          "info": {
+            "name": "Retrieve Interview by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.rocketlawyer.com/rocketdoc/v2/interviews/:interviewId",
+            "params": [
+              {
+                "name": "interviewId",
+                "value": "76105b3e-ac8a-4202-8ed2-b991a02b8456",
+                "type": "path",
+                "description": "The unique identifier of an interview."
+              }
+            ]
+          },
+          "docs": "Retrieves the details of an existing interview identified by the `interviewId`. This endpoint lets you fetch all the information related to a specific interview, including its status and associated data. This endpoint also enables you to resume a previously started interview.\n"
+        },
+        {
+          "info": {
+            "name": "Update an Interview",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api-sandbox.rocketlawyer.com/rocketdoc/v2/interviews/:interviewId",
+            "params": [
+              {
+                "name": "interviewId",
+                "value": "76105b3e-ac8a-4202-8ed2-b991a02b8456",
+                "type": "path",
+                "description": "The unique identifier of an interview."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint updates an existing Interview with data in the Tagged Answer Model (TAM) format. It's important to note that data previously entered for this interview will be lost.\n"
+        },
+        {
+          "info": {
+            "name": "Delete an Interview",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api-sandbox.rocketlawyer.com/rocketdoc/v2/interviews/:interviewId",
+            "params": [
+              {
+                "name": "interviewId",
+                "value": "76105b3e-ac8a-4202-8ed2-b991a02b8456",
+                "type": "path",
+                "description": "The unique identifier of an interview."
+              }
+            ]
+          },
+          "docs": "Deletes an existing interview resource identified by the `interviewId`. This operation permanently removes the interview and its associated data from the Rocket Lawyer system.\n"
+        },
+        {
+          "info": {
+            "name": "Complete an Interview",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.rocketlawyer.com/rocketdoc/v2/interviews/:interviewId/completions",
+            "params": [
+              {
+                "name": "interviewId",
+                "value": "76105b3e-ac8a-4202-8ed2-b991a02b8456",
+                "type": "path",
+                "description": "The unique identifier of an interview."
+              }
+            ]
+          },
+          "docs": "Completes the specified interview for which answers have been supplied. This operation finalizes the interview, ensuring that all provided answers are processed and saved and final document stored at the binder.\n"
+        },
+        {
+          "info": {
+            "name": "Retrieve a Page",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.rocketlawyer.com/rocketdoc/v2/interviews/:interviewId/pages/:pageId",
+            "params": [
+              {
+                "name": "interviewId",
+                "value": "76105b3e-ac8a-4202-8ed2-b991a02b8456",
+                "type": "path",
+                "description": "The unique identifier of an interview."
+              },
+              {
+                "name": "pageId",
+                "value": "Pkbbc224f2d2eb",
+                "type": "path",
+                "description": "Either a pageId or a pseudonym for a page. Enter one of the following options:\n- `pageId`: The unique identifier of the requested page.\n- `\"first\"`: Pseudonym for the first page of the Interview.\n- `\"last\"`: Pseudonym for the last answered page by the end user of the Interview.\n"
+              }
+            ]
+          },
+          "docs": "Retrieves a specific page of the interview identified by `interviewId` and `pageId`.\n\nFor this call, the default format for `currentPageData` is set to `display`, and the default preview format is `text/html`.\n\nIf you are on the first page of the interview, the previous page and the current page of the response object will be the same. Similarly, if you are on the last page of the interview, the current page and the next page will be the same.\n"
+        },
+        {
+          "info": {
+            "name": "Update an Interview Page's Answers",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api-sandbox.rocketlawyer.com/rocketdoc/v2/interviews/:interviewId/pages/:pageId",
+            "params": [
+              {
+                "name": "interviewId",
+                "value": "76105b3e-ac8a-4202-8ed2-b991a02b8456",
+                "type": "path",
+                "description": "The unique identifier of an interview."
+              },
+              {
+                "name": "pageId",
+                "value": "Pkaab440f2d2eb",
+                "type": "path",
+                "description": "Either a pageId or a pseudonym for a page. Enter one of the following options:\n- `pageId`: The unique identifier of the requested page.\n- `\"first\"`: Pseudonym for the first page of the Interview.\n- `\"last\"`: Pseudonym for the last answered page by the end user of the Interview.\n"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit the answers to the questions for a specific page of the interview, identified by `interviewId` and `pageId`.\n\nThis operation can also be used to retrieve the next or previous page preview, and/or get the updated preview of the current page. This is controlled by the `format` key in each page's respective data inside the request's body.\n\nIf you are on the first page of the interview, the previous page and the current page of the response object will be the same. Similarly, if you are on th"
+        },
+        {
+          "info": {
+            "name": "Retrieve Interview Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.rocketlawyer.com/rocketdoc/v2/interviews/:interviewId/tagged-answers",
+            "params": [
+              {
+                "name": "interviewId",
+                "value": "76105b3e-ac8a-4202-8ed2-b991a02b8456",
+                "type": "path",
+                "description": "The unique identifier of an interview."
+              }
+            ]
+          },
+          "docs": "Retrieves data from a interview in Tagged Answer Model (TAM) format.\n\nThis endpoint allows you to fetch structured data for the interview, which includes the tagged answers aligned with the TAM structure.\n"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Documents",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.rocketlawyer.com/rocketdoc/v2/documents/:documentId",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "documentId",
+                "value": "443b3b1e-584d-480a-a43a-7713f1d62633",
+                "type": "path",
+                "description": "The Document's unique identifier."
+              }
+            ]
+          },
+          "docs": "A document is the result of a completed interview. This endpoint allows you to retrieve a document from a interview in the format specified by the `Accept` header. This endpoint allows you to fetch the document in either HTML or PDF format, as specified in the request.\n"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Templates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Templates List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.rocketlawyer.com/rocketdoc/v2/templates",
+            "params": [
+              {
+                "name": "index",
+                "value": "virtual",
+                "type": "query",
+                "description": "Specifies the name of the index to filter search results. Use this parameter to perform searches against a specific index. Possible indexed lookups:\n- `virtual`: Lists all virtual templates exclusively. This is a list of all group parents.\n- `virtualAndUngrouped`: Lists all virtual templates (group parents) and ungrouped standard templates. This search does not contain standard templates that are associated with a virtual template.\n- `groupBy`: Use this index to show only templates grouped by the `templateId` in `lookupValue`. Note that if the templateId does not identify a virtual template, the resulting list will be empty.\n"
+              },
+              {
+                "name": "lookupValue",
+                "value": "",
+                "type": "query",
+                "description": "The value to search for within the specified index. This parameter works in conjunction with the `index` parameter to refine search results.\n⚠️ <small>Ignored if the `index` parameter is not present.</small> ⚠️\n"
+              },
+              {
+                "name": "cursor",
+                "value": "bfc84903-b4ea-46b0-b7cb-78157a979687\n",
+                "type": "query",
+                "description": "A pagination cursor used to retrieve the next set of results in a paginated response. Include the cursor value from the previous response to continue fetching results. This parameter is not required for the first search.\n⚠️ <small>Ignored if the `index` and `lookupValue` parameters are not present.</small> ⚠️\n"
+              },
+              {
+                "name": "pageSize",
+                "value": "25",
+                "type": "query",
+                "description": "Defines the number of results to return per page in a paginated response. Use this parameter to control the amount of data returned in each response.\nThe default value is `20`, with a maximum limit of `200`.\n⚠️ <small>Ignored if the `index` and `lookupValue` parameters are not present.</small> ⚠️\n"
+              },
+              {
+                "name": "reverse",
+                "value": "true",
+                "type": "query",
+                "description": "Determines the order of search results. When set to true, results are returned in reverse order. Use this parameter to reverse the sorting order of the search results. The default value is `false`.\n⚠️ <small>Ignored if the `index` and `lookupValue` parameters are not present.</small> ⚠️\n"
+              }
+            ]
+          },
+          "docs": "A template is a predefined document structure that serves as a blueprint for creating various legal documents. This endpoint allows you to retrieve the full list of available templates.\n"
+        },
+        {
+          "info": {
+            "name": "Retrieve a Template by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.rocketlawyer.com/rocketdoc/v2/templates/:templateId",
+            "params": [
+              {
+                "name": "templateId",
+                "value": "e3b7da14-a7ef-402d-a50d-50edd3015fa6",
+                "type": "path",
+                "description": "The unique identifier of a Template."
+              }
+            ]
+          },
+          "docs": "Retrieves a specific template identified by the `templateId`. The response includes detailed information such as the template's name, short and long descriptions, and URL references to its thumbnail and preview.\n"
+        },
+        {
+          "info": {
+            "name": "Retrieve a Template Preview",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.rocketlawyer.com/rocketdoc/v2/templates/:templateId/preview",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "templateId",
+                "value": "e3b7da14-a7ef-402d-a50d-50edd3015fa6",
+                "type": "path",
+                "description": "The unique identifier of a Template."
+              },
+              {
+                "name": "brandId",
+                "value": "cde1d5c7-ba7e-46bf-8ac3-78ea2ec3f5e4",
+                "type": "query",
+                "description": "The unique identifier of the brand."
+              }
+            ]
+          },
+          "docs": "Retrieves a preview of the specified template identified by the `templateId`. The response provides a visual representation of the template in HTML format."
+        },
+        {
+          "info": {
+            "name": "Retrieve a Template Thumbnail",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.rocketlawyer.com/rocketdoc/v2/templates/:templateId/thumbnail",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "templateId",
+                "value": "e3b7da14-a7ef-402d-a50d-50edd3015fa6",
+                "type": "path",
+                "description": "The unique identifier of a Template."
+              },
+              {
+                "name": "brandId",
+                "value": "cde1d5c7-ba7e-46bf-8ac3-78ea2ec3f5e4",
+                "type": "query",
+                "description": "The unique identifier of the brand."
+              }
+            ]
+          },
+          "docs": "Retrieves the thumbnail image of the specified template identified by the `templateId`. The response provides a visual representation of the template in PNG format."
+        },
+        {
+          "info": {
+            "name": "Retrieve Tagged Answer Model for a Template",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.rocketlawyer.com/rocketdoc/v2/templates/:templateId/tagged-answer-model",
+            "params": [
+              {
+                "name": "templateId",
+                "value": "e3b7da14-a7ef-402d-a50d-50edd3015fa6",
+                "type": "path",
+                "description": "The unique identifier of a Template."
+              }
+            ]
+          },
+          "docs": "Retrieves the Tagged Answer Model (TAM) for the specified template identified by the `templateId`. The TAM provides a structured format for injecting data into an interview or retrieving data from an interview."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

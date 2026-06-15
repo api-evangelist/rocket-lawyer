@@ -1,0 +1,149 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Events API",
+    "version": "1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Subscription Management",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "createSubscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.rocketlawyer.com/events/v1/subscriptions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a subscription. <br/><br/>\n<b>Note</b>: If your application already has a subscription it will be returned instead of creating a new one.\n<br/>\n<b>Subscription Expiration</b>: If there is no interaction with the subscription over the period of 31 days, \nit will be automatically deleted.\n<br/><br/>\nAuthorization\\: Requires a general access token.\n"
+        },
+        {
+          "info": {
+            "name": "getSubscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.rocketlawyer.com/events/v1/subscriptions/:subscriptionId",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a subscription. This can be used to confirm that a subscription exists.\n<br/>\n<b>Subscription Expiration</b>: If there is no interaction with the subscription over the period of 31 days, \nit will be automatically deleted.\n<br/><br/>\nAuthorization\\: Requires a general access or scoped access token.\n"
+        },
+        {
+          "info": {
+            "name": "deleteSubscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api-sandbox.rocketlawyer.com/events/v1/subscriptions/:subscriptionId",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a subscription. This will cause the acknowledgement state of all events to be\nforgotten. If you wish to \"undo\" a deletion, you may create a new subscription and\nperform a seek request to just before the time of deletion, though you must be\nprepared to handle a few duplicate events.\n<br/><br/>\nAuthorization\\: Requires a general access or scoped access token.\n"
+        },
+        {
+          "info": {
+            "name": "createSubscriptionSeekRequest",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.rocketlawyer.com/events/v1/subscriptions/:subscriptionId/seekRequests",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Move a subscription to a specified time. If the specified time is in the past and within\nthe event retention timeframe (7 days), already-acknowledged events may be replayed. It is also\npossible to use this operation to \"skip\" events by seeking to a time that is _after_ some number of\nnon-acknowledged events.\n<br/><br/>\nAuthorization\\: Requires a general access or scoped access token.\n"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Event Consumption",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "createEventPull",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.rocketlawyer.com/events/v1/subscriptions/:subscriptionId/eventPulls",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Pull a batch of pending events for this subscription. Pulled events must be acknowledged promptly\nor else they will be redelivered in subsequent event pulls.\n<br/>\n<b>Retention</b>: Events have a retention period of <b>7 days</b>.\n<br/><br/>\nAuthorization\\: Requires a general access or scoped access token.\n"
+        },
+        {
+          "info": {
+            "name": "createEventAcknowledgement",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.rocketlawyer.com/events/v1/subscriptions/:subscriptionId/eventAcknowledgements",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Acknowledge a set of events to prevent them from being re-delivered\n<br/><br/>\nAuthorization\\: Requires a general access or scoped access token.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
