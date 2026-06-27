@@ -160,7 +160,7 @@ common:
   url: https://developer.rocketlawyer.com/rocketdocument-v2-release-notes
 - type: Glossary
   url: https://developer.rocketlawyer.com/glossary
-- type: SignUp
+- type: Signup
   url: https://developer.rocketlawyer.com/accounts/create
 - type: Login
   url: https://developer.rocketlawyer.com/accounts/login

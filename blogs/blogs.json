@@ -1,21 +1,9 @@
 {
   "repo": "rocket-lawyer",
   "feeds": [
-    {
-      "source": "https://www.rocketlawyer.com/blog",
-      "feed_url": "https://www.rocketlawyer.com/blog",
-      "title": "",
-      "saved": 0,
-      "method": "none"
-    },
-    {
-      "source": "https://www.rocketlawyer.com/about-us/careers",
-      "feed_url": "https://www.rocketlawyer.com/about-us/careers",
-      "title": "",
-      "saved": 0,
-      "method": "none"
-    }
+    {"source": "https://www.rocketlawyer.com/blog", "feed_url": "", "saved": 0, "method": "agent-scrape"}
   ],
   "post_count": 0,
-  "fetched": "2026-06-14T20:42:17Z"
+  "fetched": "2026-06-27T13:06:42Z",
+  "agent_pulled": "2026-06-27"
 }
