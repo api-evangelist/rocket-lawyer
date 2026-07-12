@@ -1,0 +1,16 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/rocket-lawyer-authentication-api-openapi.yml, openapi/rocket-lawyer-events-api-openapi.yml,
+  openapi/rocket-lawyer-rocketdocument-api-openapi.yml, openapi/rocket-lawyer-rocketsign-binders-api-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: BearerTokenAuth
+  type: http
+  scheme: bearer
+  sources:
+  - openapi/rocket-lawyer-authentication-api-openapi.yml
+  - openapi/rocket-lawyer-events-api-openapi.yml
+  - openapi/rocket-lawyer-rocketdocument-api-openapi.yml
+  - openapi/rocket-lawyer-rocketsign-binders-api-openapi.yml

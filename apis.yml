@@ -137,6 +137,12 @@ position: Provider
 access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 common:
+- type: VulnerabilityDisclosure
+  url: security/rocket-lawyer-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/rocket-lawyer-domain-security.yml
+- type: Authentication
+  url: authentication/rocket-lawyer-authentication.yml
 - type: Website
   url: https://www.rocketlawyer.com
 - type: Portal
