@@ -1,0 +1,143 @@
+openapi: 3.0.0
+info:
+  title: Authentication Accesstoken API
+  version: 1.0.0
+  description: "This API documentation describes the authentication mechanisms that enable access to the Rocket Lawyer’s APIs. The Rocket Lawyer API Platform uses Oauth 2.0 access tokens (as per [RFC 6750](https://datatracker.ietf.org/doc/html/rfc6750)) to authenticate API requests and protect your resources. \n\nThis page provides a comprehensive overview of the three types of tokens — Access Tokens, Service Tokens, and Scoped Access Tokens — along with guidance on using these tokens effectively during interactions with Rocket Lawyer’s APIs.\n\nGuides that provide step-by-step instructions for how to authenticate using the Rocket Lawyer embeddable UXs can be viewed in the [Guides section](/guides)). \n\nExplore the different authentication tokens and their usage within Rocket Lawyer's API ecosystem using  the sections below:\n\n# Access Token\n\nAccess Tokens are used whenever backend systems need to interact with Rocket Lawyer's APIs. Calls made with these tokens can access the data for all of your customers associated with the App you created in the developer center. Example usage is to start new interviews or retrieve all documents and binders.\n\nTo create an Access Token, issue a POST to /auth/accesstoken using valid credentials, these can be obtained from the [RocketLawyer Developer Portal](https://developer.rocketlawyer.com/) - see the [Welcome Guide](/welcome-guide)) for how to obtain these.\n\nThen include the Access Token as a bearer token in the Authorization header of your API requests to access our API resources.\n\nThis token can be used to start a new interview and retrieve the necessary document templates, establishing a secure foundation for the session.\n\nAccess Tokens expire after 10 hours. During this time, you should securely store this token in your backend for use in future requests. Creating a new access token does not invalidate any previously generated access tokens, your app can have more than one valid access token at a time.\n\n# Service Token\n\nService Tokens are a means for one application to delegate authority to API resources to less privileged applications. Typically a backend application will generate a service token to be distributed to a frontend application, to securely access a specific API resource. Service Tokens are generated with parameters like the purpose, interview ID, and Unique Party Identifier (UPID) that describe the scope of access that can be granted to the frontend application.\n\nGenerate a Service Token by sending a request to the Authentication endpoint with the necessary parameters. \n\nThe Service Token can then be passed to your frontend to be used in an Embedded UX component or to enable your frontend to access the Rocket Lawyer APIs through the creation of a scoped access token. This token has a 1-year expiration time.\n\n\n# Scoped Access Token\n\nA Scoped Access Token is typically used to authenticate frontend interactions. You need to create these tokens only if calling the Rocket Lawyer APIs from your front-end, for example if building your own UX. If using the embedded UX then these tokens are created and handled within the component.\n\nScoped Access Tokens grant access to specific resources, such as an interview (identified by interviewId) or linked to a particular party (identified by a UPID). \n\nTo obtain a Scoped Access Token, you must first generate a Service Token that specifies the resources that can be accessed. To create a scoped access token you need to create a new Developer app in the [RocketLawyer Developer Portal](https://developer.rocketlawyer.com/) that has front-end only scope. Contact Rocket Lawyer developer support (api@rocketlawyer.com) who will help provide this. The key and secret from this front-end app should be used to create the scoped access token. \n\nYou should include this token in the Authorization header of your frontend API requests.\n\n# Application Scope  \nDeveloper apps can be created with either backend or frontend access scope. Apps with backend scope are used for server-to-server communication and can access all our APIs. Apps with frontend scope are used by a web frontend to access our APIs and are restricted in the calls they can make to support the UX. If building your own UX, you will need an app with frontend scope.\n\n**Note** You must not use a Developer App that has backend access to authenticate into Rocket Lawyer APIs from your front-end. This will expose your backend credentials that have access to all your customers' data in the browser.\n"
+  termsOfService: https://rocketlawyer-public-us.apigee.io/terms
+servers:
+- url: https://api-sandbox.rocketlawyer.com/partners/v1/auth
+  description: Sandbox
+- url: https://api.rocketlawyer.com/partners/v1/auth
+  description: Production
+tags:
+- name: Accesstoken
+paths:
+  /accesstoken:
+    post:
+      summary: Access Token Creation
+      description: Request the creation of an Access Token, whether or not it be associated with a Service Token. Requires passing credentials (App Key and Secret) in posted request body. For plain Access Tokens, grant type must be `client_credentials`. For Access Tokens associated with a Service Token, grant type must be `authorization_code` with Service Token passed in a request body field named `code`.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccessTokenRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessTokenResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  fault:
+                    faultstring: Invalid Client Credentials
+                    detail:
+                      errorcode: Unauthorized
+        '400':
+          description: 'Bad Request. Possible reasons are:
+
+            - Missing or invalid grant_type
+
+            - Missing or invalid code
+
+            '
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  fault:
+                    faultstring: Missing or invalid grant_type
+                    detail:
+                      errorcode: Bad Request
+      tags:
+      - Accesstoken
+components:
+  schemas:
+    AccessTokenRequest:
+      required:
+      - client_id
+      - client_secret
+      - grant_type
+      properties:
+        client_id:
+          type: string
+          title: Application Key
+          description: API Key for your App in the developer portal
+        client_secret:
+          type: string
+          title: Application secret
+          description: API Secret for your App in the developer portal
+        grant_type:
+          type: string
+          enum:
+          - client_credentials
+          - authorization_code
+          title: Value is client_credentials or authorization_code
+          description: '#### Possible values:
+
+            - client_credentials : used to get an Access Token
+
+            - authorization_code : used to get an Access Token associated with Service Token passed in "code" field.
+
+            '
+        code:
+          type: string
+          title: Service Token
+          example: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJyb2NrZXRsYXd5ZXIuY29tIiwiYXVkIjoicm9ja2V0bGF3eWVyLmNvbS9zZXJ2aWNlLXRva2VucyIsImV4cCI6MTY3MTc3NjU0MiwiaWF0IjoxNjMzOTcxNjg0LCJzcnYiOnsib3JpZ2luYWxUZW5hbnRJZCI6IjZiYmRkYzJjLTljN2MtNGVhZC05Y2E5LWJkYTRmZDc4YWNjNSIsImV4cGlyYXRpb25UaW1lIjoxNjcxNzc2NTQyLCJwYXJ0bmVySWQiOiIwZDc5MGY5ZC03ZmY5LTRiYzItODU3Ny0yNTVlYWY0NTk0YzAiLCJvcmlnaW5hbENsaWVudElkIjoiN2ZiOWMwMDMtYjc3Ny00MGM2LWFkZTAtYWM5NDVjOWQ3MTBiIiwicHVycG9zZSI6ImFwaS5yb2NrZXRsYXd5ZXIuY29tL2RlbW8vdGhpbmdzIiwiYnJhbmRJZCI6IjVkZWQwYWNiLTJjZDItNDA1Zi05NTY4LTk5NmU0ODBmZjQ2NiIsIm93bmVyIjoidXNlcjEifX0.<content redacted>
+          description: Service Token obtained from /servicetoken endpoint
+      example:
+        client_id: your-App-key
+        client_secret: your-App-secret
+        grant_type: client_credentials
+    AccessTokenResponse:
+      properties:
+        organization_name:
+          type: string
+          title: Organization Name
+          example: rocketlawyer-internal
+        developer.email:
+          type: string
+          title: Developer Email Address
+          example: pdu-test-automation@rocketlawyer.com
+        issued_at:
+          type: string
+          title: Issue timestamp in millis
+          example: '1633969487428'
+        client_id:
+          type: string
+          title: Apigee App Key (echoes request Client ID)
+          example: your-apigee-app-key
+        token_type:
+          type: string
+          title: Token Type
+          example: BearerToken
+        access_token:
+          type: string
+          title: Access Token
+          example: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJyb2NrZXRsYXd5ZXIuY29tIiwiYXVkIjoicm9ja2V0bGF3eWVyLmNvbS9hY2Nlc3MtdG9rZW5zIiwiZXhwIjoxNjM0MDA3Njg1LCJpYXQiOjE2MzM5NzE2ODUsInJsX2FwaV9jbGllbnRfaWQiOiI3ZmI5YzAwMy1iNzc3LTQwYzYtYWRlMC1hYzk0NWM5ZDcxMGIiLCJybF91c2VyX2lkIjpudWxsLCJzcnYiOnsib3JpZ2luYWxUZW5hbnRJZCI6IjZiYmRkYzJjLTljN2MtNGVhZC05Y2E5LWJkYTRmZDc4YWNjNSIsImV4cGlyYXRpb25UaW1lIjoxNjcxNzc2NTQyLCJwYXJ0bmVySWQiOiIwZDc5MGY5ZC03ZmY5LTRiYzItODU3Ny0yNTVlYWY0NTk0YzAiLCJvcmlnaW5hbENsaWVudElkIjoiN2ZiOWMwMDMtYjc3Ny00MGM2LWFkZTAtYWM5NDVjOWQ3MTBiIiwicHVycG9zZSI6ImFwaS5yb2NrZXRsYXd5ZXIuY29tL2RlbW8vdGhpbmdzIiwiYnJhbmRJZCI6IjVkZWQwYWNiLTJjZDItNDA1Zi05NTY4LTk5NmU0ODBmZjQ2NiIsIm93bmVyIjoidXNlcjEifSwiY2kiOm51bGx9.<content redacted>
+        application_name:
+          type: string
+          title: Appigee Application ID
+          example: 4e8dc68b-cc3c-4ffc-aab3-f76f817ad321
+        expires_in:
+          type: string
+          title: Number of seconds
+          example: '35998'
+        api_product_list:
+          type: array
+          title: Api Products that application can access
+          example:
+          - rocketdoc-api-product-sandbox
+          - partner-auth-service-product-sandbox
+          - binders-product-document-manager-sandbox
+  securitySchemes:
+    BearerTokenAuth:
+      type: http
+      scheme: bearer

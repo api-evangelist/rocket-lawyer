@@ -1,0 +1,521 @@
+openapi: 3.0.0
+info:
+  title: Authentication Accesstoken Templates API
+  version: 1.0.0
+  description: "This API documentation describes the authentication mechanisms that enable access to the Rocket Lawyer’s APIs. The Rocket Lawyer API Platform uses Oauth 2.0 access tokens (as per [RFC 6750](https://datatracker.ietf.org/doc/html/rfc6750)) to authenticate API requests and protect your resources. \n\nThis page provides a comprehensive overview of the three types of tokens — Access Tokens, Service Tokens, and Scoped Access Tokens — along with guidance on using these tokens effectively during interactions with Rocket Lawyer’s APIs.\n\nGuides that provide step-by-step instructions for how to authenticate using the Rocket Lawyer embeddable UXs can be viewed in the [Guides section](/guides)). \n\nExplore the different authentication tokens and their usage within Rocket Lawyer's API ecosystem using  the sections below:\n\n# Access Token\n\nAccess Tokens are used whenever backend systems need to interact with Rocket Lawyer's APIs. Calls made with these tokens can access the data for all of your customers associated with the App you created in the developer center. Example usage is to start new interviews or retrieve all documents and binders.\n\nTo create an Access Token, issue a POST to /auth/accesstoken using valid credentials, these can be obtained from the [RocketLawyer Developer Portal](https://developer.rocketlawyer.com/) - see the [Welcome Guide](/welcome-guide)) for how to obtain these.\n\nThen include the Access Token as a bearer token in the Authorization header of your API requests to access our API resources.\n\nThis token can be used to start a new interview and retrieve the necessary document templates, establishing a secure foundation for the session.\n\nAccess Tokens expire after 10 hours. During this time, you should securely store this token in your backend for use in future requests. Creating a new access token does not invalidate any previously generated access tokens, your app can have more than one valid access token at a time.\n\n# Service Token\n\nService Tokens are a means for one application to delegate authority to API resources to less privileged applications. Typically a backend application will generate a service token to be distributed to a frontend application, to securely access a specific API resource. Service Tokens are generated with parameters like the purpose, interview ID, and Unique Party Identifier (UPID) that describe the scope of access that can be granted to the frontend application.\n\nGenerate a Service Token by sending a request to the Authentication endpoint with the necessary parameters. \n\nThe Service Token can then be passed to your frontend to be used in an Embedded UX component or to enable your frontend to access the Rocket Lawyer APIs through the creation of a scoped access token. This token has a 1-year expiration time.\n\n\n# Scoped Access Token\n\nA Scoped Access Token is typically used to authenticate frontend interactions. You need to create these tokens only if calling the Rocket Lawyer APIs from your front-end, for example if building your own UX. If using the embedded UX then these tokens are created and handled within the component.\n\nScoped Access Tokens grant access to specific resources, such as an interview (identified by interviewId) or linked to a particular party (identified by a UPID). \n\nTo obtain a Scoped Access Token, you must first generate a Service Token that specifies the resources that can be accessed. To create a scoped access token you need to create a new Developer app in the [RocketLawyer Developer Portal](https://developer.rocketlawyer.com/) that has front-end only scope. Contact Rocket Lawyer developer support (api@rocketlawyer.com) who will help provide this. The key and secret from this front-end app should be used to create the scoped access token. \n\nYou should include this token in the Authorization header of your frontend API requests.\n\n# Application Scope  \nDeveloper apps can be created with either backend or frontend access scope. Apps with backend scope are used for server-to-server communication and can access all our APIs. Apps with frontend scope are used by a web frontend to access our APIs and are restricted in the calls they can make to support the UX. If building your own UX, you will need an app with frontend scope.\n\n**Note** You must not use a Developer App that has backend access to authenticate into Rocket Lawyer APIs from your front-end. This will expose your backend credentials that have access to all your customers' data in the browser.\n"
+  termsOfService: https://rocketlawyer-public-us.apigee.io/terms
+servers:
+- url: https://api-sandbox.rocketlawyer.com/partners/v1/auth
+  description: Sandbox
+- url: https://api.rocketlawyer.com/partners/v1/auth
+  description: Production
+tags:
+- name: Templates
+paths:
+  /templates:
+    get:
+      tags:
+      - Templates
+      summary: Get Templates List
+      description: 'A template is a predefined document structure that serves as a blueprint for creating various legal documents. This endpoint allows you to retrieve the full list of available templates.
+
+        '
+      operationId: get-templates-list
+      parameters:
+      - $ref: '#/components/parameters/templateQueryIndex'
+      - $ref: '#/components/parameters/lookupValueQuery'
+      - $ref: '#/components/parameters/cursorQuery'
+      - $ref: '#/components/parameters/pageSizeQuery'
+      - $ref: '#/components/parameters/reverseQuery'
+      responses:
+        '200':
+          description: Successfully returns a list of templates.
+          headers:
+            cursor:
+              schema:
+                type: string
+              description: The cursor used to fetch the next page of results in a paginated response. Include this cursor value in the next request to retrieve the subsequent set of templates.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/templatesGetResponse'
+              examples:
+                GetAllVirtualTemplates:
+                  summary: Get a list of virtual templates.
+                  value:
+                  - templateName: Power of Attorney
+                    shortDescription: '...'
+                    longDescription: '...'
+                    thumbnailRef: ''
+                    previewRef: ''
+                    templateId: BC006A4D-B5C0-402F-81BD-954D686924A5
+                    medianMinutesToComplete: '20'
+                    type: virtual
+                  - templateName: Advance Directive
+                    shortDescription: '...'
+                    longDescription: '...'
+                    thumbnailRef: ''
+                    previewRef: ''
+                    templateId: 093AC3FF-26B7-4417-8C99-09EFDE8184CD
+                    medianMinutesToComplete: '20'
+                    type: virtual
+                GetAllUngroupedAndVirtualTemplates:
+                  summary: Get a list of ungrouped and virtual templates.
+                  value:
+                  - templateName: Power of Attorney
+                    shortDescription: '...'
+                    longDescription: '...'
+                    thumbnailRef: ''
+                    previewRef: ''
+                    templateId: BC006A4D-B5C0-402F-81BD-954D686924A5
+                    medianMinutesToComplete: '20'
+                    type: virtual
+                  - templateName: Advance Directive
+                    shortDescription: '...'
+                    longDescription: '...'
+                    thumbnailRef: ''
+                    previewRef: ''
+                    templateId: 093AC3FF-26B7-4417-8C99-09EFDE8184CD
+                    medianMinutesToComplete: '20'
+                    type: virtual
+                  - templateName: Accounting Contract
+                    shortDescription: Hire an accountant professional
+                    longDescription: An Accounting Contract enables ...
+                    thumbnailRef: '...'
+                    previewRef: '...'
+                    templateId: 25285311-89bd-4cea-8800-7b9ce0192428
+                    medianMinutesToComplete: '20'
+                    type: standard
+                  - templateName: Affidavit
+                    shortDescription: Make a sworn statement to use in any state
+                    longDescription: An Affidavit is simply a written, notarized sworn ...
+                    thumbnailRef: '...'
+                    previewRef: '...'
+                    templateId: 66ea0ae0-32d9-43d7-8e51-b6d2280fafa1
+                    medianMinutesToComplete: '20'
+                    type: standard
+                GetVirtualGroupedTemplates:
+                  summary: Get a list of grouped templates.
+                  value:
+                  - templateName: California Power of Attorney
+                    shortDescription: '...'
+                    longDescription: '...'
+                    thumbnailRef: '...'
+                    previewRef: '...'
+                    templateId: b82a1961-87a0-4cf8-9db9-7d26f09fc590
+                    medianMinutesToComplete: '20'
+                    type: standard
+                    memberAlias: California
+                    memberOf:
+                    - BC006A4D-B5C0-402F-81BD-954D686924A5
+                  - templateName: Colorado Power of Attorney
+                    shortDescription: '...'
+                    longDescription: '...'
+                    thumbnailRef: '...'
+                    previewRef: '...'
+                    templateId: cc325f21-3aa2-4f35-8688-287afba21772
+                    medianMinutesToComplete: '20'
+                    type: standard
+                    memberAlias: Colorado
+                    memberOf:
+                    - BC006A4D-B5C0-402F-81BD-954D686924A5
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+      deprecated: false
+  /templates/{templateId}:
+    get:
+      tags:
+      - Templates
+      summary: Retrieve a Template by ID
+      description: 'Retrieves a specific template identified by the `templateId`. The response includes detailed information such as the template''s name, short and long descriptions, and URL references to its thumbnail and preview.
+
+        '
+      operationId: get-template
+      parameters:
+      - $ref: '#/components/parameters/templateIdPath'
+        description: The unique identifier of the template to be retrieved.
+      responses:
+        '200':
+          description: Successfully returns the requested template.
+          headers:
+            Cache-Control:
+              schema:
+                type: string
+              description: Directives for caching Template objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/templateGetResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+      deprecated: false
+  /templates/{templateId}/preview:
+    get:
+      tags:
+      - Templates
+      summary: Retrieve a Template Preview
+      description: Retrieves a preview of the specified template identified by the `templateId`. The response provides a visual representation of the template in HTML format.
+      operationId: get-template-preview
+      parameters:
+      - $ref: '#/components/parameters/templateIdPath'
+        description: The unique identifier of the template to be retrieved.
+      - $ref: '#/components/parameters/brandIdQuery'
+      - name: Accept
+        in: header
+        required: false
+        description: Specifies the format of the preview response. Currently, only `text/html` is supported.
+        schema:
+          enum:
+          - text/html
+          default: text/html
+          type: string
+      responses:
+        '200':
+          description: Successfully returns the template preview in the specified format.
+          headers:
+            Cache-Control:
+              schema:
+                type: string
+              description: Directives for caching Template previews.
+          content:
+            text/html:
+              schema:
+                type: string
+                example: "<html>\n  <body>\n    <b>Example</b>\n  </body>\n</html>\n"
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+      deprecated: false
+  /templates/{templateId}/thumbnail:
+    get:
+      tags:
+      - Templates
+      summary: Retrieve a Template Thumbnail
+      description: Retrieves the thumbnail image of the specified template identified by the `templateId`. The response provides a visual representation of the template in PNG format.
+      operationId: get-template-thumbnail
+      parameters:
+      - $ref: '#/components/parameters/templateIdPath'
+        description: The unique identifier of the template to be retrieved.
+      - $ref: '#/components/parameters/brandIdQuery'
+      - name: Accept
+        in: header
+        required: false
+        description: Specifies the format of the thumbnail response. Currently, only `image/png` is supported.
+        schema:
+          enum:
+          - image/png
+          default: image/png
+          type: string
+      responses:
+        '200':
+          description: Successfully returns the template thumbnail in the specified format.
+          headers:
+            Cache-Control:
+              schema:
+                type: string
+              description: Directives for caching Template thumbnail images.
+          content:
+            image/png:
+              schema:
+                type: string
+                example: image
+                format: binary
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+      deprecated: false
+  /templates/{templateId}/tagged-answer-model:
+    get:
+      tags:
+      - Templates
+      summary: Retrieve Tagged Answer Model for a Template
+      description: Retrieves the Tagged Answer Model (TAM) for the specified template identified by the `templateId`. The TAM provides a structured format for injecting data into an interview or retrieving data from an interview.
+      operationId: get-template-tam
+      parameters:
+      - $ref: '#/components/parameters/templateIdPath'
+      responses:
+        '200':
+          description: Successfully returns the Tagged Answer Model (TAM) for the specified template.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/tam'
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+      deprecated: false
+components:
+  schemas:
+    tamEntityClass:
+      description: The classification of the field within the entity. This defines the type or category of the field, aligning with the entity's role and characteristics.
+      type: string
+      example: Entity Type
+    tamField:
+      type: object
+      description: Each field corresponds to a data point in the interview, allowing for the collection and retrieval of user-entered information. These fields are pre-filled with initial data and align with the template's structure, facilitating a customized and relevant interview process.
+      properties:
+        entity:
+          description: This entity correlates with an object in the entities array, linking the field to a specific entity involved in the interview. The entity helps to contextualize the field within the broader interview structure.
+          type: string
+        fieldClass:
+          $ref: '#/components/schemas/tamEntityClass'
+        type:
+          $ref: '#/components/schemas/fieldType'
+        value:
+          type: string
+          description: The actual value of the field. This is the data entered by the user or provided initially, corresponding to the field's type and purpose within the interview.
+        cycleId:
+          description: "Id of the cycle. Not present if not cyclical. Cycle Ids can be of any type \nbut numerical is most intuitive and most predictable for sorting.\n"
+          type: string
+      required:
+      - entity
+      - fieldClass
+      - type
+      - value
+    tam:
+      description: 'The Tagged Answer Model (TAM) represents the structured format for injecting data into an interview or retrieving data from an interview. This model maps the input data to the corresponding fields and entities within the document template.
+
+        '
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the template being used for the interview.
+          example: Employment contract
+        templateId:
+          $ref: '#/components/schemas/templateId'
+        entities:
+          type: array
+          items:
+            $ref: '#/components/schemas/tamEntity'
+        fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/tamField'
+      required:
+      - name
+      - entities
+      - fields
+    templateGetResponse:
+      allOf:
+      - $ref: '#/components/schemas/template'
+    tamRole:
+      description: A list of roles that the entity plays within the interview context. Roles define the specific function or position of the entity in the interview, such as 'Applicant' or 'Employer'.
+      type: string
+      example: Applicant
+    templatesGetResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/template'
+    tamEntityName:
+      description: The name of the entity. This could be the name of a person, organization, or property involved in the interview.
+      type: string
+      example: Formed Entity
+    fieldType:
+      description: Metadata type suggesting what this field should contain and loosely describing how a UI might display it for user interaction. The field type provides hints on the nature of the data and the appropriate form input controls to use.
+      type: object
+      enum:
+      - TEXT
+      - PARAGRAPH
+      - DATE
+      - DROPDOWN
+      - NUMBER
+      - CURRENCY
+      - PERCENTAGE
+      - SSN
+      - RADIO
+      - CHECKBOX
+      - PHONE_NUMBER
+      - PHONE_EXT
+    template:
+      type: object
+      properties:
+        templateId:
+          $ref: '#/components/schemas/templateId'
+        templateName:
+          type: string
+          description: The name of the interview template. This name typically reflects the purpose of the template, such as "Employment contract."
+          example: Employment contract
+        shortDescription:
+          type: string
+          description: A brief summary of the document template. This description provides a quick overview of the template's purpose and content.
+          example: A contract for employment.
+        longDescription:
+          type: string
+          description: A detailed description of the document template. This description offers an in-depth explanation of the template's contents, including any specific options or considerations.
+          example: A contract for employment with options for employer & employee.
+        medianMinutesToComplete:
+          type: integer
+          description: This is the median time expressed in minutes that takes to complete the entire Interview based on this Template.
+          example: 10
+        type:
+          type: string
+          enum:
+          - standard
+          - virtual
+          example: standard
+        memberOf:
+          type: array
+          description: This will be present if the Template (standard) has been grouped into one (1) or several virtual Templates. <small>(optional)</small>
+          items:
+            type: string
+          example:
+          - 5e281c0e-c7fc-4b32-85d9-d2c9c59c8aa5
+          - 4b120b4d-b6fc-4b32-85d9-a1c9c59c8aa4
+        thumbnailRef:
+          type: string
+          description: A URI to the thumbnail image representing the template. This thumbnail provides a visual representation of the template.
+          example: https://api-sandbox.rocketlawyer.com/rocketdoc/v2/templates/0bf17ad8-a229-1289-ef4a-00b7c9ad9cab/thumbnail
+        previewRef:
+          type: string
+          description: A URI to a preview of the template. This preview allows users to see a detailed view of the template before selecting or using it.
+          example: https://api-sandbox.rocketlawyer.com/rocketdoc/v2/templates/0bf17ad8-a229-1289-ef4a-00b7c9ad9cab/preview
+      required:
+      - templateId
+      - templateName
+      - shortDescription
+      - longDescription
+      - thumbnailRef
+      - previewRef
+    templateId:
+      description: The unique identifier of the document template to be used for the interview. This template defines the structure and content of the interview. Retrieve a list of available templates with the [Get Templates](/get-templates) endpoint.
+      type: string
+      example: 0bf17ad8-a229-1289-ef4a-00b7c9ad9cab
+    tamEntity:
+      type: object
+      description: Represents an entity involved in the interview process. Entities can be individuals, organizations, or properties, each playing specific roles within the context of the interview.
+      properties:
+        name:
+          $ref: '#/components/schemas/tamEntityName'
+        class:
+          $ref: '#/components/schemas/tamClass'
+        roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/tamRole'
+        isCyclical:
+          type: string
+          enum:
+          - true
+          - false
+          default: false
+          description: True if this Entity is cyclical. Not present or false if not.
+      required:
+      - name
+      - class
+      - roles
+    tamClass:
+      type: string
+      description: 'The classification of the entity. Can be either:
+
+        - `Person`
+
+        - `Organization`
+
+        - `Property`
+
+        '
+      enum:
+      - Person
+      - Organization
+      - Property
+      example: Person
+  parameters:
+    reverseQuery:
+      name: reverse
+      in: query
+      description: 'Determines the order of search results. When set to true, results are returned in reverse order. Use this parameter to reverse the sorting order of the search results. The default value is `false`.
+
+        ⚠️ <small>Ignored if the `index` and `lookupValue` parameters are not present.</small> ⚠️
+
+        '
+      schema:
+        type: boolean
+      example: true
+      required: false
+    templateIdPath:
+      name: templateId
+      in: path
+      description: The unique identifier of a Template.
+      required: true
+      schema:
+        type: string
+      example: e3b7da14-a7ef-402d-a50d-50edd3015fa6
+    cursorQuery:
+      name: cursor
+      in: query
+      description: 'A pagination cursor used to retrieve the next set of results in a paginated response. Include the cursor value from the previous response to continue fetching results. This parameter is not required for the first search.
+
+        ⚠️ <small>Ignored if the `index` and `lookupValue` parameters are not present.</small> ⚠️
+
+        '
+      schema:
+        type: string
+      example: 'bfc84903-b4ea-46b0-b7cb-78157a979687
+
+        '
+      required: false
+    pageSizeQuery:
+      name: pageSize
+      in: query
+      description: 'Defines the number of results to return per page in a paginated response. Use this parameter to control the amount of data returned in each response.
+
+        The default value is `20`, with a maximum limit of `200`.
+
+        ⚠️ <small>Ignored if the `index` and `lookupValue` parameters are not present.</small> ⚠️
+
+        '
+      schema:
+        type: integer
+      example: 25
+      required: false
+    lookupValueQuery:
+      name: lookupValue
+      in: query
+      description: 'The value to search for within the specified index. This parameter works in conjunction with the `index` parameter to refine search results.
+
+        ⚠️ <small>Ignored if the `index` parameter is not present.</small> ⚠️
+
+        '
+      schema:
+        type: string
+      required: false
+    brandIdQuery:
+      name: brandId
+      in: query
+      description: The unique identifier of the brand.
+      required: false
+      schema:
+        type: string
+      example: cde1d5c7-ba7e-46bf-8ac3-78ea2ec3f5e4
+    templateQueryIndex:
+      name: index
+      in: query
+      description: 'Specifies the name of the index to filter search results. Use this parameter to perform searches against a specific index. Possible indexed lookups:
+
+        - `virtual`: Lists all virtual templates exclusively. This is a list of all group parents.
+
+        - `virtualAndUngrouped`: Lists all virtual templates (group parents) and ungrouped standard templates. This search does not contain standard templates that are associated with a virtual template.
+
+        - `groupBy`: Use this index to show only templates grouped by the `templateId` in `lookupValue`. Note that if the templateId does not identify a virtual template, the resulting list will be empty.
+
+        '
+      schema:
+        type: string
+        enum:
+        - virtual
+        - virtualAndUngrouped
+        - groupBy
+      example: virtual
+      required: false
+  securitySchemes:
+    BearerTokenAuth:
+      type: http
+      scheme: bearer

@@ -1,0 +1,213 @@
+openapi: 3.0.0
+info:
+  title: Authentication Accesstoken Subscription Management API
+  version: 1.0.0
+  description: "This API documentation describes the authentication mechanisms that enable access to the Rocket Lawyer’s APIs. The Rocket Lawyer API Platform uses Oauth 2.0 access tokens (as per [RFC 6750](https://datatracker.ietf.org/doc/html/rfc6750)) to authenticate API requests and protect your resources. \n\nThis page provides a comprehensive overview of the three types of tokens — Access Tokens, Service Tokens, and Scoped Access Tokens — along with guidance on using these tokens effectively during interactions with Rocket Lawyer’s APIs.\n\nGuides that provide step-by-step instructions for how to authenticate using the Rocket Lawyer embeddable UXs can be viewed in the [Guides section](/guides)). \n\nExplore the different authentication tokens and their usage within Rocket Lawyer's API ecosystem using  the sections below:\n\n# Access Token\n\nAccess Tokens are used whenever backend systems need to interact with Rocket Lawyer's APIs. Calls made with these tokens can access the data for all of your customers associated with the App you created in the developer center. Example usage is to start new interviews or retrieve all documents and binders.\n\nTo create an Access Token, issue a POST to /auth/accesstoken using valid credentials, these can be obtained from the [RocketLawyer Developer Portal](https://developer.rocketlawyer.com/) - see the [Welcome Guide](/welcome-guide)) for how to obtain these.\n\nThen include the Access Token as a bearer token in the Authorization header of your API requests to access our API resources.\n\nThis token can be used to start a new interview and retrieve the necessary document templates, establishing a secure foundation for the session.\n\nAccess Tokens expire after 10 hours. During this time, you should securely store this token in your backend for use in future requests. Creating a new access token does not invalidate any previously generated access tokens, your app can have more than one valid access token at a time.\n\n# Service Token\n\nService Tokens are a means for one application to delegate authority to API resources to less privileged applications. Typically a backend application will generate a service token to be distributed to a frontend application, to securely access a specific API resource. Service Tokens are generated with parameters like the purpose, interview ID, and Unique Party Identifier (UPID) that describe the scope of access that can be granted to the frontend application.\n\nGenerate a Service Token by sending a request to the Authentication endpoint with the necessary parameters. \n\nThe Service Token can then be passed to your frontend to be used in an Embedded UX component or to enable your frontend to access the Rocket Lawyer APIs through the creation of a scoped access token. This token has a 1-year expiration time.\n\n\n# Scoped Access Token\n\nA Scoped Access Token is typically used to authenticate frontend interactions. You need to create these tokens only if calling the Rocket Lawyer APIs from your front-end, for example if building your own UX. If using the embedded UX then these tokens are created and handled within the component.\n\nScoped Access Tokens grant access to specific resources, such as an interview (identified by interviewId) or linked to a particular party (identified by a UPID). \n\nTo obtain a Scoped Access Token, you must first generate a Service Token that specifies the resources that can be accessed. To create a scoped access token you need to create a new Developer app in the [RocketLawyer Developer Portal](https://developer.rocketlawyer.com/) that has front-end only scope. Contact Rocket Lawyer developer support (api@rocketlawyer.com) who will help provide this. The key and secret from this front-end app should be used to create the scoped access token. \n\nYou should include this token in the Authorization header of your frontend API requests.\n\n# Application Scope  \nDeveloper apps can be created with either backend or frontend access scope. Apps with backend scope are used for server-to-server communication and can access all our APIs. Apps with frontend scope are used by a web frontend to access our APIs and are restricted in the calls they can make to support the UX. If building your own UX, you will need an app with frontend scope.\n\n**Note** You must not use a Developer App that has backend access to authenticate into Rocket Lawyer APIs from your front-end. This will expose your backend credentials that have access to all your customers' data in the browser.\n"
+  termsOfService: https://rocketlawyer-public-us.apigee.io/terms
+servers:
+- url: https://api-sandbox.rocketlawyer.com/partners/v1/auth
+  description: Sandbox
+- url: https://api.rocketlawyer.com/partners/v1/auth
+  description: Production
+tags:
+- name: Subscription Management
+paths:
+  /subscriptions:
+    post:
+      tags:
+      - Subscription Management
+      operationId: createSubscription
+      description: "Create a subscription. <br/><br/>\n<b>Note</b>: If your application already has a subscription it will be returned instead of creating a new one.\n<br/>\n<b>Subscription Expiration</b>: If there is no interaction with the subscription over the period of 31 days, \nit will be automatically deleted.\n<br/><br/>\nAuthorization\\: Requires a general access token.\n"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubscriptionPost'
+      responses:
+        201:
+          description: The subscription was created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Subscription'
+        403:
+          description: You do not have sufficient permission to create a subscription
+  /subscriptions/{subscriptionId}:
+    parameters:
+    - name: subscriptionId
+      in: path
+      required: true
+      schema:
+        $ref: '#/components/schemas/SubscriptionId'
+    get:
+      tags:
+      - Subscription Management
+      operationId: getSubscription
+      description: "Get a subscription. This can be used to confirm that a subscription exists.\n<br/>\n<b>Subscription Expiration</b>: If there is no interaction with the subscription over the period of 31 days, \nit will be automatically deleted.\n<br/><br/>\nAuthorization\\: Requires a general access or scoped access token.\n"
+      responses:
+        200:
+          description: The subscription exists
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Subscription'
+        204:
+          description: The subscription does not exist
+        403:
+          description: You do not have sufficient permission to access this subscription
+    delete:
+      tags:
+      - Subscription Management
+      operationId: deleteSubscription
+      description: 'Delete a subscription. This will cause the acknowledgement state of all events to be
+
+        forgotten. If you wish to "undo" a deletion, you may create a new subscription and
+
+        perform a seek request to just before the time of deletion, though you must be
+
+        prepared to handle a few duplicate events.
+
+        <br/><br/>
+
+        Authorization\: Requires a general access or scoped access token.
+
+        '
+      responses:
+        204:
+          description: The subscription is deleted
+        403:
+          description: You do not have sufficient permission to delete this subscription
+        404:
+          description: The subscription does not exist
+  /subscriptions/{subscriptionId}/seekRequests:
+    parameters:
+    - name: subscriptionId
+      in: path
+      description: ''
+      required: true
+      schema:
+        $ref: '#/components/schemas/SubscriptionId'
+    post:
+      tags:
+      - Subscription Management
+      operationId: createSubscriptionSeekRequest
+      description: 'Move a subscription to a specified time. If the specified time is in the past and within
+
+        the event retention timeframe (7 days), already-acknowledged events may be replayed. It is also
+
+        possible to use this operation to "skip" events by seeking to a time that is _after_ some number of
+
+        non-acknowledged events.
+
+        <br/><br/>
+
+        Authorization\: Requires a general access or scoped access token.
+
+        '
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SeekRequestPost'
+      responses:
+        200:
+          description: 'The seek request has been fulfilled. Events from roughly the specified time will be replayed for
+
+            this subscription.
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SeekRequest'
+        403:
+          description: You do not have sufficient permission to request seeks for this subscription
+        404:
+          description: The subscription does not exist
+        409:
+          description: 'The request could not be performed, as the timestamp is outside of the event retention period.
+
+            This is returned on a best-effort basis, so it is possible that a "success" response will be
+
+            returned but a few events will be missed.
+
+            '
+components:
+  schemas:
+    SeekRequestId:
+      description: 'An ID which may be used to reference a specific seek request in communication with Rocket Lawyer. If an seek request ID is not provided,
+
+        one will be generated automatically. If an ID _is_ provided, it should have a unique value for each each seek request.
+
+        '
+      type: string
+      format: uuid
+      example: 2acbdced-121d-4896-a02c-5b77528f8b77
+    SubscriptionId:
+      description: The ID for a specific subscription.
+      type: string
+      format: uuid
+      example: f3443a23-301d-4b6b-a178-3840d8cb9e5f
+    SubscriptionUpdatedAtTimestamp:
+      description: Time when this subscription was last updated
+      type: string
+      format: date-time
+      example: '2021-05-11T23:10:51Z'
+    SeekRequest:
+      description: 'Result of a specific seek request. Currently just includes a unique ID
+
+        that may be used as reference with Rocket Lawyer
+
+        '
+      type: object
+      properties:
+        seekRequestId:
+          $ref: '#/components/schemas/SeekRequestId'
+        seekTo:
+          $ref: '#/components/schemas/SeekToTimestamp'
+      required:
+      - seekRequestId
+      - seekTo
+    SubscriptionPost:
+      description: The spec for a subscription
+      type: object
+    SeekToTimestamp:
+      description: 'Time to seek the subscription to. This is expected to generally be a
+
+        time in the past to initiate event replay, but it may be any timestamp.
+
+        '
+      type: string
+      format: date-time
+      example: '2021-10-01T10:22:02Z'
+    SeekRequestPost:
+      description: 'A spec for a request to seek a subscription to a different timestamp
+
+        '
+      type: object
+      properties:
+        seekTo:
+          $ref: '#/components/schemas/SeekToTimestamp'
+    Subscription:
+      description: A specific subscription
+      type: object
+      properties:
+        subscriptionId:
+          $ref: '#/components/schemas/SubscriptionId'
+        createdAt:
+          $ref: '#/components/schemas/SubscriptionCreatedAtTimestamp'
+        updatedAt:
+          $ref: '#/components/schemas/SubscriptionUpdatedAtTimestamp'
+      required:
+      - subscriptionId
+      - createdAt
+      - updatedAt
+    SubscriptionCreatedAtTimestamp:
+      description: Time when this subscription was created
+      type: string
+      format: date-time
+      example: '2021-04-12T04:20:50Z'
+  securitySchemes:
+    BearerTokenAuth:
+      type: http
+      scheme: bearer
