@@ -1,0 +1,28 @@
+{
+  "provider": "rocket-lawyer",
+  "sources": [
+    "rocket-lawyer-accesstoken-api-openapi.yml",
+    "rocket-lawyer-binders-api-openapi.yml",
+    "rocket-lawyer-documents-api-openapi.yml",
+    "rocket-lawyer-event-consumption-api-openapi.yml",
+    "rocket-lawyer-interviews-api-openapi.yml",
+    "rocket-lawyer-servicetoken-api-openapi.yml",
+    "rocket-lawyer-subscription-management-api-openapi.yml",
+    "rocket-lawyer-templates-api-openapi.yml"
+  ],
+  "outputs": [
+    "rocket-lawyer-accesstoken-api-openapi.yml",
+    "rocket-lawyer-binders-api-openapi.yml",
+    "rocket-lawyer-documents-api-openapi.yml",
+    "rocket-lawyer-event-consumption-api-openapi.yml",
+    "rocket-lawyer-interviews-api-openapi.yml",
+    "rocket-lawyer-servicetoken-api-openapi.yml",
+    "rocket-lawyer-subscription-management-api-openapi.yml",
+    "rocket-lawyer-templates-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
