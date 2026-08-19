@@ -1,0 +1,161 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Authentication Accesstoken Templates API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Templates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Templates List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.rocketlawyer.com/partners/v1/auth/templates",
+            "params": [
+              {
+                "name": "index",
+                "value": "virtual",
+                "type": "query",
+                "description": "Specifies the name of the index to filter search results. Use this parameter to perform searches against a specific index. Possible indexed lookups:\n- `virtual`: Lists all virtual templates exclusively. This is a list of all group parents.\n- `virtualAndUngrouped`: Lists all virtual templates (group parents) and ungrouped standard templates. This search does not contain standard templates that are associated with a virtual template.\n- `groupBy`: Use this index to show only templates grouped by the `templateId` in `lookupValue`. Note that if the templateId does not identify a virtual template, the resulting list will be empty.\n"
+              },
+              {
+                "name": "lookupValue",
+                "value": "",
+                "type": "query",
+                "description": "The value to search for within the specified index. This parameter works in conjunction with the `index` parameter to refine search results.\n⚠️ <small>Ignored if the `index` parameter is not present.</small> ⚠️\n"
+              },
+              {
+                "name": "cursor",
+                "value": "bfc84903-b4ea-46b0-b7cb-78157a979687\n",
+                "type": "query",
+                "description": "A pagination cursor used to retrieve the next set of results in a paginated response. Include the cursor value from the previous response to continue fetching results. This parameter is not required for the first search.\n⚠️ <small>Ignored if the `index` and `lookupValue` parameters are not present.</small> ⚠️\n"
+              },
+              {
+                "name": "pageSize",
+                "value": "25",
+                "type": "query",
+                "description": "Defines the number of results to return per page in a paginated response. Use this parameter to control the amount of data returned in each response.\nThe default value is `20`, with a maximum limit of `200`.\n⚠️ <small>Ignored if the `index` and `lookupValue` parameters are not present.</small> ⚠️\n"
+              },
+              {
+                "name": "reverse",
+                "value": "true",
+                "type": "query",
+                "description": "Determines the order of search results. When set to true, results are returned in reverse order. Use this parameter to reverse the sorting order of the search results. The default value is `false`.\n⚠️ <small>Ignored if the `index` and `lookupValue` parameters are not present.</small> ⚠️\n"
+              }
+            ]
+          },
+          "docs": "A template is a predefined document structure that serves as a blueprint for creating various legal documents. This endpoint allows you to retrieve the full list of available templates.\n"
+        },
+        {
+          "info": {
+            "name": "Retrieve a Template by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.rocketlawyer.com/partners/v1/auth/templates/:templateId",
+            "params": [
+              {
+                "name": "templateId",
+                "value": "e3b7da14-a7ef-402d-a50d-50edd3015fa6",
+                "type": "path",
+                "description": "The unique identifier of a Template."
+              }
+            ]
+          },
+          "docs": "Retrieves a specific template identified by the `templateId`. The response includes detailed information such as the template's name, short and long descriptions, and URL references to its thumbnail and preview.\n"
+        },
+        {
+          "info": {
+            "name": "Retrieve a Template Preview",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.rocketlawyer.com/partners/v1/auth/templates/:templateId/preview",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "templateId",
+                "value": "e3b7da14-a7ef-402d-a50d-50edd3015fa6",
+                "type": "path",
+                "description": "The unique identifier of a Template."
+              },
+              {
+                "name": "brandId",
+                "value": "cde1d5c7-ba7e-46bf-8ac3-78ea2ec3f5e4",
+                "type": "query",
+                "description": "The unique identifier of the brand."
+              }
+            ]
+          },
+          "docs": "Retrieves a preview of the specified template identified by the `templateId`. The response provides a visual representation of the template in HTML format."
+        },
+        {
+          "info": {
+            "name": "Retrieve a Template Thumbnail",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.rocketlawyer.com/partners/v1/auth/templates/:templateId/thumbnail",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "templateId",
+                "value": "e3b7da14-a7ef-402d-a50d-50edd3015fa6",
+                "type": "path",
+                "description": "The unique identifier of a Template."
+              },
+              {
+                "name": "brandId",
+                "value": "cde1d5c7-ba7e-46bf-8ac3-78ea2ec3f5e4",
+                "type": "query",
+                "description": "The unique identifier of the brand."
+              }
+            ]
+          },
+          "docs": "Retrieves the thumbnail image of the specified template identified by the `templateId`. The response provides a visual representation of the template in PNG format."
+        },
+        {
+          "info": {
+            "name": "Retrieve Tagged Answer Model for a Template",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.rocketlawyer.com/partners/v1/auth/templates/:templateId/tagged-answer-model",
+            "params": [
+              {
+                "name": "templateId",
+                "value": "e3b7da14-a7ef-402d-a50d-50edd3015fa6",
+                "type": "path",
+                "description": "The unique identifier of a Template."
+              }
+            ]
+          },
+          "docs": "Retrieves the Tagged Answer Model (TAM) for the specified template identified by the `templateId`. The TAM provides a structured format for injecting data into an interview or retrieving data from an interview."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Authentication Accesstoken Event Consumption API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Event Consumption",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "createEventPull",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.rocketlawyer.com/partners/v1/auth/subscriptions/:subscriptionId/eventPulls",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Pull a batch of pending events for this subscription. Pulled events must be acknowledged promptly\nor else they will be redelivered in subsequent event pulls.\n<br/>\n<b>Retention</b>: Events have a retention period of <b>7 days</b>.\n<br/><br/>\nAuthorization\\: Requires a general access or scoped access token.\n"
+        },
+        {
+          "info": {
+            "name": "createEventAcknowledgement",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.rocketlawyer.com/partners/v1/auth/subscriptions/:subscriptionId/eventAcknowledgements",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Acknowledge a set of events to prevent them from being re-delivered\n<br/><br/>\nAuthorization\\: Requires a general access or scoped access token.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

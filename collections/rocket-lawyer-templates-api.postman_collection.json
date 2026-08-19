@@ -1,0 +1,1034 @@
+{
+  "item": [
+    {
+      "id": "11a40c4c-96ad-41c3-a3f6-1551240d6acd",
+      "name": "Templates",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "66b03618-944a-44a1-a783-13579700c1a9",
+          "name": "Get Templates List",
+          "request": {
+            "name": "Get Templates List",
+            "description": {
+              "content": "A template is a predefined document structure that serves as a blueprint for creating various legal documents. This endpoint allows you to retrieve the full list of available templates.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "templates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "index",
+                  "value": "<string>",
+                  "description": "Specifies the name of the index to filter search results. Use this parameter to perform searches against a specific index. Possible indexed lookups:\n- `virtual`: Lists all virtual templates exclusively. This is a list of all group parents.\n- `virtualAndUngrouped`: Lists all virtual templates (group parents) and ungrouped standard templates. This search does not contain standard templates that are associated with a virtual template.\n- `groupBy`: Use this index to show only templates grouped by the `templateId` in `lookupValue`. Note that if the templateId does not identify a virtual template, the resulting list will be empty.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "lookupValue",
+                  "value": "<string>",
+                  "description": "The value to search for within the specified index. This parameter works in conjunction with the `index` parameter to refine search results.\n⚠️ <small>Ignored if the `index` parameter is not present.</small> ⚠️\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "A pagination cursor used to retrieve the next set of results in a paginated response. Include the cursor value from the previous response to continue fetching results. This parameter is not required for the first search.\n⚠️ <small>Ignored if the `index` and `lookupValue` parameters are not present.</small> ⚠️\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Defines the number of results to return per page in a paginated response. Use this parameter to control the amount of data returned in each response.\nThe default value is `20`, with a maximum limit of `200`.\n⚠️ <small>Ignored if the `index` and `lookupValue` parameters are not present.</small> ⚠️\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "reverse",
+                  "value": "<boolean>",
+                  "description": "Determines the order of search results. When set to true, results are returned in reverse order. Use this parameter to reverse the sorting order of the search results. The default value is `false`.\n⚠️ <small>Ignored if the `index` and `lookupValue` parameters are not present.</small> ⚠️\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ad5a1bba-b381-48ff-a504-1861698b26c3",
+              "name": "Successfully returns a list of templates.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "index",
+                      "value": "virtual"
+                    },
+                    {
+                      "key": "lookupValue",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "bfc84903-b4ea-46b0-b7cb-78157a979687\n"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "25"
+                    },
+                    {
+                      "key": "reverse",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The cursor used to fetch the next page of results in a paginated response. Include this cursor value in the next request to retrieve the subsequent set of templates.",
+                  "key": "cursor",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"templateName\": \"Power of Attorney\",\n    \"shortDescription\": \"...\",\n    \"longDescription\": \"...\",\n    \"thumbnailRef\": \"\",\n    \"previewRef\": \"\",\n    \"templateId\": \"BC006A4D-B5C0-402F-81BD-954D686924A5\",\n    \"medianMinutesToComplete\": \"20\",\n    \"type\": \"virtual\"\n  },\n  {\n    \"templateName\": \"Advance Directive\",\n    \"shortDescription\": \"...\",\n    \"longDescription\": \"...\",\n    \"thumbnailRef\": \"\",\n    \"previewRef\": \"\",\n    \"templateId\": \"093AC3FF-26B7-4417-8C99-09EFDE8184CD\",\n    \"medianMinutesToComplete\": \"20\",\n    \"type\": \"virtual\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "61818dfb-15fb-4b87-b968-eaa59067f1f3",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "index",
+                      "value": "virtual"
+                    },
+                    {
+                      "key": "lookupValue",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "bfc84903-b4ea-46b0-b7cb-78157a979687\n"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "25"
+                    },
+                    {
+                      "key": "reverse",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6e1d4dd9-1caa-44a9-b012-810911071ddc",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "index",
+                      "value": "virtual"
+                    },
+                    {
+                      "key": "lookupValue",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "bfc84903-b4ea-46b0-b7cb-78157a979687\n"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "25"
+                    },
+                    {
+                      "key": "reverse",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "17bf5338-7373-4893-a6ed-59ace0e63a9d",
+          "name": "Retrieve a Template by ID",
+          "request": {
+            "name": "Retrieve a Template by ID",
+            "description": {
+              "content": "Retrieves a specific template identified by the `templateId`. The response includes detailed information such as the template's name, short and long descriptions, and URL references to its thumbnail and preview.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "templates",
+                ":templateId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "templateId",
+                  "description": "(Required) The unique identifier of a Template."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5ba16878-ba0e-4935-a6df-0e2f42e65340",
+              "name": "Successfully returns the requested template.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "templates",
+                    ":templateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "templateId",
+                      "description": "(Required) The unique identifier of a Template."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Directives for caching Template objects.",
+                  "key": "Cache-Control",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"templateId\": \"0bf17ad8-a229-1289-ef4a-00b7c9ad9cab\",\n  \"templateName\": \"Employment contract\",\n  \"shortDescription\": \"A contract for employment.\",\n  \"longDescription\": \"A contract for employment with options for employer & employee.\",\n  \"thumbnailRef\": \"https://api-sandbox.rocketlawyer.com/rocketdoc/v2/templates/0bf17ad8-a229-1289-ef4a-00b7c9ad9cab/thumbnail\",\n  \"previewRef\": \"https://api-sandbox.rocketlawyer.com/rocketdoc/v2/templates/0bf17ad8-a229-1289-ef4a-00b7c9ad9cab/preview\",\n  \"medianMinutesToComplete\": 10,\n  \"type\": \"standard\",\n  \"memberOf\": [\n    \"5e281c0e-c7fc-4b32-85d9-d2c9c59c8aa5\",\n    \"4b120b4d-b6fc-4b32-85d9-a1c9c59c8aa4\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b0acd097-dc53-471f-8ac7-9a58ebddc03a",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "templates",
+                    ":templateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "templateId",
+                      "description": "(Required) The unique identifier of a Template."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f5a4fe76-239a-475f-b0ad-ae477520f641",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "templates",
+                    ":templateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "templateId",
+                      "description": "(Required) The unique identifier of a Template."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d19d33d2-06fe-4190-b25c-ae58274d94bf",
+          "name": "Retrieve a Template Preview",
+          "request": {
+            "name": "Retrieve a Template Preview",
+            "description": {
+              "content": "Retrieves a preview of the specified template identified by the `templateId`. The response provides a visual representation of the template in HTML format.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "templates",
+                ":templateId",
+                "preview"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "brandId",
+                  "value": "<string>",
+                  "description": "The unique identifier of the brand."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "templateId",
+                  "description": "(Required) The unique identifier of a Template."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "df598721-4ec4-460d-a865-3c308a960443",
+              "name": "Successfully returns the template preview in the specified format.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "templates",
+                    ":templateId",
+                    "preview"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "brandId",
+                      "value": "cde1d5c7-ba7e-46bf-8ac3-78ea2ec3f5e4"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "templateId",
+                      "description": "(Required) The unique identifier of a Template."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Specifies the format of the preview response. Currently, only `text/html` is supported.",
+                    "key": "Accept",
+                    "value": "text/html"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/html"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Directives for caching Template previews.",
+                  "key": "Cache-Control",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/html"
+                }
+              ],
+              "body": "<html>\n  <body>\n    <b>Example</b>\n  </body>\n</html>\n",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a32b0cd8-e4b4-4b8a-82f1-d424d903bc96",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "templates",
+                    ":templateId",
+                    "preview"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "brandId",
+                      "value": "cde1d5c7-ba7e-46bf-8ac3-78ea2ec3f5e4"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "templateId",
+                      "description": "(Required) The unique identifier of a Template."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Specifies the format of the preview response. Currently, only `text/html` is supported.",
+                    "key": "Accept",
+                    "value": "text/html"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "281f95a6-45fa-4776-ba47-18e1cd9ed20b",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "templates",
+                    ":templateId",
+                    "preview"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "brandId",
+                      "value": "cde1d5c7-ba7e-46bf-8ac3-78ea2ec3f5e4"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "templateId",
+                      "description": "(Required) The unique identifier of a Template."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Specifies the format of the preview response. Currently, only `text/html` is supported.",
+                    "key": "Accept",
+                    "value": "text/html"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e9a5a4ef-eb20-454a-8f66-ca62026eeb56",
+          "name": "Retrieve a Template Thumbnail",
+          "request": {
+            "name": "Retrieve a Template Thumbnail",
+            "description": {
+              "content": "Retrieves the thumbnail image of the specified template identified by the `templateId`. The response provides a visual representation of the template in PNG format.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "templates",
+                ":templateId",
+                "thumbnail"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "brandId",
+                  "value": "<string>",
+                  "description": "The unique identifier of the brand."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "templateId",
+                  "description": "(Required) The unique identifier of a Template."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "image/png"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "26bf6b03-dd52-458e-9939-ffb8da680644",
+              "name": "Successfully returns the template thumbnail in the specified format.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "templates",
+                    ":templateId",
+                    "thumbnail"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "brandId",
+                      "value": "cde1d5c7-ba7e-46bf-8ac3-78ea2ec3f5e4"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "templateId",
+                      "description": "(Required) The unique identifier of a Template."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Specifies the format of the thumbnail response. Currently, only `image/png` is supported.",
+                    "key": "Accept",
+                    "value": "image/png"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "image/png"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Directives for caching Template thumbnail images.",
+                  "key": "Cache-Control",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "image/png"
+                }
+              ],
+              "body": "image",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1eb230e6-ee47-40dc-b6b4-9c0fdf13f98e",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "templates",
+                    ":templateId",
+                    "thumbnail"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "brandId",
+                      "value": "cde1d5c7-ba7e-46bf-8ac3-78ea2ec3f5e4"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "templateId",
+                      "description": "(Required) The unique identifier of a Template."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Specifies the format of the thumbnail response. Currently, only `image/png` is supported.",
+                    "key": "Accept",
+                    "value": "image/png"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0ec910b8-2463-4b2c-8a3c-69d302200e6b",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "templates",
+                    ":templateId",
+                    "thumbnail"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "brandId",
+                      "value": "cde1d5c7-ba7e-46bf-8ac3-78ea2ec3f5e4"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "templateId",
+                      "description": "(Required) The unique identifier of a Template."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Specifies the format of the thumbnail response. Currently, only `image/png` is supported.",
+                    "key": "Accept",
+                    "value": "image/png"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8488a506-f6a3-49db-a9c1-67de21310a37",
+          "name": "Retrieve Tagged Answer Model for a Template",
+          "request": {
+            "name": "Retrieve Tagged Answer Model for a Template",
+            "description": {
+              "content": "Retrieves the Tagged Answer Model (TAM) for the specified template identified by the `templateId`. The TAM provides a structured format for injecting data into an interview or retrieving data from an interview.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "templates",
+                ":templateId",
+                "tagged-answer-model"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "templateId",
+                  "description": "(Required) The unique identifier of a Template."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "166aaabf-7659-4436-86b6-06cb3a215ac8",
+              "name": "Successfully returns the Tagged Answer Model (TAM) for the specified template.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "templates",
+                    ":templateId",
+                    "tagged-answer-model"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "templateId",
+                      "description": "(Required) The unique identifier of a Template."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"Employment contract\",\n  \"entities\": [\n    {\n      \"name\": \"Formed Entity\",\n      \"class\": \"Person\",\n      \"roles\": [\n        \"Applicant\",\n        \"Applicant\"\n      ],\n      \"isCyclical\": false\n    },\n    {\n      \"name\": \"Formed Entity\",\n      \"class\": \"Person\",\n      \"roles\": [\n        \"Applicant\",\n        \"Applicant\"\n      ],\n      \"isCyclical\": false\n    }\n  ],\n  \"fields\": [\n    {\n      \"entity\": \"string\",\n      \"fieldClass\": \"Entity Type\",\n      \"type\": \"RADIO\",\n      \"value\": \"string\",\n      \"cycleId\": \"string\"\n    },\n    {\n      \"entity\": \"string\",\n      \"fieldClass\": \"Entity Type\",\n      \"type\": \"CHECKBOX\",\n      \"value\": \"string\",\n      \"cycleId\": \"string\"\n    }\n  ],\n  \"templateId\": \"0bf17ad8-a229-1289-ef4a-00b7c9ad9cab\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "99a8c3c6-dbe7-497d-9706-b9d017b9f881",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "templates",
+                    ":templateId",
+                    "tagged-answer-model"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "templateId",
+                      "description": "(Required) The unique identifier of a Template."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c6d34b4e-0848-4297-8c45-7ce600392c5f",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "templates",
+                    ":templateId",
+                    "tagged-answer-model"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "templateId",
+                      "description": "(Required) The unique identifier of a Template."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-sandbox.rocketlawyer.com/partners/v1/auth",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "58ac5d61-a41b-4af6-9189-335298ef0762",
+    "name": "Authentication Accesstoken Templates API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This API documentation describes the authentication mechanisms that enable access to the Rocket Lawyer’s APIs. The Rocket Lawyer API Platform uses Oauth 2.0 access tokens (as per [RFC 6750](https://datatracker.ietf.org/doc/html/rfc6750)) to authenticate API requests and protect your resources. \n\nThis page provides a comprehensive overview of the three types of tokens — Access Tokens, Service Tokens, and Scoped Access Tokens — along with guidance on using these tokens effectively during interactions with Rocket Lawyer’s APIs.\n\nGuides that provide step-by-step instructions for how to authenticate using the Rocket Lawyer embeddable UXs can be viewed in the [Guides section](/guides)). \n\nExplore the different authentication tokens and their usage within Rocket Lawyer's API ecosystem using  the sections below:\n\n# Access Token\n\nAccess Tokens are used whenever backend systems need to interact with Rocket Lawyer's APIs. Calls made with these tokens can access the data for all of your customers associated with the App you created in the developer center. Example usage is to start new interviews or retrieve all documents and binders.\n\nTo create an Access Token, issue a POST to /auth/accesstoken using valid credentials, these can be obtained from the [RocketLawyer Developer Portal](https://developer.rocketlawyer.com/) - see the [Welcome Guide](/welcome-guide)) for how to obtain these.\n\nThen include the Access Token as a bearer token in the Authorization header of your API requests to access our API resources.\n\nThis token can be used to start a new interview and retrieve the necessary document templates, establishing a secure foundation for the session.\n\nAccess Tokens expire after 10 hours. During this time, you should securely store this token in your backend for use in future requests. Creating a new access token does not invalidate any previously generated access tokens, your app can have more than one valid access token at a time.\n\n# Service Token\n\nService Tokens are a means for one application to delegate authority to API resources to less privileged applications. Typically a backend application will generate a service token to be distributed to a frontend application, to securely access a specific API resource. Service Tokens are generated with parameters like the purpose, interview ID, and Unique Party Identifier (UPID) that describe the scope of access that can be granted to the frontend application.\n\nGenerate a Service Token by sending a request to the Authentication endpoint with the necessary parameters. \n\nThe Service Token can then be passed to your frontend to be used in an Embedded UX component or to enable your frontend to access the Rocket Lawyer APIs through the creation of a scoped access token. This token has a 1-year expiration time.\n\n\n# Scoped Access Token\n\nA Scoped Access Token is typically used to authenticate frontend interactions. You need to create these tokens only if calling the Rocket Lawyer APIs from your front-end, for example if building your own UX. If using the embedded UX then these tokens are created and handled within the component.\n\nScoped Access Tokens grant access to specific resources, such as an interview (identified by interviewId) or linked to a particular party (identified by a UPID). \n\nTo obtain a Scoped Access Token, you must first generate a Service Token that specifies the resources that can be accessed. To create a scoped access token you need to create a new Developer app in the [RocketLawyer Developer Portal](https://developer.rocketlawyer.com/) that has front-end only scope. Contact Rocket Lawyer developer support (api@rocketlawyer.com) who will help provide this. The key and secret from this front-end app should be used to create the scoped access token. \n\nYou should include this token in the Authorization header of your frontend API requests.\n\n# Application Scope  \nDeveloper apps can be created with either backend or frontend access scope. Apps with backend scope are used for server-to-server communication and can access all our APIs. Apps with frontend scope are used by a web frontend to access our APIs and are restricted in the calls they can make to support the UX. If building your own UX, you will need an app with frontend scope.\n\n**Note** You must not use a Developer App that has backend access to authenticate into Rocket Lawyer APIs from your front-end. This will expose your backend credentials that have access to all your customers' data in the browser.\n",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Authentication Accesstoken Documents API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Documents",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.rocketlawyer.com/partners/v1/auth/documents/:documentId",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "documentId",
+                "value": "443b3b1e-584d-480a-a43a-7713f1d62633",
+                "type": "path",
+                "description": "The Document's unique identifier."
+              }
+            ]
+          },
+          "docs": "A document is the result of a completed interview. This endpoint allows you to retrieve a document from a interview in the format specified by the `Accept` header. This endpoint allows you to fetch the document in either HTML or PDF format, as specified in the request.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

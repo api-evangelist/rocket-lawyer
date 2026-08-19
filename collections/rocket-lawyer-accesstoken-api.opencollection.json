@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Authentication Accesstoken API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Accesstoken",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Access Token Creation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.rocketlawyer.com/partners/v1/auth/accesstoken",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Request the creation of an Access Token, whether or not it be associated with a Service Token. Requires passing credentials (App Key and Secret) in posted request body. For plain Access Tokens, grant type must be `client_credentials`. For Access Tokens associated with a Service Token, grant type must be `authorization_code` with Service Token passed in a request body field named `code`."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

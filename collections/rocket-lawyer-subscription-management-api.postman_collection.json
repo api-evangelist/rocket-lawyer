@@ -1,0 +1,728 @@
+{
+  "item": [
+    {
+      "id": "39e37c83-5d3a-4546-8fc3-19bf00d84535",
+      "name": "Subscription Management",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "58d4538e-20e0-497b-99ef-cf953d3e7c5a",
+          "name": "create Subscription",
+          "request": {
+            "name": "create Subscription",
+            "description": {
+              "content": "Create a subscription. <br/><br/>\n<b>Note</b>: If your application already has a subscription it will be returned instead of creating a new one.\n<br/>\n<b>Subscription Expiration</b>: If there is no interaction with the subscription over the period of 31 days, \nit will be automatically deleted.\n<br/><br/>\nAuthorization\\: Requires a general access token.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "51a7b353-7128-44a2-99f5-92c571a374b0",
+              "name": "The subscription was created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"subscriptionId\": \"f3443a23-301d-4b6b-a178-3840d8cb9e5f\",\n  \"createdAt\": \"2021-04-12T04:20:50Z\",\n  \"updatedAt\": \"2021-05-11T23:10:51Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e542014e-c972-4ea8-9f00-b229ae940ec5",
+              "name": "You do not have sufficient permission to create a subscription",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f84e6f13-899d-4a0b-8d8f-0b068e3c2be3",
+          "name": "get Subscription",
+          "request": {
+            "name": "get Subscription",
+            "description": {
+              "content": "Get a subscription. This can be used to confirm that a subscription exists.\n<br/>\n<b>Subscription Expiration</b>: If there is no interaction with the subscription over the period of 31 days, \nit will be automatically deleted.\n<br/><br/>\nAuthorization\\: Requires a general access or scoped access token.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "subscriptionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4364a433-af72-4a4f-aecb-6bf9d4fc4ed7",
+              "name": "The subscription exists",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"subscriptionId\": \"f3443a23-301d-4b6b-a178-3840d8cb9e5f\",\n  \"createdAt\": \"2021-04-12T04:20:50Z\",\n  \"updatedAt\": \"2021-05-11T23:10:51Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "df18418c-1903-4cbc-aabe-ce417d68ec69",
+              "name": "The subscription does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a6e2b18d-7b91-4d21-ab56-3881bdc2f637",
+              "name": "You do not have sufficient permission to access this subscription",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1d951c90-f8b1-4ffb-9b5e-1e2c985c32fb",
+          "name": "delete Subscription",
+          "request": {
+            "name": "delete Subscription",
+            "description": {
+              "content": "Delete a subscription. This will cause the acknowledgement state of all events to be\nforgotten. If you wish to \"undo\" a deletion, you may create a new subscription and\nperform a seek request to just before the time of deletion, though you must be\nprepared to handle a few duplicate events.\n<br/><br/>\nAuthorization\\: Requires a general access or scoped access token.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "subscriptionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "31834bb5-6c4c-42b4-9131-923ec6119fbe",
+              "name": "The subscription is deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b7ec6c32-de0b-4eb3-a6ce-d89d2b23885d",
+              "name": "You do not have sufficient permission to delete this subscription",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d5db76b6-7915-436a-9d98-a851f5e66ad5",
+              "name": "The subscription does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a9f35bd8-3e59-442a-bf63-e8c9d9eb0e4a",
+          "name": "create Subscription Seek Request",
+          "request": {
+            "name": "create Subscription Seek Request",
+            "description": {
+              "content": "Move a subscription to a specified time. If the specified time is in the past and within\nthe event retention timeframe (7 days), already-acknowledged events may be replayed. It is also\npossible to use this operation to \"skip\" events by seeking to a time that is _after_ some number of\nnon-acknowledged events.\n<br/><br/>\nAuthorization\\: Requires a general access or scoped access token.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "seekRequests"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "subscriptionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"seekTo\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e12937ac-feb4-494d-a032-028f6870c383",
+              "name": "The seek request has been fulfilled. Events from roughly the specified time will be replayed for\nthis subscription.\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "seekRequests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"seekTo\": \"2021-10-01T10:22:02Z\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"seekRequestId\": \"2acbdced-121d-4896-a02c-5b77528f8b77\",\n  \"seekTo\": \"2021-10-01T10:22:02Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4dd38300-78ae-40e8-bb50-85cbe14f5176",
+              "name": "You do not have sufficient permission to request seeks for this subscription",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "seekRequests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"seekTo\": \"2021-10-01T10:22:02Z\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "94cdf767-9195-40fa-aa95-d3c1d2d56059",
+              "name": "The subscription does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "seekRequests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"seekTo\": \"2021-10-01T10:22:02Z\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "97e10b8a-ee93-44b3-988c-4330e3a543e2",
+              "name": "The request could not be performed, as the timestamp is outside of the event retention period.\nThis is returned on a best-effort basis, so it is possible that a \"success\" response will be\nreturned but a few events will be missed.\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "seekRequests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"seekTo\": \"2021-10-01T10:22:02Z\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-sandbox.rocketlawyer.com/partners/v1/auth",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "214e7adc-4e29-44e5-9033-f0423b7678b0",
+    "name": "Authentication Accesstoken Subscription Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This API documentation describes the authentication mechanisms that enable access to the Rocket Lawyer’s APIs. The Rocket Lawyer API Platform uses Oauth 2.0 access tokens (as per [RFC 6750](https://datatracker.ietf.org/doc/html/rfc6750)) to authenticate API requests and protect your resources. \n\nThis page provides a comprehensive overview of the three types of tokens — Access Tokens, Service Tokens, and Scoped Access Tokens — along with guidance on using these tokens effectively during interactions with Rocket Lawyer’s APIs.\n\nGuides that provide step-by-step instructions for how to authenticate using the Rocket Lawyer embeddable UXs can be viewed in the [Guides section](/guides)). \n\nExplore the different authentication tokens and their usage within Rocket Lawyer's API ecosystem using  the sections below:\n\n# Access Token\n\nAccess Tokens are used whenever backend systems need to interact with Rocket Lawyer's APIs. Calls made with these tokens can access the data for all of your customers associated with the App you created in the developer center. Example usage is to start new interviews or retrieve all documents and binders.\n\nTo create an Access Token, issue a POST to /auth/accesstoken using valid credentials, these can be obtained from the [RocketLawyer Developer Portal](https://developer.rocketlawyer.com/) - see the [Welcome Guide](/welcome-guide)) for how to obtain these.\n\nThen include the Access Token as a bearer token in the Authorization header of your API requests to access our API resources.\n\nThis token can be used to start a new interview and retrieve the necessary document templates, establishing a secure foundation for the session.\n\nAccess Tokens expire after 10 hours. During this time, you should securely store this token in your backend for use in future requests. Creating a new access token does not invalidate any previously generated access tokens, your app can have more than one valid access token at a time.\n\n# Service Token\n\nService Tokens are a means for one application to delegate authority to API resources to less privileged applications. Typically a backend application will generate a service token to be distributed to a frontend application, to securely access a specific API resource. Service Tokens are generated with parameters like the purpose, interview ID, and Unique Party Identifier (UPID) that describe the scope of access that can be granted to the frontend application.\n\nGenerate a Service Token by sending a request to the Authentication endpoint with the necessary parameters. \n\nThe Service Token can then be passed to your frontend to be used in an Embedded UX component or to enable your frontend to access the Rocket Lawyer APIs through the creation of a scoped access token. This token has a 1-year expiration time.\n\n\n# Scoped Access Token\n\nA Scoped Access Token is typically used to authenticate frontend interactions. You need to create these tokens only if calling the Rocket Lawyer APIs from your front-end, for example if building your own UX. If using the embedded UX then these tokens are created and handled within the component.\n\nScoped Access Tokens grant access to specific resources, such as an interview (identified by interviewId) or linked to a particular party (identified by a UPID). \n\nTo obtain a Scoped Access Token, you must first generate a Service Token that specifies the resources that can be accessed. To create a scoped access token you need to create a new Developer app in the [RocketLawyer Developer Portal](https://developer.rocketlawyer.com/) that has front-end only scope. Contact Rocket Lawyer developer support (api@rocketlawyer.com) who will help provide this. The key and secret from this front-end app should be used to create the scoped access token. \n\nYou should include this token in the Authorization header of your frontend API requests.\n\n# Application Scope  \nDeveloper apps can be created with either backend or frontend access scope. Apps with backend scope are used for server-to-server communication and can access all our APIs. Apps with frontend scope are used by a web frontend to access our APIs and are restricted in the calls they can make to support the UX. If building your own UX, you will need an app with frontend scope.\n\n**Note** You must not use a Developer App that has backend access to authenticate into Rocket Lawyer APIs from your front-end. This will expose your backend credentials that have access to all your customers' data in the browser.\n",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Authentication Accesstoken Servicetoken API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Servicetoken",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Service Token Creation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.rocketlawyer.com/partners/v1/auth/servicetoken",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Request the creation of a Service Token by posting one purpose with a related claim claim parameter. In order for the Client Application to be allowed to request Service Tokens, its associated RL Api Client must have been created with at least one of the recognized RL backend System Roles."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

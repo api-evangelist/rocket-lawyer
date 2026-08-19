@@ -1,0 +1,442 @@
+{
+  "item": [
+    {
+      "id": "18504620-02ad-411c-9b22-bf7fed5e3761",
+      "name": "Event Consumption",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ec7ebcb4-a37e-43c2-8a2d-98e2b9f8d097",
+          "name": "create Event Pull",
+          "request": {
+            "name": "create Event Pull",
+            "description": {
+              "content": "Pull a batch of pending events for this subscription. Pulled events must be acknowledged promptly\nor else they will be redelivered in subsequent event pulls.\n<br/>\n<b>Retention</b>: Events have a retention period of <b>7 days</b>.\n<br/><br/>\nAuthorization\\: Requires a general access or scoped access token.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "eventPulls"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "subscriptionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"maxEvents\": \"<unsigned-int32>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f1ee9d7c-9ff6-4c89-b8eb-8b8f81f12387",
+              "name": "The event pull request has been performed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "eventPulls"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"maxEvents\": \"20\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"eventPullId\": \"bd329b6c-f4d0-4606-b179-4dbbc69ecedf\",\n  \"maxEvents\": \"20\",\n  \"events\": [\n    {\n      \"eventHandle\": \"RVNEUAYWLF1GSFE3GQhoUQ5PXiM_NSAoRREICBQFfH1yQ1V1VTN1B1ENGXN6MnI7XkUBBRcFdF9RGx9ZXET_zPq2L1BdYndrWBUJAERSfFtYGQlqVHTo_4y_tfqXVG9WYpnKqf5lXv6uhbtZZiE9XxJLLD5-LTJFQV5AEkwmB0RJUytDCypYEU4EISE-MD4\",\n      \"coreProperties\": {\n        \"eventTimestamp\": \"2021-12-11T15:00:50.338Z\",\n        \"eventUniqueId\": \"4a42d30f-a13a-4034-90fd-7cb2679c0253\",\n        \"relatedRlRequestId\": \"ac871cfc-1f21-4a02-b81e-11a48eef0386\",\n        \"relatedSessionId\": \"1b305d40-7c28-4d2f-8e36-4726179d38b9\"\n      },\n      \"name\": \"session-established\",\n      \"payload\": {\n        \"userAgent\": \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36\"\n      }\n    },\n    {\n      \"eventHandle\": \"RVNEUAYWLF1GSFE3GQhoUQ5PXiM_NSAoRREICBQFfH1yQ1V1VTN1B1ENGXN6MnI7XkUBBRcFdF9RGx9ZXET_zPq2L1BdYndrWBUJAERSfFtYGQlqVHTo_4y_tfqXVG9WYpnKqf5lXv6uhbtZZiE9XxJLLD5-LTJFQV5AEkwmB0RJUytDCypYEU4EISE-MD4\",\n      \"coreProperties\": {\n        \"eventTimestamp\": \"2021-12-11T15:00:50.338Z\",\n        \"eventUniqueId\": \"4a42d30f-a13a-4034-90fd-7cb2679c0253\",\n        \"relatedRlRequestId\": \"ac871cfc-1f21-4a02-b81e-11a48eef0386\",\n        \"relatedSessionId\": \"1b305d40-7c28-4d2f-8e36-4726179d38b9\"\n      },\n      \"name\": \"session-established\",\n      \"payload\": {\n        \"userAgent\": \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c63679a2-f332-4536-9724-6610d9236a4b",
+              "name": "You do not have sufficient permission to pull events from this subscription",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "eventPulls"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"maxEvents\": \"20\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2c31b19d-c4b4-4a14-a752-3def8d09fcf5",
+              "name": "The subscription does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "eventPulls"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"maxEvents\": \"20\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2056fa12-cf8c-4bc8-833c-3afeb420369b",
+          "name": "create Event Acknowledgement",
+          "request": {
+            "name": "create Event Acknowledgement",
+            "description": {
+              "content": "Acknowledge a set of events to prevent them from being re-delivered\n<br/><br/>\nAuthorization\\: Requires a general access or scoped access token.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "eventAcknowledgements"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "subscriptionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"eventHandles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ad8f1000-aeee-4883-a77e-c618664363fb",
+              "name": "The events are acknowledged",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "eventAcknowledgements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"eventHandles\": [\n    \"RVNEUAYWLF1GSFE3GQhoUQ5PXiM_NSAoRREICBQFfH1yQ1V1VTN1B1ENGXN6MnI7XkUBBRcFdF9RGx9ZXET_zPq2L1BdYndrWBUJAERSfFtYGQlqVHTo_4y_tfqXVG9WYpnKqf5lXv6uhbtZZiE9XxJLLD5-LTJFQV5AEkwmB0RJUytDCypYEU4EISE-MD4\",\n    \"RVNEUAYWLF1GSFE3GQhoUQ5PXiM_NSAoRREICBQFfH1yQ1V1VTN1B1ENGXN6MnI7XkUBBRcFdF9RGx9ZXET_zPq2L1BdYndrWBUJAERSfFtYGQlqVHTo_4y_tfqXVG9WYpnKqf5lXv6uhbtZZiE9XxJLLD5-LTJFQV5AEkwmB0RJUytDCypYEU4EISE-MD4\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"eventHandles\": [\n    \"RVNEUAYWLF1GSFE3GQhoUQ5PXiM_NSAoRREICBQFfH1yQ1V1VTN1B1ENGXN6MnI7XkUBBRcFdF9RGx9ZXET_zPq2L1BdYndrWBUJAERSfFtYGQlqVHTo_4y_tfqXVG9WYpnKqf5lXv6uhbtZZiE9XxJLLD5-LTJFQV5AEkwmB0RJUytDCypYEU4EISE-MD4\",\n    \"RVNEUAYWLF1GSFE3GQhoUQ5PXiM_NSAoRREICBQFfH1yQ1V1VTN1B1ENGXN6MnI7XkUBBRcFdF9RGx9ZXET_zPq2L1BdYndrWBUJAERSfFtYGQlqVHTo_4y_tfqXVG9WYpnKqf5lXv6uhbtZZiE9XxJLLD5-LTJFQV5AEkwmB0RJUytDCypYEU4EISE-MD4\"\n  ],\n  \"eventAcknowledementId\": \"ae416a84-f5cc-49f5-8706-e0e2fa57c21c\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "24d3b91d-81e8-4bb9-b897-49204984e052",
+              "name": "You do not have sufficient permission to acknowledge events from this subscription",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "eventAcknowledgements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"eventHandles\": [\n    \"RVNEUAYWLF1GSFE3GQhoUQ5PXiM_NSAoRREICBQFfH1yQ1V1VTN1B1ENGXN6MnI7XkUBBRcFdF9RGx9ZXET_zPq2L1BdYndrWBUJAERSfFtYGQlqVHTo_4y_tfqXVG9WYpnKqf5lXv6uhbtZZiE9XxJLLD5-LTJFQV5AEkwmB0RJUytDCypYEU4EISE-MD4\",\n    \"RVNEUAYWLF1GSFE3GQhoUQ5PXiM_NSAoRREICBQFfH1yQ1V1VTN1B1ENGXN6MnI7XkUBBRcFdF9RGx9ZXET_zPq2L1BdYndrWBUJAERSfFtYGQlqVHTo_4y_tfqXVG9WYpnKqf5lXv6uhbtZZiE9XxJLLD5-LTJFQV5AEkwmB0RJUytDCypYEU4EISE-MD4\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "53a45ffb-60ef-4549-b1cb-4fa4886c7fb4",
+              "name": "The subscription does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "eventAcknowledgements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"eventHandles\": [\n    \"RVNEUAYWLF1GSFE3GQhoUQ5PXiM_NSAoRREICBQFfH1yQ1V1VTN1B1ENGXN6MnI7XkUBBRcFdF9RGx9ZXET_zPq2L1BdYndrWBUJAERSfFtYGQlqVHTo_4y_tfqXVG9WYpnKqf5lXv6uhbtZZiE9XxJLLD5-LTJFQV5AEkwmB0RJUytDCypYEU4EISE-MD4\",\n    \"RVNEUAYWLF1GSFE3GQhoUQ5PXiM_NSAoRREICBQFfH1yQ1V1VTN1B1ENGXN6MnI7XkUBBRcFdF9RGx9ZXET_zPq2L1BdYndrWBUJAERSfFtYGQlqVHTo_4y_tfqXVG9WYpnKqf5lXv6uhbtZZiE9XxJLLD5-LTJFQV5AEkwmB0RJUytDCypYEU4EISE-MD4\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-sandbox.rocketlawyer.com/partners/v1/auth",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c7bc5014-e9ea-43d8-a524-ddf0914e2ad4",
+    "name": "Authentication Accesstoken Event Consumption API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This API documentation describes the authentication mechanisms that enable access to the Rocket Lawyer’s APIs. The Rocket Lawyer API Platform uses Oauth 2.0 access tokens (as per [RFC 6750](https://datatracker.ietf.org/doc/html/rfc6750)) to authenticate API requests and protect your resources. \n\nThis page provides a comprehensive overview of the three types of tokens — Access Tokens, Service Tokens, and Scoped Access Tokens — along with guidance on using these tokens effectively during interactions with Rocket Lawyer’s APIs.\n\nGuides that provide step-by-step instructions for how to authenticate using the Rocket Lawyer embeddable UXs can be viewed in the [Guides section](/guides)). \n\nExplore the different authentication tokens and their usage within Rocket Lawyer's API ecosystem using  the sections below:\n\n# Access Token\n\nAccess Tokens are used whenever backend systems need to interact with Rocket Lawyer's APIs. Calls made with these tokens can access the data for all of your customers associated with the App you created in the developer center. Example usage is to start new interviews or retrieve all documents and binders.\n\nTo create an Access Token, issue a POST to /auth/accesstoken using valid credentials, these can be obtained from the [RocketLawyer Developer Portal](https://developer.rocketlawyer.com/) - see the [Welcome Guide](/welcome-guide)) for how to obtain these.\n\nThen include the Access Token as a bearer token in the Authorization header of your API requests to access our API resources.\n\nThis token can be used to start a new interview and retrieve the necessary document templates, establishing a secure foundation for the session.\n\nAccess Tokens expire after 10 hours. During this time, you should securely store this token in your backend for use in future requests. Creating a new access token does not invalidate any previously generated access tokens, your app can have more than one valid access token at a time.\n\n# Service Token\n\nService Tokens are a means for one application to delegate authority to API resources to less privileged applications. Typically a backend application will generate a service token to be distributed to a frontend application, to securely access a specific API resource. Service Tokens are generated with parameters like the purpose, interview ID, and Unique Party Identifier (UPID) that describe the scope of access that can be granted to the frontend application.\n\nGenerate a Service Token by sending a request to the Authentication endpoint with the necessary parameters. \n\nThe Service Token can then be passed to your frontend to be used in an Embedded UX component or to enable your frontend to access the Rocket Lawyer APIs through the creation of a scoped access token. This token has a 1-year expiration time.\n\n\n# Scoped Access Token\n\nA Scoped Access Token is typically used to authenticate frontend interactions. You need to create these tokens only if calling the Rocket Lawyer APIs from your front-end, for example if building your own UX. If using the embedded UX then these tokens are created and handled within the component.\n\nScoped Access Tokens grant access to specific resources, such as an interview (identified by interviewId) or linked to a particular party (identified by a UPID). \n\nTo obtain a Scoped Access Token, you must first generate a Service Token that specifies the resources that can be accessed. To create a scoped access token you need to create a new Developer app in the [RocketLawyer Developer Portal](https://developer.rocketlawyer.com/) that has front-end only scope. Contact Rocket Lawyer developer support (api@rocketlawyer.com) who will help provide this. The key and secret from this front-end app should be used to create the scoped access token. \n\nYou should include this token in the Authorization header of your frontend API requests.\n\n# Application Scope  \nDeveloper apps can be created with either backend or frontend access scope. Apps with backend scope are used for server-to-server communication and can access all our APIs. Apps with frontend scope are used by a web frontend to access our APIs and are restricted in the calls they can make to support the UX. If building your own UX, you will need an app with frontend scope.\n\n**Note** You must not use a Developer App that has backend access to authenticate into Rocket Lawyer APIs from your front-end. This will expose your backend credentials that have access to all your customers' data in the browser.\n",
+      "type": "text/plain"
+    }
+  }
+}

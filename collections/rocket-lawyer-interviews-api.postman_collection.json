@@ -1,0 +1,1643 @@
+{
+  "item": [
+    {
+      "id": "1b7b9898-dd62-4a30-852a-de93fac694a9",
+      "name": "Interviews",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "79a16015-c643-4230-b7bd-0ff283aa306c",
+          "name": "Create an Interview",
+          "request": {
+            "name": "Create an Interview",
+            "description": {
+              "content": "This endpoint allows you to create a new interview session.\n\n- Provide a reference to a Binder (`binderId`) or an owner email (`partyEmailAddress`).\n- If a `binderId` is provided, the new interview will be created within the context of this Binder.\n- If `binderId` isn't provided, a new binder will be created.\n- User-entered information will be stored by Rocket Lawyer.\n\n**Service Token**:\n- A service token is provided in the response header, scoped to the `partyId`.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "interviews"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"partyEmailAddress\": \"<string>\",\n  \"templateId\": \"<string>\",\n  \"partnerEndUserId\": \"<string>\",\n  \"inputData\": {\n    \"name\": \"<string>\",\n    \"entities\": [\n      {\n        \"name\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"class\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"roles\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"isCyclical\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"name\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"class\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"roles\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"isCyclical\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"fields\": [\n      {\n        \"entity\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"fieldClass\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"cycleId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"entity\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"fieldClass\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"cycleId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"templateId\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3da11650-3692-431f-bfae-ad6a9ffe5b92",
+              "name": "Successfully returns a newly created interview.\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interviews"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partyEmailAddress\": \"user@xyzcompany.com\",\n  \"templateId\": \"0bf17ad8-a229-1289-ef4a-00b7c9ad9cab\",\n  \"partnerEndUserId\": \"cfd1ee5a-061a-40cc-be72-8cbb9945b5d9\",\n  \"inputData\": {\n    \"name\": \"Employment contract\",\n    \"entities\": [\n      {\n        \"name\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"class\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"roles\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"isCyclical\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"name\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"class\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"roles\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"isCyclical\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"fields\": [\n      {\n        \"entity\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"fieldClass\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"cycleId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"entity\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"fieldClass\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"cycleId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"templateId\": \"0bf17ad8-a229-1289-ef4a-00b7c9ad9cab\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The `Service Token`.\n<small>Not present when creating an Interview with a pre-existing Binder</small>\n",
+                  "key": "rl-rdoc-servicetoken",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"interviewId\": \"76105b3e-ac8a-4202-8ed2-b991a02b8456\",\n  \"interviewName\": \"Employment contract\",\n  \"interviewStatus\": \"created\",\n  \"createdAt\": \"2020-12-01T17:51:40.795Z\",\n  \"updatedAt\": \"2021-12-01T18:51:40.795Z\",\n  \"templateId\": \"0bf17ad8-a229-1289-ef4a-00b7c9ad9cab\",\n  \"templateVersionId\": \"d9243532-6fae-41b8-a082-6d6844fa6246\",\n  \"partnerEndUserId\": \"cfd1ee5a-061a-40cc-be72-8cbb9945b5d9\",\n  \"storageType\": \"persistent\",\n  \"pageId\": \"Pkyezdgfswi58z\",\n  \"binder\": {\n    \"binderId\": \"0af17ba7-f332-5346-bb3f-00b7c9af7deb\",\n    \"documentId\": \"7d989647-ecf2-4673-9486-80c3b890ed3c\"\n  },\n  \"answersPayload\": {\n    \"Flfmu8ta21l9eh\": \"\",\n    \"Flfmufliy5gnuf\": \"\",\n    \"Flfmulpp4orak5\": \"true\",\n    \"Flfmum2u1mcvif\": \"false\",\n    \"Flfmuuwxkfljt6\": \"true\",\n    \"Flfmuwllpj97qz\": \"false\",\n    \"Flfmuznrnxr8vn\": \"\",\n    \"Flfqvnvr121l11\": \"\",\n    \"Clfqvxpiwq5btl\": [\n      {\n        \"Flfqvvhivulxtb\": \"answer 1\",\n        \"Flfqvwpr3a35lw\": \"answer 2\"\n      },\n      {\n        \"Flfqvvhivulxtb\": \"answer 3\",\n        \"Flfqvwpr3a35lw\": \"answer 4\"\n      }\n    ],\n    \"Clfqxxxexkmjzr\": [\n      {\n        \"Flfqwerocs85au\": \"\"\n      }\n    ],\n    \"Flfqyoh037bgfr\": \"\",\n    \"Flfqyp3z2r6prc\": \"false\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "94e08a15-5280-44ec-a030-3b485c036be9",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interviews"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partyEmailAddress\": \"user@xyzcompany.com\",\n  \"templateId\": \"0bf17ad8-a229-1289-ef4a-00b7c9ad9cab\",\n  \"partnerEndUserId\": \"cfd1ee5a-061a-40cc-be72-8cbb9945b5d9\",\n  \"inputData\": {\n    \"name\": \"Employment contract\",\n    \"entities\": [\n      {\n        \"name\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"class\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"roles\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"isCyclical\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"name\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"class\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"roles\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"isCyclical\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"fields\": [\n      {\n        \"entity\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"fieldClass\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"cycleId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"entity\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"fieldClass\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"cycleId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"templateId\": \"0bf17ad8-a229-1289-ef4a-00b7c9ad9cab\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6df75e02-0b51-4d52-a0ed-e2acd40f13af",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interviews"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"partyEmailAddress\": \"user@xyzcompany.com\",\n  \"templateId\": \"0bf17ad8-a229-1289-ef4a-00b7c9ad9cab\",\n  \"partnerEndUserId\": \"cfd1ee5a-061a-40cc-be72-8cbb9945b5d9\",\n  \"inputData\": {\n    \"name\": \"Employment contract\",\n    \"entities\": [\n      {\n        \"name\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"class\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"roles\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"isCyclical\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"name\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"class\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"roles\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"isCyclical\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"fields\": [\n      {\n        \"entity\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"fieldClass\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"cycleId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"entity\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"fieldClass\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"cycleId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"templateId\": \"0bf17ad8-a229-1289-ef4a-00b7c9ad9cab\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1dc531aa-44fe-458a-a23a-ef39c999d853",
+          "name": "List All Interviews",
+          "request": {
+            "name": "List All Interviews",
+            "description": {
+              "content": "TThis endpoint retrieves a list of interviews in the requesting partner tenancy. You can optionally filter the results by `partnerEndUserId` to narrow the list to a specific end user. The response includes the interview names, IDs, templates used, current statuses, and storage types.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "interviews"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "partnerEndUserId",
+                  "value": "<string>",
+                  "description": "The unique identifier of the partner's end user used to filter the list of interviews. If provided, only interviews associated with this end user will be returned.\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "22b329aa-9686-4494-af97-cd6a51f6cfe0",
+              "name": "Successfully returns the status of all interviews belonging to the partner.\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interviews"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "partnerEndUserId",
+                      "value": "cfd1ee5a-061a-40cc-be72-8cbb9945b5d9"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"interviewId\": \"76105b3e-ac8a-4202-8ed2-b991a02b8456\",\n    \"interviewName\": \"Employment contract\",\n    \"interviewStatus\": \"created\",\n    \"createdAt\": \"2020-12-01T17:51:40.795Z\",\n    \"updatedAt\": \"2021-12-01T18:51:40.795Z\",\n    \"templateId\": \"0bf17ad8-a229-1289-ef4a-00b7c9ad9cab\",\n    \"templateVersionId\": \"d9243532-6fae-41b8-a082-6d6844fa6246\",\n    \"partnerEndUserId\": \"cfd1ee5a-061a-40cc-be72-8cbb9945b5d9\",\n    \"storageType\": \"persistent\",\n    \"pageId\": \"Pkyezdgfswi58z\",\n    \"binder\": {\n      \"binderId\": \"0af17ba7-f332-5346-bb3f-00b7c9af7deb\",\n      \"documentId\": \"7d989647-ecf2-4673-9486-80c3b890ed3c\"\n    },\n    \"answersPayload\": {\n      \"Flfmu8ta21l9eh\": \"\",\n      \"Flfmufliy5gnuf\": \"\",\n      \"Flfmulpp4orak5\": \"true\",\n      \"Flfmum2u1mcvif\": \"false\",\n      \"Flfmuuwxkfljt6\": \"true\",\n      \"Flfmuwllpj97qz\": \"false\",\n      \"Flfmuznrnxr8vn\": \"\",\n      \"Flfqvnvr121l11\": \"\",\n      \"Clfqvxpiwq5btl\": [\n        {\n          \"Flfqvvhivulxtb\": \"answer 1\",\n          \"Flfqvwpr3a35lw\": \"answer 2\"\n        },\n        {\n          \"Flfqvvhivulxtb\": \"answer 3\",\n          \"Flfqvwpr3a35lw\": \"answer 4\"\n        }\n      ],\n      \"Clfqxxxexkmjzr\": [\n        {\n          \"Flfqwerocs85au\": \"\"\n        }\n      ],\n      \"Flfqyoh037bgfr\": \"\",\n      \"Flfqyp3z2r6prc\": \"false\"\n    }\n  },\n  {\n    \"interviewId\": \"76105b3e-ac8a-4202-8ed2-b991a02b8456\",\n    \"interviewName\": \"Employment contract\",\n    \"interviewStatus\": \"created\",\n    \"createdAt\": \"2020-12-01T17:51:40.795Z\",\n    \"updatedAt\": \"2021-12-01T18:51:40.795Z\",\n    \"templateId\": \"0bf17ad8-a229-1289-ef4a-00b7c9ad9cab\",\n    \"templateVersionId\": \"d9243532-6fae-41b8-a082-6d6844fa6246\",\n    \"partnerEndUserId\": \"cfd1ee5a-061a-40cc-be72-8cbb9945b5d9\",\n    \"storageType\": \"persistent\",\n    \"pageId\": \"Pkyezdgfswi58z\",\n    \"binder\": {\n      \"binderId\": \"0af17ba7-f332-5346-bb3f-00b7c9af7deb\",\n      \"documentId\": \"7d989647-ecf2-4673-9486-80c3b890ed3c\"\n    },\n    \"answersPayload\": {\n      \"Flfmu8ta21l9eh\": \"\",\n      \"Flfmufliy5gnuf\": \"\",\n      \"Flfmulpp4orak5\": \"true\",\n      \"Flfmum2u1mcvif\": \"false\",\n      \"Flfmuuwxkfljt6\": \"true\",\n      \"Flfmuwllpj97qz\": \"false\",\n      \"Flfmuznrnxr8vn\": \"\",\n      \"Flfqvnvr121l11\": \"\",\n      \"Clfqvxpiwq5btl\": [\n        {\n          \"Flfqvvhivulxtb\": \"answer 1\",\n          \"Flfqvwpr3a35lw\": \"answer 2\"\n        },\n        {\n          \"Flfqvvhivulxtb\": \"answer 3\",\n          \"Flfqvwpr3a35lw\": \"answer 4\"\n        }\n      ],\n      \"Clfqxxxexkmjzr\": [\n        {\n          \"Flfqwerocs85au\": \"\"\n        }\n      ],\n      \"Flfqyoh037bgfr\": \"\",\n      \"Flfqyp3z2r6prc\": \"false\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7cf41634-02d1-424b-8fb1-714f7a9a82fb",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interviews"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "partnerEndUserId",
+                      "value": "cfd1ee5a-061a-40cc-be72-8cbb9945b5d9"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6e036365-794e-43c9-8a9d-ab988ef5add5",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interviews"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "partnerEndUserId",
+                      "value": "cfd1ee5a-061a-40cc-be72-8cbb9945b5d9"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e1e93f3d-2a31-491c-9ea7-a7a73a50d7f3",
+          "name": "Retrieve Interview by ID",
+          "request": {
+            "name": "Retrieve Interview by ID",
+            "description": {
+              "content": "Retrieves the details of an existing interview identified by the `interviewId`. This endpoint lets you fetch all the information related to a specific interview, including its status and associated data. This endpoint also enables you to resume a previously started interview.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "interviews",
+                ":interviewId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "interviewId",
+                  "description": "(Required) The unique identifier of an interview."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a091c3ea-2443-4097-88e0-135bc7b9dfd1",
+              "name": "Successfully returns the details of the specified interview.\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interviews",
+                    ":interviewId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "interviewId",
+                      "description": "(Required) The unique identifier of an interview."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"interviewId\": \"76105b3e-ac8a-4202-8ed2-b991a02b8456\",\n  \"interviewName\": \"Employment contract\",\n  \"interviewStatus\": \"created\",\n  \"createdAt\": \"2020-12-01T17:51:40.795Z\",\n  \"updatedAt\": \"2021-12-01T18:51:40.795Z\",\n  \"templateId\": \"0bf17ad8-a229-1289-ef4a-00b7c9ad9cab\",\n  \"templateVersionId\": \"d9243532-6fae-41b8-a082-6d6844fa6246\",\n  \"partnerEndUserId\": \"cfd1ee5a-061a-40cc-be72-8cbb9945b5d9\",\n  \"storageType\": \"persistent\",\n  \"pageId\": \"Pkyezdgfswi58z\",\n  \"binder\": {\n    \"binderId\": \"0af17ba7-f332-5346-bb3f-00b7c9af7deb\",\n    \"documentId\": \"7d989647-ecf2-4673-9486-80c3b890ed3c\"\n  },\n  \"answersPayload\": {\n    \"Flfmu8ta21l9eh\": \"\",\n    \"Flfmufliy5gnuf\": \"\",\n    \"Flfmulpp4orak5\": \"true\",\n    \"Flfmum2u1mcvif\": \"false\",\n    \"Flfmuuwxkfljt6\": \"true\",\n    \"Flfmuwllpj97qz\": \"false\",\n    \"Flfmuznrnxr8vn\": \"\",\n    \"Flfqvnvr121l11\": \"\",\n    \"Clfqvxpiwq5btl\": [\n      {\n        \"Flfqvvhivulxtb\": \"answer 1\",\n        \"Flfqvwpr3a35lw\": \"answer 2\"\n      },\n      {\n        \"Flfqvvhivulxtb\": \"answer 3\",\n        \"Flfqvwpr3a35lw\": \"answer 4\"\n      }\n    ],\n    \"Clfqxxxexkmjzr\": [\n      {\n        \"Flfqwerocs85au\": \"\"\n      }\n    ],\n    \"Flfqyoh037bgfr\": \"\",\n    \"Flfqyp3z2r6prc\": \"false\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "542beee6-a89c-46b2-ac9c-87da1d3760cc",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interviews",
+                    ":interviewId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "interviewId",
+                      "description": "(Required) The unique identifier of an interview."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b37abcb4-dea1-4978-9f01-6d9a68982c32",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interviews",
+                    ":interviewId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "interviewId",
+                      "description": "(Required) The unique identifier of an interview."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "49a61d23-104d-4852-82e8-9eac55a3b093",
+          "name": "Update an Interview",
+          "request": {
+            "name": "Update an Interview",
+            "description": {
+              "content": "This endpoint updates an existing Interview with data in the Tagged Answer Model (TAM) format. It's important to note that data previously entered for this interview will be lost.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "interviews",
+                ":interviewId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "interviewId",
+                  "description": "(Required) The unique identifier of an interview."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputData\": {\n    \"name\": \"<string>\",\n    \"entities\": [\n      {\n        \"name\": \"<string>\",\n        \"class\": \"<string>\",\n        \"roles\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"isCyclical\": false\n      },\n      {\n        \"name\": \"<string>\",\n        \"class\": \"<string>\",\n        \"roles\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"isCyclical\": false\n      }\n    ],\n    \"fields\": [\n      {\n        \"entity\": \"<string>\",\n        \"fieldClass\": \"<string>\",\n        \"type\": \"<object>\",\n        \"value\": \"<string>\",\n        \"cycleId\": \"<string>\"\n      },\n      {\n        \"entity\": \"<string>\",\n        \"fieldClass\": \"<string>\",\n        \"type\": \"<object>\",\n        \"value\": \"<string>\",\n        \"cycleId\": \"<string>\"\n      }\n    ],\n    \"templateId\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f7f1fbf0-0b65-4e49-a102-c2099cbec344",
+              "name": "Successfully updates the specified interview.\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interviews",
+                    ":interviewId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "interviewId",
+                      "description": "(Required) The unique identifier of an interview."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"inputData\": {\n    \"name\": \"Employment contract\",\n    \"entities\": [\n      {\n        \"name\": \"Formed Entity\",\n        \"class\": \"Person\",\n        \"roles\": [\n          \"Applicant\",\n          \"Applicant\"\n        ],\n        \"isCyclical\": false\n      },\n      {\n        \"name\": \"Formed Entity\",\n        \"class\": \"Person\",\n        \"roles\": [\n          \"Applicant\",\n          \"Applicant\"\n        ],\n        \"isCyclical\": false\n      }\n    ],\n    \"fields\": [\n      {\n        \"entity\": \"<string>\",\n        \"fieldClass\": \"Entity Type\",\n        \"type\": \"<object>\",\n        \"value\": \"<string>\",\n        \"cycleId\": \"<string>\"\n      },\n      {\n        \"entity\": \"<string>\",\n        \"fieldClass\": \"Entity Type\",\n        \"type\": \"<object>\",\n        \"value\": \"<string>\",\n        \"cycleId\": \"<string>\"\n      }\n    ],\n    \"templateId\": \"0bf17ad8-a229-1289-ef4a-00b7c9ad9cab\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"interviewId\": \"76105b3e-ac8a-4202-8ed2-b991a02b8456\",\n  \"interviewName\": \"Employment contract\",\n  \"interviewStatus\": \"created\",\n  \"createdAt\": \"2020-12-01T17:51:40.795Z\",\n  \"updatedAt\": \"2021-12-01T18:51:40.795Z\",\n  \"templateId\": \"0bf17ad8-a229-1289-ef4a-00b7c9ad9cab\",\n  \"templateVersionId\": \"d9243532-6fae-41b8-a082-6d6844fa6246\",\n  \"partnerEndUserId\": \"cfd1ee5a-061a-40cc-be72-8cbb9945b5d9\",\n  \"storageType\": \"persistent\",\n  \"pageId\": \"Pkyezdgfswi58z\",\n  \"binder\": {\n    \"binderId\": \"0af17ba7-f332-5346-bb3f-00b7c9af7deb\",\n    \"documentId\": \"7d989647-ecf2-4673-9486-80c3b890ed3c\"\n  },\n  \"answersPayload\": {\n    \"Flfmu8ta21l9eh\": \"\",\n    \"Flfmufliy5gnuf\": \"\",\n    \"Flfmulpp4orak5\": \"true\",\n    \"Flfmum2u1mcvif\": \"false\",\n    \"Flfmuuwxkfljt6\": \"true\",\n    \"Flfmuwllpj97qz\": \"false\",\n    \"Flfmuznrnxr8vn\": \"\",\n    \"Flfqvnvr121l11\": \"\",\n    \"Clfqvxpiwq5btl\": [\n      {\n        \"Flfqvvhivulxtb\": \"answer 1\",\n        \"Flfqvwpr3a35lw\": \"answer 2\"\n      },\n      {\n        \"Flfqvvhivulxtb\": \"answer 3\",\n        \"Flfqvwpr3a35lw\": \"answer 4\"\n      }\n    ],\n    \"Clfqxxxexkmjzr\": [\n      {\n        \"Flfqwerocs85au\": \"\"\n      }\n    ],\n    \"Flfqyoh037bgfr\": \"\",\n    \"Flfqyp3z2r6prc\": \"false\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b9380ce1-c954-4594-81fa-b2b9091340c2",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interviews",
+                    ":interviewId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "interviewId",
+                      "description": "(Required) The unique identifier of an interview."
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"inputData\": {\n    \"name\": \"Employment contract\",\n    \"entities\": [\n      {\n        \"name\": \"Formed Entity\",\n        \"class\": \"Person\",\n        \"roles\": [\n          \"Applicant\",\n          \"Applicant\"\n        ],\n        \"isCyclical\": false\n      },\n      {\n        \"name\": \"Formed Entity\",\n        \"class\": \"Person\",\n        \"roles\": [\n          \"Applicant\",\n          \"Applicant\"\n        ],\n        \"isCyclical\": false\n      }\n    ],\n    \"fields\": [\n      {\n        \"entity\": \"<string>\",\n        \"fieldClass\": \"Entity Type\",\n        \"type\": \"<object>\",\n        \"value\": \"<string>\",\n        \"cycleId\": \"<string>\"\n      },\n      {\n        \"entity\": \"<string>\",\n        \"fieldClass\": \"Entity Type\",\n        \"type\": \"<object>\",\n        \"value\": \"<string>\",\n        \"cycleId\": \"<string>\"\n      }\n    ],\n    \"templateId\": \"0bf17ad8-a229-1289-ef4a-00b7c9ad9cab\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5b464aca-0a89-41de-b076-0e6f5beb7699",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interviews",
+                    ":interviewId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "interviewId",
+                      "description": "(Required) The unique identifier of an interview."
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"inputData\": {\n    \"name\": \"Employment contract\",\n    \"entities\": [\n      {\n        \"name\": \"Formed Entity\",\n        \"class\": \"Person\",\n        \"roles\": [\n          \"Applicant\",\n          \"Applicant\"\n        ],\n        \"isCyclical\": false\n      },\n      {\n        \"name\": \"Formed Entity\",\n        \"class\": \"Person\",\n        \"roles\": [\n          \"Applicant\",\n          \"Applicant\"\n        ],\n        \"isCyclical\": false\n      }\n    ],\n    \"fields\": [\n      {\n        \"entity\": \"<string>\",\n        \"fieldClass\": \"Entity Type\",\n        \"type\": \"<object>\",\n        \"value\": \"<string>\",\n        \"cycleId\": \"<string>\"\n      },\n      {\n        \"entity\": \"<string>\",\n        \"fieldClass\": \"Entity Type\",\n        \"type\": \"<object>\",\n        \"value\": \"<string>\",\n        \"cycleId\": \"<string>\"\n      }\n    ],\n    \"templateId\": \"0bf17ad8-a229-1289-ef4a-00b7c9ad9cab\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2dc6af65-e0c3-4c4f-90b4-1b28c7cb3b11",
+          "name": "Delete an Interview",
+          "request": {
+            "name": "Delete an Interview",
+            "description": {
+              "content": "Deletes an existing interview resource identified by the `interviewId`. This operation permanently removes the interview and its associated data from the Rocket Lawyer system.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "interviews",
+                ":interviewId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "interviewId",
+                  "description": "(Required) The unique identifier of an interview."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "515f6168-fd94-4cd0-9e8a-1808a612b487",
+              "name": "The interview resource was successfully deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interviews",
+                    ":interviewId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "interviewId",
+                      "description": "(Required) The unique identifier of an interview."
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7bd46b95-9a92-4984-8b4b-66db3e4e480f",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interviews",
+                    ":interviewId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "interviewId",
+                      "description": "(Required) The unique identifier of an interview."
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "85cc4361-b855-4e1e-a9cf-457cc85aa32d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interviews",
+                    ":interviewId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "interviewId",
+                      "description": "(Required) The unique identifier of an interview."
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d4773d0f-8a0b-48e5-9cc2-5abf56e05aeb",
+          "name": "Complete an Interview",
+          "request": {
+            "name": "Complete an Interview",
+            "description": {
+              "content": "Completes the specified interview for which answers have been supplied. This operation finalizes the interview, ensuring that all provided answers are processed and saved and final document stored at the binder.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "interviews",
+                ":interviewId",
+                "completions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "interviewId",
+                  "description": "(Required) The unique identifier of an interview."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e3c0458c-cd89-4147-a5fa-d38a96ebd61e",
+              "name": "The interview was successfully completed and the answers have been processed and saved.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interviews",
+                    ":interviewId",
+                    "completions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "interviewId",
+                      "description": "(Required) The unique identifier of an interview."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"binder\": {\n    \"binderId\": \"0af17ba7-f332-5346-bb3f-00b7c9af7deb\",\n    \"documentId\": \"7d989647-ecf2-4673-9486-80c3b890ed3c\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5e4370ca-5e87-4d7e-9b71-330bdf8cb34f",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interviews",
+                    ":interviewId",
+                    "completions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "interviewId",
+                      "description": "(Required) The unique identifier of an interview."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "49ee196e-b946-41a0-b83d-bfaadaccfa96",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interviews",
+                    ":interviewId",
+                    "completions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "interviewId",
+                      "description": "(Required) The unique identifier of an interview."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f85652c2-420e-4178-95fe-bc85ac382d04",
+          "name": "Retrieve a Page",
+          "request": {
+            "name": "Retrieve a Page",
+            "description": {
+              "content": "Retrieves a specific page of the interview identified by `interviewId` and `pageId`.\n\nFor this call, the default format for `currentPageData` is set to `display`, and the default preview format is `text/html`.\n\nIf you are on the first page of the interview, the previous page and the current page of the response object will be the same. Similarly, if you are on the last page of the interview, the current page and the next page will be the same.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "interviews",
+                ":interviewId",
+                "pages",
+                ":pageId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "interviewId",
+                  "description": "(Required) The unique identifier of an interview."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pageId",
+                  "description": "(Required) Either a pageId or a pseudonym for a page. Enter one of the following options:\n- `pageId`: The unique identifier of the requested page.\n- `\"first\"`: Pseudonym for the first page of the Interview.\n- `\"last\"`: Pseudonym for the last answered page by the end user of the Interview.\n"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c088fb10-1c54-4da1-95e3-3d39258c5e70",
+              "name": "Successfully retrieves the specified page of the interview.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interviews",
+                    ":interviewId",
+                    "pages",
+                    ":pageId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "interviewId",
+                      "description": "(Required) The unique identifier of an interview."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pageId",
+                      "description": "(Required) Either a pageId or a pseudonym for a page. Enter one of the following options:\n- `pageId`: The unique identifier of the requested page.\n- `\"first\"`: Pseudonym for the first page of the Interview.\n- `\"last\"`: Pseudonym for the last answered page by the end user of the Interview.\n"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"answersPayload\": {\n    \"Flfmu8ta21l9eh\": \"\",\n    \"Flfmufliy5gnuf\": \"\",\n    \"Flfmulpp4orak5\": \"true\",\n    \"Flfmum2u1mcvif\": \"false\",\n    \"Flfmuuwxkfljt6\": \"true\",\n    \"Flfmuwllpj97qz\": \"false\",\n    \"Flfmuznrnxr8vn\": \"\",\n    \"Flfqvnvr121l11\": \"\",\n    \"Clfqvxpiwq5btl\": [\n      {\n        \"Flfqvvhivulxtb\": \"answer 1\",\n        \"Flfqvwpr3a35lw\": \"answer 2\"\n      },\n      {\n        \"Flfqvvhivulxtb\": \"answer 3\",\n        \"Flfqvwpr3a35lw\": \"answer 4\"\n      }\n    ],\n    \"Clfqxxxexkmjzr\": [\n      {\n        \"Flfqwerocs85au\": \"\"\n      }\n    ],\n    \"Flfqyoh037bgfr\": \"\",\n    \"Flfqyp3z2r6prc\": \"false\"\n  },\n  \"preview\": {\n    \"mimeType\": \"text/html\",\n    \"data\": \"PGh0bWw+PGJvZHk+Um9ja2V0RG9jdW1lbnQgcHJldmlldzwvYm9keT48L2h0bWw+Cg==\"\n  },\n  \"previousPageData\": {\n    \"pageId\": \"Fkbbc110f2d2eb\",\n    \"format\": \"reference\"\n  },\n  \"currentPageData\": {\n    \"pageId\": \"Fkbbc110f2d2eb\",\n    \"format\": \"reference\"\n  },\n  \"nextPageData\": {\n    \"answers\": {\n      \"Flfmulpp4orak5\": \"true\",\n      \"Flfmum2u1mcvif\": \"false\",\n      \"Flfmuuwxkfljt6\": \"true\"\n    },\n    \"format\": \"display\",\n    \"pageId\": \"Fkbbc110f2d2eb\",\n    \"progressPercentage\": 9794,\n    \"questions\": [\n      {\n        \"id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"title\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"hint\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"fields\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"help\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"showIf\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"title\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"hint\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"fields\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"help\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"showIf\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"type\": \"single\",\n    \"isFirst\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "60a4078e-957d-457e-bd5f-0e9d2501fc1c",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interviews",
+                    ":interviewId",
+                    "pages",
+                    ":pageId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "interviewId",
+                      "description": "(Required) The unique identifier of an interview."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pageId",
+                      "description": "(Required) Either a pageId or a pseudonym for a page. Enter one of the following options:\n- `pageId`: The unique identifier of the requested page.\n- `\"first\"`: Pseudonym for the first page of the Interview.\n- `\"last\"`: Pseudonym for the last answered page by the end user of the Interview.\n"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8667a942-ad98-49c2-8abf-5f2947bd337a",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interviews",
+                    ":interviewId",
+                    "pages",
+                    ":pageId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "interviewId",
+                      "description": "(Required) The unique identifier of an interview."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pageId",
+                      "description": "(Required) Either a pageId or a pseudonym for a page. Enter one of the following options:\n- `pageId`: The unique identifier of the requested page.\n- `\"first\"`: Pseudonym for the first page of the Interview.\n- `\"last\"`: Pseudonym for the last answered page by the end user of the Interview.\n"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4aa45ec2-a597-45d4-a41b-0f50a05235d4",
+          "name": "Update an Interview Page's Answers",
+          "request": {
+            "name": "Update an Interview Page's Answers",
+            "description": {
+              "content": "Submit the answers to the questions for a specific page of the interview, identified by `interviewId` and `pageId`.\n\nThis operation can also be used to retrieve the next or previous page preview, and/or get the updated preview of the current page. This is controlled by the `format` key in each page's respective data inside the request's body.\n\nIf you are on the first page of the interview, the previous page and the current page of the response object will be the same. Similarly, if you are on the last page of the interview, the current page and the next page will be the same.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "interviews",
+                ":interviewId",
+                "pages",
+                ":pageId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "interviewId",
+                  "description": "(Required) The unique identifier of an interview."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pageId",
+                  "description": "(Required) Either a pageId or a pseudonym for a page. Enter one of the following options:\n- `pageId`: The unique identifier of the requested page.\n- `\"first\"`: Pseudonym for the first page of the Interview.\n- `\"last\"`: Pseudonym for the last answered page by the end user of the Interview.\n"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"answersPayload\": \"<object>\",\n  \"currentPageData\": {\n    \"format\": \"reference\"\n  },\n  \"previousPageData\": {\n    \"format\": \"reference\"\n  },\n  \"nextPageData\": {\n    \"format\": \"reference\"\n  },\n  \"preview\": {\n    \"mimeType\": \"text/html\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "14d85986-5fe9-4ab2-9817-c60e6cbd8e49",
+              "name": "Successfully submits the data for the specified page.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interviews",
+                    ":interviewId",
+                    "pages",
+                    ":pageId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "interviewId",
+                      "description": "(Required) The unique identifier of an interview."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pageId",
+                      "description": "(Required) Either a pageId or a pseudonym for a page. Enter one of the following options:\n- `pageId`: The unique identifier of the requested page.\n- `\"first\"`: Pseudonym for the first page of the Interview.\n- `\"last\"`: Pseudonym for the last answered page by the end user of the Interview.\n"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"answersPayload\": {\n    \"Flfmu8ta21l9eh\": \"\",\n    \"Flfmufliy5gnuf\": \"\",\n    \"Flfmulpp4orak5\": \"true\",\n    \"Flfmum2u1mcvif\": \"false\",\n    \"Flfmuuwxkfljt6\": \"true\",\n    \"Flfmuwllpj97qz\": \"false\",\n    \"Flfmuznrnxr8vn\": \"\",\n    \"Flfqvnvr121l11\": \"\",\n    \"Clfqvxpiwq5btl\": [\n      {\n        \"Flfqvvhivulxtb\": \"answer 1\",\n        \"Flfqvwpr3a35lw\": \"answer 2\"\n      },\n      {\n        \"Flfqvvhivulxtb\": \"answer 3\",\n        \"Flfqvwpr3a35lw\": \"answer 4\"\n      }\n    ],\n    \"Clfqxxxexkmjzr\": [\n      {\n        \"Flfqwerocs85au\": \"\"\n      }\n    ],\n    \"Flfqyoh037bgfr\": \"\",\n    \"Flfqyp3z2r6prc\": \"false\"\n  },\n  \"currentPageData\": {\n    \"format\": \"reference\"\n  },\n  \"previousPageData\": {\n    \"format\": \"reference\"\n  },\n  \"nextPageData\": {\n    \"format\": \"reference\"\n  },\n  \"preview\": {\n    \"mimeType\": \"text/html\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"answersPayload\": {\n    \"Flfmu8ta21l9eh\": \"\",\n    \"Flfmufliy5gnuf\": \"\",\n    \"Flfmulpp4orak5\": \"true\",\n    \"Flfmum2u1mcvif\": \"false\",\n    \"Flfmuuwxkfljt6\": \"true\",\n    \"Flfmuwllpj97qz\": \"false\",\n    \"Flfmuznrnxr8vn\": \"\",\n    \"Flfqvnvr121l11\": \"\",\n    \"Clfqvxpiwq5btl\": [\n      {\n        \"Flfqvvhivulxtb\": \"answer 1\",\n        \"Flfqvwpr3a35lw\": \"answer 2\"\n      },\n      {\n        \"Flfqvvhivulxtb\": \"answer 3\",\n        \"Flfqvwpr3a35lw\": \"answer 4\"\n      }\n    ],\n    \"Clfqxxxexkmjzr\": [\n      {\n        \"Flfqwerocs85au\": \"\"\n      }\n    ],\n    \"Flfqyoh037bgfr\": \"\",\n    \"Flfqyp3z2r6prc\": \"false\"\n  },\n  \"preview\": {\n    \"mimeType\": \"text/html\",\n    \"data\": \"PGh0bWw+PGJvZHk+Um9ja2V0RG9jdW1lbnQgcHJldmlldzwvYm9keT48L2h0bWw+Cg==\"\n  },\n  \"previousPageData\": {\n    \"pageId\": \"Fkbbc110f2d2eb\",\n    \"format\": \"reference\"\n  },\n  \"currentPageData\": {\n    \"pageId\": \"Fkbbc110f2d2eb\",\n    \"format\": \"reference\"\n  },\n  \"nextPageData\": {\n    \"answers\": {\n      \"Flfmulpp4orak5\": \"true\",\n      \"Flfmum2u1mcvif\": \"false\",\n      \"Flfmuuwxkfljt6\": \"true\"\n    },\n    \"format\": \"display\",\n    \"pageId\": \"Fkbbc110f2d2eb\",\n    \"progressPercentage\": 5124,\n    \"questions\": [\n      {\n        \"id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"title\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"hint\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"fields\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"help\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"showIf\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"title\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"hint\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"fields\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"help\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"showIf\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"type\": \"single\",\n    \"isFirst\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "75044e36-4ee4-4179-8fd9-9fd20d9145f6",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interviews",
+                    ":interviewId",
+                    "pages",
+                    ":pageId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "interviewId",
+                      "description": "(Required) The unique identifier of an interview."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pageId",
+                      "description": "(Required) Either a pageId or a pseudonym for a page. Enter one of the following options:\n- `pageId`: The unique identifier of the requested page.\n- `\"first\"`: Pseudonym for the first page of the Interview.\n- `\"last\"`: Pseudonym for the last answered page by the end user of the Interview.\n"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"answersPayload\": {\n    \"Flfmu8ta21l9eh\": \"\",\n    \"Flfmufliy5gnuf\": \"\",\n    \"Flfmulpp4orak5\": \"true\",\n    \"Flfmum2u1mcvif\": \"false\",\n    \"Flfmuuwxkfljt6\": \"true\",\n    \"Flfmuwllpj97qz\": \"false\",\n    \"Flfmuznrnxr8vn\": \"\",\n    \"Flfqvnvr121l11\": \"\",\n    \"Clfqvxpiwq5btl\": [\n      {\n        \"Flfqvvhivulxtb\": \"answer 1\",\n        \"Flfqvwpr3a35lw\": \"answer 2\"\n      },\n      {\n        \"Flfqvvhivulxtb\": \"answer 3\",\n        \"Flfqvwpr3a35lw\": \"answer 4\"\n      }\n    ],\n    \"Clfqxxxexkmjzr\": [\n      {\n        \"Flfqwerocs85au\": \"\"\n      }\n    ],\n    \"Flfqyoh037bgfr\": \"\",\n    \"Flfqyp3z2r6prc\": \"false\"\n  },\n  \"currentPageData\": {\n    \"format\": \"reference\"\n  },\n  \"previousPageData\": {\n    \"format\": \"reference\"\n  },\n  \"nextPageData\": {\n    \"format\": \"reference\"\n  },\n  \"preview\": {\n    \"mimeType\": \"text/html\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b5e4a800-cef1-4faa-a1a0-39b09f755987",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interviews",
+                    ":interviewId",
+                    "pages",
+                    ":pageId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "interviewId",
+                      "description": "(Required) The unique identifier of an interview."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pageId",
+                      "description": "(Required) Either a pageId or a pseudonym for a page. Enter one of the following options:\n- `pageId`: The unique identifier of the requested page.\n- `\"first\"`: Pseudonym for the first page of the Interview.\n- `\"last\"`: Pseudonym for the last answered page by the end user of the Interview.\n"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"answersPayload\": {\n    \"Flfmu8ta21l9eh\": \"\",\n    \"Flfmufliy5gnuf\": \"\",\n    \"Flfmulpp4orak5\": \"true\",\n    \"Flfmum2u1mcvif\": \"false\",\n    \"Flfmuuwxkfljt6\": \"true\",\n    \"Flfmuwllpj97qz\": \"false\",\n    \"Flfmuznrnxr8vn\": \"\",\n    \"Flfqvnvr121l11\": \"\",\n    \"Clfqvxpiwq5btl\": [\n      {\n        \"Flfqvvhivulxtb\": \"answer 1\",\n        \"Flfqvwpr3a35lw\": \"answer 2\"\n      },\n      {\n        \"Flfqvvhivulxtb\": \"answer 3\",\n        \"Flfqvwpr3a35lw\": \"answer 4\"\n      }\n    ],\n    \"Clfqxxxexkmjzr\": [\n      {\n        \"Flfqwerocs85au\": \"\"\n      }\n    ],\n    \"Flfqyoh037bgfr\": \"\",\n    \"Flfqyp3z2r6prc\": \"false\"\n  },\n  \"currentPageData\": {\n    \"format\": \"reference\"\n  },\n  \"previousPageData\": {\n    \"format\": \"reference\"\n  },\n  \"nextPageData\": {\n    \"format\": \"reference\"\n  },\n  \"preview\": {\n    \"mimeType\": \"text/html\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0297f215-ceed-4c80-94e4-1c0ceff26c4e",
+          "name": "Retrieve Interview Data",
+          "request": {
+            "name": "Retrieve Interview Data",
+            "description": {
+              "content": "Retrieves data from a interview in Tagged Answer Model (TAM) format.\n\nThis endpoint allows you to fetch structured data for the interview, which includes the tagged answers aligned with the TAM structure.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "interviews",
+                ":interviewId",
+                "tagged-answers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "interviewId",
+                  "description": "(Required) The unique identifier of an interview."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d74be03f-3871-4b4d-aa0d-5c482b74c106",
+              "name": "Returns all the answers for interview in tagged answer model (TAM) format.\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interviews",
+                    ":interviewId",
+                    "tagged-answers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "interviewId",
+                      "description": "(Required) The unique identifier of an interview."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"Employment contract\",\n  \"entities\": [\n    {\n      \"name\": \"Formed Entity\",\n      \"class\": \"Person\",\n      \"roles\": [\n        \"Applicant\",\n        \"Applicant\"\n      ],\n      \"isCyclical\": false\n    },\n    {\n      \"name\": \"Formed Entity\",\n      \"class\": \"Person\",\n      \"roles\": [\n        \"Applicant\",\n        \"Applicant\"\n      ],\n      \"isCyclical\": false\n    }\n  ],\n  \"fields\": [\n    {\n      \"entity\": \"<string>\",\n      \"fieldClass\": \"Entity Type\",\n      \"type\": \"<object>\",\n      \"value\": \"<string>\",\n      \"cycleId\": \"<string>\"\n    },\n    {\n      \"entity\": \"<string>\",\n      \"fieldClass\": \"Entity Type\",\n      \"type\": \"<object>\",\n      \"value\": \"<string>\",\n      \"cycleId\": \"<string>\"\n    }\n  ],\n  \"templateId\": \"0bf17ad8-a229-1289-ef4a-00b7c9ad9cab\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ce7e0717-d1b1-42bf-9ee3-4ae83f298f0e",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interviews",
+                    ":interviewId",
+                    "tagged-answers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "interviewId",
+                      "description": "(Required) The unique identifier of an interview."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b684efc1-f3a1-4a2c-bafd-6acb719655a9",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interviews",
+                    ":interviewId",
+                    "tagged-answers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "interviewId",
+                      "description": "(Required) The unique identifier of an interview."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-sandbox.rocketlawyer.com/partners/v1/auth",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "7f17ebf2-3847-441d-9a5f-ec0043178a73",
+    "name": "Authentication Accesstoken Interviews API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This API documentation describes the authentication mechanisms that enable access to the Rocket Lawyer’s APIs. The Rocket Lawyer API Platform uses Oauth 2.0 access tokens (as per [RFC 6750](https://datatracker.ietf.org/doc/html/rfc6750)) to authenticate API requests and protect your resources. \n\nThis page provides a comprehensive overview of the three types of tokens — Access Tokens, Service Tokens, and Scoped Access Tokens — along with guidance on using these tokens effectively during interactions with Rocket Lawyer’s APIs.\n\nGuides that provide step-by-step instructions for how to authenticate using the Rocket Lawyer embeddable UXs can be viewed in the [Guides section](/guides)). \n\nExplore the different authentication tokens and their usage within Rocket Lawyer's API ecosystem using  the sections below:\n\n# Access Token\n\nAccess Tokens are used whenever backend systems need to interact with Rocket Lawyer's APIs. Calls made with these tokens can access the data for all of your customers associated with the App you created in the developer center. Example usage is to start new interviews or retrieve all documents and binders.\n\nTo create an Access Token, issue a POST to /auth/accesstoken using valid credentials, these can be obtained from the [RocketLawyer Developer Portal](https://developer.rocketlawyer.com/) - see the [Welcome Guide](/welcome-guide)) for how to obtain these.\n\nThen include the Access Token as a bearer token in the Authorization header of your API requests to access our API resources.\n\nThis token can be used to start a new interview and retrieve the necessary document templates, establishing a secure foundation for the session.\n\nAccess Tokens expire after 10 hours. During this time, you should securely store this token in your backend for use in future requests. Creating a new access token does not invalidate any previously generated access tokens, your app can have more than one valid access token at a time.\n\n# Service Token\n\nService Tokens are a means for one application to delegate authority to API resources to less privileged applications. Typically a backend application will generate a service token to be distributed to a frontend application, to securely access a specific API resource. Service Tokens are generated with parameters like the purpose, interview ID, and Unique Party Identifier (UPID) that describe the scope of access that can be granted to the frontend application.\n\nGenerate a Service Token by sending a request to the Authentication endpoint with the necessary parameters. \n\nThe Service Token can then be passed to your frontend to be used in an Embedded UX component or to enable your frontend to access the Rocket Lawyer APIs through the creation of a scoped access token. This token has a 1-year expiration time.\n\n\n# Scoped Access Token\n\nA Scoped Access Token is typically used to authenticate frontend interactions. You need to create these tokens only if calling the Rocket Lawyer APIs from your front-end, for example if building your own UX. If using the embedded UX then these tokens are created and handled within the component.\n\nScoped Access Tokens grant access to specific resources, such as an interview (identified by interviewId) or linked to a particular party (identified by a UPID). \n\nTo obtain a Scoped Access Token, you must first generate a Service Token that specifies the resources that can be accessed. To create a scoped access token you need to create a new Developer app in the [RocketLawyer Developer Portal](https://developer.rocketlawyer.com/) that has front-end only scope. Contact Rocket Lawyer developer support (api@rocketlawyer.com) who will help provide this. The key and secret from this front-end app should be used to create the scoped access token. \n\nYou should include this token in the Authorization header of your frontend API requests.\n\n# Application Scope  \nDeveloper apps can be created with either backend or frontend access scope. Apps with backend scope are used for server-to-server communication and can access all our APIs. Apps with frontend scope are used by a web frontend to access our APIs and are restricted in the calls they can make to support the UX. If building your own UX, you will need an app with frontend scope.\n\n**Note** You must not use a Developer App that has backend access to authenticate into Rocket Lawyer APIs from your front-end. This will expose your backend credentials that have access to all your customers' data in the browser.\n",
+      "type": "text/plain"
+    }
+  }
+}
