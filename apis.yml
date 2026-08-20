@@ -7,6 +7,8 @@ apis:
   humanURL: https://developer.rocketlawyer.com/docs/partner-auth-service-product-sandbox/1/overview
   baseURL: https://api.rocketlawyer.com/partners/v1/auth
   tags:
+  - Access Token
+  tags_raw:
   - Accesstoken
   properties:
   - type: OpenAPI
@@ -212,6 +214,28 @@ description: >-
   are supported, and partner onboarding is managed through api@rocketlawyer.com
   and a self-service developer portal.
 tags:
+- Legal
+- Legal Technology
+- Legal Tech
+- Legal Documents
+- Electronic Signature
+- E-Signature
+- Document Creation
+- Document-Management
+- Business Formation
+- LLC Formation
+- Registered Agent
+- Trademark
+- Wills
+- Estate Planning
+- Attorney Network
+- Small Business
+- Membership
+- Embedded UX
+- Partner API
+- Apigee
+- OpenAPI
+tags_raw:
 - Legal
 - Legal Technology
 - LegalTech
