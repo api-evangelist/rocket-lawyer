@@ -7,7 +7,7 @@ apis:
   humanURL: https://developer.rocketlawyer.com/docs/partner-auth-service-product-sandbox/1/overview
   baseURL: https://api.rocketlawyer.com/partners/v1/auth
   tags:
-  - Accesstoken
+  - Access Token
   tags_raw:
   - Accesstoken
   properties:
@@ -219,7 +219,7 @@ tags:
 - Legal Tech
 - Legal Documents
 - Electronic Signature
-- eSignature
+- E-Signature
 - Document Creation
 - Document-Management
 - Business Formation
