@@ -1,31 +1,6 @@
 aid: rocket-lawyer
 url: https://raw.githubusercontent.com/api-evangelist/rocket-lawyer/refs/heads/main/apis.yml
 apis:
-- aid: rocket-lawyer:rocket-lawyer-accesstoken-api
-  name: Rocket Lawyer Accesstoken API
-  description: The Accesstoken API from Rocket Lawyer — 1 operation(s) for accesstoken.
-  humanURL: https://developer.rocketlawyer.com/docs/partner-auth-service-product-sandbox/1/overview
-  baseURL: https://api.rocketlawyer.com/partners/v1/auth
-  tags:
-  - Access Token
-  tags_raw:
-  - Accesstoken
-  properties:
-  - type: OpenAPI
-    url: openapi/rocket-lawyer-accesstoken-api-openapi.yml
-  - type: Documentation
-    url: https://developer.rocketlawyer.com/docs/partner-auth-service-product-sandbox/1/overview
-  - type: Documentation
-    url: https://developer.rocketlawyer.com/rocketdocument-v2-embedded-ux
-  - type: Documentation
-    url: https://developer.rocketlawyer.com/rocketdocument-v2-build-your-own-ux
-  - type: ReleaseNotes
-    url: https://developer.rocketlawyer.com/rocketdocument-v2-release-notes
-  - type: Documentation
-    url: https://developer.rocketlawyer.com/rocketsign-embedded-ux
-  - type: Documentation
-    url: >-
-      https://developer.rocketlawyer.com/docs/partner-event-api-subscription-product-sandbox/1/overview
 - aid: rocket-lawyer:rocket-lawyer-binders-api
   name: Rocket Lawyer Binders API
   description: The Binders API from Rocket Lawyer — 19 operation(s) for binders.
@@ -175,6 +150,29 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/rocket-lawyer-templates-api-openapi.yml
+  - type: Documentation
+    url: https://developer.rocketlawyer.com/docs/partner-auth-service-product-sandbox/1/overview
+  - type: Documentation
+    url: https://developer.rocketlawyer.com/rocketdocument-v2-embedded-ux
+  - type: Documentation
+    url: https://developer.rocketlawyer.com/rocketdocument-v2-build-your-own-ux
+  - type: ReleaseNotes
+    url: https://developer.rocketlawyer.com/rocketdocument-v2-release-notes
+  - type: Documentation
+    url: https://developer.rocketlawyer.com/rocketsign-embedded-ux
+  - type: Documentation
+    url: >-
+      https://developer.rocketlawyer.com/docs/partner-event-api-subscription-product-sandbox/1/overview
+- aid: rocket-lawyer:rocket-lawyer-access-token-api
+  name: Rocket Lawyer Access Token API
+  description: The Access Token API from Rocket Lawyer — 1 operation(s) for access token.
+  humanURL: https://developer.rocketlawyer.com/docs/partner-auth-service-product-sandbox/1/overview
+  baseURL: https://api.rocketlawyer.com/partners/v1/auth
+  tags:
+  - Access Token
+  properties:
+  - type: OpenAPI
+    url: openapi/rocket-lawyer-access-token-api-openapi.yml
   - type: Documentation
     url: https://developer.rocketlawyer.com/docs/partner-auth-service-product-sandbox/1/overview
   - type: Documentation
