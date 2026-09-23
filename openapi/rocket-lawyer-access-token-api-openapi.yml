@@ -1,0 +1,145 @@
+openapi: 3.2.0
+info:
+  title: Authentication Accesstoken API
+  version: 1.0.0
+  description: This API documentation describes the authentication mechanisms that enable access to the Rocket Lawyer’s APIs.
+  termsOfService: https://rocketlawyer-public-us.apigee.io/terms
+servers:
+- url: https://api-sandbox.rocketlawyer.com/partners/v1/auth
+  description: Sandbox
+- url: https://api.rocketlawyer.com/partners/v1/auth
+  description: Production
+tags:
+- name: Access Token
+paths:
+  /accesstoken:
+    post:
+      summary: Access Token Creation
+      description: Request the creation of an Access Token, whether or not it be associated with a Service Token. Requires passing credentials (App Key and Secret) in posted request body. For plain Access Tokens, grant type must be `client_credentials`. For Access Tokens associated with a Service Token, grant type must be `authorization_code` with Service Token passed in a request body field named `code`.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccessTokenRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessTokenResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  fault:
+                    faultstring: Invalid Client Credentials
+                    detail:
+                      errorcode: Unauthorized
+        '400':
+          description: 'Bad Request. Possible reasons are:
+
+            - Missing or invalid grant_type
+
+            - Missing or invalid code
+
+            '
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  fault:
+                    faultstring: Missing or invalid grant_type
+                    detail:
+                      errorcode: Bad Request
+      tags:
+      - Access Token
+      operationId: postAccesstoken
+      x-operation-id-source: derived
+components:
+  schemas:
+    AccessTokenResponse:
+      properties:
+        organization_name:
+          type: string
+          title: Organization Name
+          example: rocketlawyer-internal
+        developer.email:
+          type: string
+          title: Developer Email Address
+          example: pdu-test-automation@rocketlawyer.com
+        issued_at:
+          type: string
+          title: Issue timestamp in millis
+          example: '1633969487428'
+        client_id:
+          type: string
+          title: Apigee App Key (echoes request Client ID)
+          example: your-apigee-app-key
+        token_type:
+          type: string
+          title: Token Type
+          example: BearerToken
+        access_token:
+          type: string
+          title: Access Token
+          example: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJyb2NrZXRsYXd5ZXIuY29tIiwiYXVkIjoicm9ja2V0bGF3eWVyLmNvbS9hY2Nlc3MtdG9rZW5zIiwiZXhwIjoxNjM0MDA3Njg1LCJpYXQiOjE2MzM5NzE2ODUsInJsX2FwaV9jbGllbnRfaWQiOiI3ZmI5YzAwMy1iNzc3LTQwYzYtYWRlMC1hYzk0NWM5ZDcxMGIiLCJybF91c2VyX2lkIjpudWxsLCJzcnYiOnsib3JpZ2luYWxUZW5hbnRJZCI6IjZiYmRkYzJjLTljN2MtNGVhZC05Y2E5LWJkYTRmZDc4YWNjNSIsImV4cGlyYXRpb25UaW1lIjoxNjcxNzc2NTQyLCJwYXJ0bmVySWQiOiIwZDc5MGY5ZC03ZmY5LTRiYzItODU3Ny0yNTVlYWY0NTk0YzAiLCJvcmlnaW5hbENsaWVudElkIjoiN2ZiOWMwMDMtYjc3Ny00MGM2LWFkZTAtYWM5NDVjOWQ3MTBiIiwicHVycG9zZSI6ImFwaS5yb2NrZXRsYXd5ZXIuY29tL2RlbW8vdGhpbmdzIiwiYnJhbmRJZCI6IjVkZWQwYWNiLTJjZDItNDA1Zi05NTY4LTk5NmU0ODBmZjQ2NiIsIm93bmVyIjoidXNlcjEifSwiY2kiOm51bGx9.<content redacted>
+        application_name:
+          type: string
+          title: Appigee Application ID
+          example: 4e8dc68b-cc3c-4ffc-aab3-f76f817ad321
+        expires_in:
+          type: string
+          title: Number of seconds
+          example: '35998'
+        api_product_list:
+          type: array
+          title: Api Products that application can access
+          example:
+          - rocketdoc-api-product-sandbox
+          - partner-auth-service-product-sandbox
+          - binders-product-document-manager-sandbox
+    AccessTokenRequest:
+      required:
+      - client_id
+      - client_secret
+      - grant_type
+      properties:
+        client_id:
+          type: string
+          title: Application Key
+          description: API Key for your App in the developer portal
+        client_secret:
+          type: string
+          title: Application secret
+          description: API Secret for your App in the developer portal
+        grant_type:
+          type: string
+          enum:
+          - client_credentials
+          - authorization_code
+          title: Value is client_credentials or authorization_code
+          description: '#### Possible values:
+
+            - client_credentials : used to get an Access Token
+
+            - authorization_code : used to get an Access Token associated with Service Token passed in "code" field.
+
+            '
+        code:
+          type: string
+          title: Service Token
+          example: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJyb2NrZXRsYXd5ZXIuY29tIiwiYXVkIjoicm9ja2V0bGF3eWVyLmNvbS9zZXJ2aWNlLXRva2VucyIsImV4cCI6MTY3MTc3NjU0MiwiaWF0IjoxNjMzOTcxNjg0LCJzcnYiOnsib3JpZ2luYWxUZW5hbnRJZCI6IjZiYmRkYzJjLTljN2MtNGVhZC05Y2E5LWJkYTRmZDc4YWNjNSIsImV4cGlyYXRpb25UaW1lIjoxNjcxNzc2NTQyLCJwYXJ0bmVySWQiOiIwZDc5MGY5ZC03ZmY5LTRiYzItODU3Ny0yNTVlYWY0NTk0YzAiLCJvcmlnaW5hbENsaWVudElkIjoiN2ZiOWMwMDMtYjc3Ny00MGM2LWFkZTAtYWM5NDVjOWQ3MTBiIiwicHVycG9zZSI6ImFwaS5yb2NrZXRsYXd5ZXIuY29tL2RlbW8vdGhpbmdzIiwiYnJhbmRJZCI6IjVkZWQwYWNiLTJjZDItNDA1Zi05NTY4LTk5NmU0ODBmZjQ2NiIsIm93bmVyIjoidXNlcjEifX0.<content redacted>
+          description: Service Token obtained from /servicetoken endpoint
+      example:
+        client_id: your-App-key
+        client_secret: your-App-secret
+        grant_type: client_credentials
+  securitySchemes:
+    BearerTokenAuth:
+      type: http
+      scheme: bearer

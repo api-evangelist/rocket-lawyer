@@ -1,14 +1,24 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Authentication Accesstoken Event Consumption API
-  version: 1.0.0
-  description: "This API documentation describes the authentication mechanisms that enable access to the Rocket Lawyer’s APIs. The Rocket Lawyer API Platform uses Oauth 2.0 access tokens (as per [RFC 6750](https://datatracker.ietf.org/doc/html/rfc6750)) to authenticate API requests and protect your resources. \n\nThis page provides a comprehensive overview of the three types of tokens — Access Tokens, Service Tokens, and Scoped Access Tokens — along with guidance on using these tokens effectively during interactions with Rocket Lawyer’s APIs.\n\nGuides that provide step-by-step instructions for how to authenticate using the Rocket Lawyer embeddable UXs can be viewed in the [Guides section](/guides)). \n\nExplore the different authentication tokens and their usage within Rocket Lawyer's API ecosystem using  the sections below:\n\n# Access Token\n\nAccess Tokens are used whenever backend systems need to interact with Rocket Lawyer's APIs. Calls made with these tokens can access the data for all of your customers associated with the App you created in the developer center. Example usage is to start new interviews or retrieve all documents and binders.\n\nTo create an Access Token, issue a POST to /auth/accesstoken using valid credentials, these can be obtained from the [RocketLawyer Developer Portal](https://developer.rocketlawyer.com/) - see the [Welcome Guide](/welcome-guide)) for how to obtain these.\n\nThen include the Access Token as a bearer token in the Authorization header of your API requests to access our API resources.\n\nThis token can be used to start a new interview and retrieve the necessary document templates, establishing a secure foundation for the session.\n\nAccess Tokens expire after 10 hours. During this time, you should securely store this token in your backend for use in future requests. Creating a new access token does not invalidate any previously generated access tokens, your app can have more than one valid access token at a time.\n\n# Service Token\n\nService Tokens are a means for one application to delegate authority to API resources to less privileged applications. Typically a backend application will generate a service token to be distributed to a frontend application, to securely access a specific API resource. Service Tokens are generated with parameters like the purpose, interview ID, and Unique Party Identifier (UPID) that describe the scope of access that can be granted to the frontend application.\n\nGenerate a Service Token by sending a request to the Authentication endpoint with the necessary parameters. \n\nThe Service Token can then be passed to your frontend to be used in an Embedded UX component or to enable your frontend to access the Rocket Lawyer APIs through the creation of a scoped access token. This token has a 1-year expiration time.\n\n\n# Scoped Access Token\n\nA Scoped Access Token is typically used to authenticate frontend interactions. You need to create these tokens only if calling the Rocket Lawyer APIs from your front-end, for example if building your own UX. If using the embedded UX then these tokens are created and handled within the component.\n\nScoped Access Tokens grant access to specific resources, such as an interview (identified by interviewId) or linked to a particular party (identified by a UPID). \n\nTo obtain a Scoped Access Token, you must first generate a Service Token that specifies the resources that can be accessed. To create a scoped access token you need to create a new Developer app in the [RocketLawyer Developer Portal](https://developer.rocketlawyer.com/) that has front-end only scope. Contact Rocket Lawyer developer support (api@rocketlawyer.com) who will help provide this. The key and secret from this front-end app should be used to create the scoped access token. \n\nYou should include this token in the Authorization header of your frontend API requests.\n\n# Application Scope  \nDeveloper apps can be created with either backend or frontend access scope. Apps with backend scope are used for server-to-server communication and can access all our APIs. Apps with frontend scope are used by a web frontend to access our APIs and are restricted in the calls they can make to support the UX. If building your own UX, you will need an app with frontend scope.\n\n**Note** You must not use a Developer App that has backend access to authenticate into Rocket Lawyer APIs from your front-end. This will expose your backend credentials that have access to all your customers' data in the browser.\n"
-  termsOfService: https://rocketlawyer-public-us.apigee.io/terms
+  title: Events Event Consumption API
+  version: '1'
+  description: 'This API documentation describes the server-side contract by which Rocket Lawyer Events can be subscribed to and events can be pulled using the Partner Events API.
+
+
+    Steps to pull events -
+
+    1. Use POST /subscriptions API to create a subscription
+
+    2. Use POST /subscriptions/{subscriptionId}/eventPulls API to pull events
+
+    3. Use POST /subscriptions/{subscriptionId}/eventAcknowledgements to acknowledge the pulled events'
 servers:
-- url: https://api-sandbox.rocketlawyer.com/partners/v1/auth
+- url: https://api-sandbox.rocketlawyer.com/events/v1
   description: Sandbox
-- url: https://api.rocketlawyer.com/partners/v1/auth
+- url: https://api.rocketlawyer.com/events/v1
   description: Production
+security:
+- bearerAuth: []
 tags:
 - name: Event Consumption
 paths:
@@ -28,15 +38,11 @@ paths:
 
         or else they will be redelivered in subsequent event pulls.
 
-        <br/>
 
-        <b>Retention</b>: Events have a retention period of <b>7 days</b>.
+        Retention: Events have a retention period of 7 days.
 
-        <br/><br/>
 
-        Authorization\: Requires a general access or scoped access token.
-
-        '
+        Authorization\: Requires a general access or scoped access token.'
       requestBody:
         content:
           application/json:
@@ -53,6 +59,8 @@ paths:
           description: You do not have sufficient permission to pull events from this subscription
         404:
           description: The subscription does not exist
+      summary: Create event pull
+      x-summary-source: derived
   /subscriptions/{subscriptionId}/eventAcknowledgements:
     parameters:
     - name: subscriptionId
@@ -67,11 +75,8 @@ paths:
       operationId: createEventAcknowledgement
       description: 'Acknowledge a set of events to prevent them from being re-delivered
 
-        <br/><br/>
 
-        Authorization\: Requires a general access or scoped access token.
-
-        '
+        Authorization\: Requires a general access or scoped access token.'
       requestBody:
         content:
           application/json:
@@ -88,51 +93,10 @@ paths:
           description: You do not have sufficient permission to acknowledge events from this subscription
         404:
           description: The subscription does not exist
+      summary: Create event acknowledgement
+      x-summary-source: derived
 components:
   schemas:
-    EventAcknowledgement:
-      description: A fulfilled request to acknowledge a set of events
-      type: object
-      properties:
-        eventAcknowledementId:
-          $ref: '#/components/schemas/EventAcknowledgementId'
-        eventHandles:
-          type: array
-          items:
-            $ref: '#/components/schemas/EventHandle'
-      required:
-      - eventAcknowledgementId
-      - eventHandles
-    EventPull:
-      description: A fullfilled request to pull events from a given subscription
-      type: object
-      properties:
-        eventPullId:
-          $ref: '#/components/schemas/EventPullId'
-        maxEvents:
-          $ref: '#/components/schemas/MaxEventCount'
-        events:
-          type: array
-          items:
-            $ref: '#/components/schemas/Event'
-      required:
-      - eventPullId
-      - maxEvents
-      - events
-    EventPullId:
-      description: 'An ID which may be used to reference a specific event pull in communication with Rocket Lawyer. If an event pull ID is not provided,
-
-        one will be generated automatically. If an ID _is_ provided, it should have a unique value for each each event pull.
-
-        '
-      type: string
-      format: uuid
-      example: bd329b6c-f4d0-4606-b179-4dbbc69ecedf
-    SubscriptionId:
-      description: The ID for a specific subscription.
-      type: string
-      format: uuid
-      example: f3443a23-301d-4b6b-a178-3840d8cb9e5f
     EventCoreProperties:
       description: A set of core properties which may be provided for any event
       type: object
@@ -158,9 +122,10 @@ components:
 
             '
         relatedRlRequestId:
-          type: string
+          type:
+          - string
+          - 'null'
           format: uuid
-          nullable: true
           example: ac871cfc-1f21-4a02-b81e-11a48eef0386
           description: 'A unique ID to allow cross-correlating events that originate from the same underlying request to a
 
@@ -168,9 +133,10 @@ components:
 
             '
         relatedSessionId:
-          type: string
+          type:
+          - string
+          - 'null'
           format: uuid
-          nullable: true
           example: 1b305d40-7c28-4d2f-8e36-4726179d38b9
           description: 'A unique ID to allow cross-correlating events that originate from the same underlying session.
 
@@ -178,12 +144,56 @@ components:
       required:
       - eventTimestamp
       - eventUniqueId
+    EventHandle:
+      description: An opaque string that allows a specific event to be acknowledged
+      type: string
+      example: RVNEUAYWLF1GSFE3GQhoUQ5PXiM_NSAoRREICBQFfH1yQ1V1VTN1B1ENGXN6MnI7XkUBBRcFdF9RGx9ZXET_zPq2L1BdYndrWBUJAERSfFtYGQlqVHTo_4y_tfqXVG9WYpnKqf5lXv6uhbtZZiE9XxJLLD5-LTJFQV5AEkwmB0RJUytDCypYEU4EISE-MD4
+    EventPull:
+      description: A fullfilled request to pull events from a given subscription
+      type: object
+      properties:
+        eventPullId:
+          $ref: '#/components/schemas/EventPullId'
+        maxEvents:
+          $ref: '#/components/schemas/MaxEventCount'
+        events:
+          type: array
+          items:
+            $ref: '#/components/schemas/Event'
+      required:
+      - eventPullId
+      - maxEvents
+      - events
+    EventPullId:
+      description: 'An ID which may be used to reference a specific event pull in communication with Rocket Lawyer. If an event pull ID is not provided,
+
+        one will be generated automatically. If an ID _is_ provided, it should have a unique value for each each event pull.
+
+        '
+      type: string
+      format: uuid
+      example: bd329b6c-f4d0-4606-b179-4dbbc69ecedf
     EventPullPost:
       description: A request to pull events from a subscription
       type: object
       properties:
         maxEvents:
           $ref: '#/components/schemas/MaxEventCount'
+    SubscriptionId:
+      description: The ID for a specific subscription.
+      type: string
+      format: uuid
+      example: f3443a23-301d-4b6b-a178-3840d8cb9e5f
+    EventAcknowledgementPost:
+      description: A request to acknowledge a set of events
+      type: object
+      properties:
+        eventHandles:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventHandle'
+      required:
+      - eventHandles
     Event:
       description: An event which occurred within the Rocket Lawyer platform
       type: object
@@ -206,20 +216,6 @@ components:
       format: unsigned-int32
       example: '20'
       description: The maximum number of events to include in an event pull. Note that a smaller number of events might be included in the actual pull.
-    EventAcknowledgementPost:
-      description: A request to acknowledge a set of events
-      type: object
-      properties:
-        eventHandles:
-          type: array
-          items:
-            $ref: '#/components/schemas/EventHandle'
-      required:
-      - eventHandles
-    EventHandle:
-      description: An opaque string that allows a specific event to be acknowledged
-      type: string
-      example: RVNEUAYWLF1GSFE3GQhoUQ5PXiM_NSAoRREICBQFfH1yQ1V1VTN1B1ENGXN6MnI7XkUBBRcFdF9RGx9ZXET_zPq2L1BdYndrWBUJAERSfFtYGQlqVHTo_4y_tfqXVG9WYpnKqf5lXv6uhbtZZiE9XxJLLD5-LTJFQV5AEkwmB0RJUytDCypYEU4EISE-MD4
     EventPayload:
       description: 'Extra event context. The contents of this payload will differ for each type of event so the "name" field
 
@@ -238,7 +234,21 @@ components:
       type: string
       format: uuid
       example: ae416a84-f5cc-49f5-8706-e0e2fa57c21c
+    EventAcknowledgement:
+      description: A fulfilled request to acknowledge a set of events
+      type: object
+      properties:
+        eventAcknowledementId:
+          $ref: '#/components/schemas/EventAcknowledgementId'
+        eventHandles:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventHandle'
+      required:
+      - eventAcknowledgementId
+      - eventHandles
   securitySchemes:
-    BearerTokenAuth:
+    bearerAuth:
       type: http
       scheme: bearer
+      bearerFormat: JWT
