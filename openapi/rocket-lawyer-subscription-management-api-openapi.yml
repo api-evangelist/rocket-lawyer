@@ -165,16 +165,9 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    SubscriptionCreatedAtTimestamp:
-      description: Time when this subscription was created
-      type: string
-      format: date-time
-      example: '2021-04-12T04:20:50Z'
-    SubscriptionUpdatedAtTimestamp:
-      description: Time when this subscription was last updated
-      type: string
-      format: date-time
-      example: '2021-05-11T23:10:51Z'
+    SubscriptionPost:
+      description: The spec for a subscription
+      type: object
     Subscription:
       description: A specific subscription
       type: object
@@ -189,6 +182,16 @@ components:
       - subscriptionId
       - createdAt
       - updatedAt
+    SubscriptionUpdatedAtTimestamp:
+      description: Time when this subscription was last updated
+      type: string
+      format: date-time
+      example: '2021-05-11T23:10:51Z'
+    SubscriptionCreatedAtTimestamp:
+      description: Time when this subscription was created
+      type: string
+      format: date-time
+      example: '2021-04-12T04:20:50Z'
     SeekRequest:
       description: 'Result of a specific seek request. Currently just includes a unique ID
 
@@ -204,14 +207,6 @@ components:
       required:
       - seekRequestId
       - seekTo
-    SubscriptionId:
-      description: The ID for a specific subscription.
-      type: string
-      format: uuid
-      example: f3443a23-301d-4b6b-a178-3840d8cb9e5f
-    SubscriptionPost:
-      description: The spec for a subscription
-      type: object
     SeekRequestId:
       description: 'An ID which may be used to reference a specific seek request in communication with Rocket Lawyer. If an seek request ID is not provided,
 
@@ -230,6 +225,11 @@ components:
       type: string
       format: date-time
       example: '2021-10-01T10:22:02Z'
+    SubscriptionId:
+      description: The ID for a specific subscription.
+      type: string
+      format: uuid
+      example: f3443a23-301d-4b6b-a178-3840d8cb9e5f
     SeekRequestPost:
       description: 'A spec for a request to seek a subscription to a different timestamp
 

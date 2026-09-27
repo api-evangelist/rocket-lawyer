@@ -62,6 +62,42 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    AccessTokenRequest:
+      required:
+      - client_id
+      - client_secret
+      - grant_type
+      properties:
+        client_id:
+          type: string
+          title: Application Key
+          description: API Key for your App in the developer portal
+        client_secret:
+          type: string
+          title: Application secret
+          description: API Secret for your App in the developer portal
+        grant_type:
+          type: string
+          enum:
+          - client_credentials
+          - authorization_code
+          title: Value is client_credentials or authorization_code
+          description: '#### Possible values:
+
+            - client_credentials : used to get an Access Token
+
+            - authorization_code : used to get an Access Token associated with Service Token passed in "code" field.
+
+            '
+        code:
+          type: string
+          title: Service Token
+          example: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJyb2NrZXRsYXd5ZXIuY29tIiwiYXVkIjoicm9ja2V0bGF3eWVyLmNvbS9zZXJ2aWNlLXRva2VucyIsImV4cCI6MTY3MTc3NjU0MiwiaWF0IjoxNjMzOTcxNjg0LCJzcnYiOnsib3JpZ2luYWxUZW5hbnRJZCI6IjZiYmRkYzJjLTljN2MtNGVhZC05Y2E5LWJkYTRmZDc4YWNjNSIsImV4cGlyYXRpb25UaW1lIjoxNjcxNzc2NTQyLCJwYXJ0bmVySWQiOiIwZDc5MGY5ZC03ZmY5LTRiYzItODU3Ny0yNTVlYWY0NTk0YzAiLCJvcmlnaW5hbENsaWVudElkIjoiN2ZiOWMwMDMtYjc3Ny00MGM2LWFkZTAtYWM5NDVjOWQ3MTBiIiwicHVycG9zZSI6ImFwaS5yb2NrZXRsYXd5ZXIuY29tL2RlbW8vdGhpbmdzIiwiYnJhbmRJZCI6IjVkZWQwYWNiLTJjZDItNDA1Zi05NTY4LTk5NmU0ODBmZjQ2NiIsIm93bmVyIjoidXNlcjEifX0.<content redacted>
+          description: Service Token obtained from /servicetoken endpoint
+      example:
+        client_id: your-App-key
+        client_secret: your-App-secret
+        grant_type: client_credentials
     AccessTokenResponse:
       properties:
         organization_name:
@@ -103,42 +139,6 @@ components:
           - rocketdoc-api-product-sandbox
           - partner-auth-service-product-sandbox
           - binders-product-document-manager-sandbox
-    AccessTokenRequest:
-      required:
-      - client_id
-      - client_secret
-      - grant_type
-      properties:
-        client_id:
-          type: string
-          title: Application Key
-          description: API Key for your App in the developer portal
-        client_secret:
-          type: string
-          title: Application secret
-          description: API Secret for your App in the developer portal
-        grant_type:
-          type: string
-          enum:
-          - client_credentials
-          - authorization_code
-          title: Value is client_credentials or authorization_code
-          description: '#### Possible values:
-
-            - client_credentials : used to get an Access Token
-
-            - authorization_code : used to get an Access Token associated with Service Token passed in "code" field.
-
-            '
-        code:
-          type: string
-          title: Service Token
-          example: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJyb2NrZXRsYXd5ZXIuY29tIiwiYXVkIjoicm9ja2V0bGF3eWVyLmNvbS9zZXJ2aWNlLXRva2VucyIsImV4cCI6MTY3MTc3NjU0MiwiaWF0IjoxNjMzOTcxNjg0LCJzcnYiOnsib3JpZ2luYWxUZW5hbnRJZCI6IjZiYmRkYzJjLTljN2MtNGVhZC05Y2E5LWJkYTRmZDc4YWNjNSIsImV4cGlyYXRpb25UaW1lIjoxNjcxNzc2NTQyLCJwYXJ0bmVySWQiOiIwZDc5MGY5ZC03ZmY5LTRiYzItODU3Ny0yNTVlYWY0NTk0YzAiLCJvcmlnaW5hbENsaWVudElkIjoiN2ZiOWMwMDMtYjc3Ny00MGM2LWFkZTAtYWM5NDVjOWQ3MTBiIiwicHVycG9zZSI6ImFwaS5yb2NrZXRsYXd5ZXIuY29tL2RlbW8vdGhpbmdzIiwiYnJhbmRJZCI6IjVkZWQwYWNiLTJjZDItNDA1Zi05NTY4LTk5NmU0ODBmZjQ2NiIsIm93bmVyIjoidXNlcjEifX0.<content redacted>
-          description: Service Token obtained from /servicetoken endpoint
-      example:
-        client_id: your-App-key
-        client_secret: your-App-secret
-        grant_type: client_credentials
   securitySchemes:
     BearerTokenAuth:
       type: http

@@ -249,30 +249,6 @@ paths:
       deprecated: false
 components:
   schemas:
-    templateId:
-      description: The unique identifier of the document template to be used for the interview. This template defines the structure and content of the interview. Retrieve a list of available templates with the [Get Templates](/get-templates) endpoint.
-      type: string
-      example: 0bf17ad8-a229-1289-ef4a-00b7c9ad9cab
-    tamRole:
-      description: A list of roles that the entity plays within the interview context. Roles define the specific function or position of the entity in the interview, such as 'Applicant' or 'Employer'.
-      type: string
-      example: Applicant
-    tamClass:
-      type: string
-      description: 'The classification of the entity. Can be either:
-
-        - `Person`
-
-        - `Organization`
-
-        - `Property`
-
-        '
-      enum:
-      - Person
-      - Organization
-      - Property
-      example: Person
     tamEntityClass:
       description: The classification of the field within the entity. This defines the type or category of the field, aligning with the entity's role and characteristics.
       type: string
@@ -301,6 +277,22 @@ components:
       - name
       - entities
       - fields
+    fieldType:
+      description: Metadata type suggesting what this field should contain and loosely describing how a UI might display it for user interaction. The field type provides hints on the nature of the data and the appropriate form input controls to use.
+      type: object
+      enum:
+      - TEXT
+      - PARAGRAPH
+      - DATE
+      - DROPDOWN
+      - NUMBER
+      - CURRENCY
+      - PERCENTAGE
+      - SSN
+      - RADIO
+      - CHECKBOX
+      - PHONE_NUMBER
+      - PHONE_EXT
     tamEntity:
       type: object
       description: Represents an entity involved in the interview process. Entities can be individuals, organizations, or properties, each playing specific roles within the context of the interview.
@@ -324,6 +316,10 @@ components:
       - name
       - class
       - roles
+    tamRole:
+      description: A list of roles that the entity plays within the interview context. Roles define the specific function or position of the entity in the interview, such as 'Applicant' or 'Employer'.
+      type: string
+      example: Applicant
     template:
       type: object
       properties:
@@ -374,30 +370,9 @@ components:
       - longDescription
       - thumbnailRef
       - previewRef
-    tamEntityName:
-      description: The name of the entity. This could be the name of a person, organization, or property involved in the interview.
-      type: string
-      example: Formed Entity
-    fieldType:
-      description: Metadata type suggesting what this field should contain and loosely describing how a UI might display it for user interaction. The field type provides hints on the nature of the data and the appropriate form input controls to use.
-      type: object
-      enum:
-      - TEXT
-      - PARAGRAPH
-      - DATE
-      - DROPDOWN
-      - NUMBER
-      - CURRENCY
-      - PERCENTAGE
-      - SSN
-      - RADIO
-      - CHECKBOX
-      - PHONE_NUMBER
-      - PHONE_EXT
-    templatesGetResponse:
-      type: array
-      items:
-        $ref: '#/components/schemas/template'
+    templateGetResponse:
+      allOf:
+      - $ref: '#/components/schemas/template'
     tamField:
       type: object
       description: Each field corresponds to a data point in the interview, allowing for the collection and retrieval of user-entered information. These fields are pre-filled with initial data and align with the template's structure, facilitating a customized and relevant interview process.
@@ -420,29 +395,70 @@ components:
       - fieldClass
       - type
       - value
-    templateGetResponse:
-      allOf:
-      - $ref: '#/components/schemas/template'
+    templateId:
+      description: The unique identifier of the document template to be used for the interview. This template defines the structure and content of the interview. Retrieve a list of available templates with the [Get Templates](/get-templates) endpoint.
+      type: string
+      example: 0bf17ad8-a229-1289-ef4a-00b7c9ad9cab
+    tamEntityName:
+      description: The name of the entity. This could be the name of a person, organization, or property involved in the interview.
+      type: string
+      example: Formed Entity
+    tamClass:
+      type: string
+      description: 'The classification of the entity. Can be either:
+
+        - `Person`
+
+        - `Organization`
+
+        - `Property`
+
+        '
+      enum:
+      - Person
+      - Organization
+      - Property
+      example: Person
+    templatesGetResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/template'
   parameters:
-    templateIdPath:
-      name: templateId
-      in: path
-      description: The unique identifier of a Template.
-      required: true
+    brandIdQuery:
+      name: brandId
+      in: query
+      description: The unique identifier of the brand.
+      required: false
       schema:
         type: string
-      example: e3b7da14-a7ef-402d-a50d-50edd3015fa6
-    reverseQuery:
-      name: reverse
+      example: cde1d5c7-ba7e-46bf-8ac3-78ea2ec3f5e4
+    pageSizeQuery:
+      name: pageSize
       in: query
-      description: 'Determines the order of search results. When set to true, results are returned in reverse order. Use this parameter to reverse the sorting order of the search results. The default value is `false`.
+      description: 'Defines the number of results to return per page in a paginated response. Use this parameter to control the amount of data returned in each response.
+
+        The default value is `20`, with a maximum limit of `200`.
 
         ⚠️ <small>Ignored if the `index` and `lookupValue` parameters are not present.</small> ⚠️
 
         '
       schema:
-        type: boolean
-      example: true
+        type: integer
+      example: 25
+      required: false
+    cursorQuery:
+      name: cursor
+      in: query
+      description: 'A pagination cursor used to retrieve the next set of results in a paginated response. Include the cursor value from the previous response to continue fetching results. This parameter is not required for the first search.
+
+        ⚠️ <small>Ignored if the `index` and `lookupValue` parameters are not present.</small> ⚠️
+
+        '
+      schema:
+        type: string
+      example: 'bfc84903-b4ea-46b0-b7cb-78157a979687
+
+        '
       required: false
     templateQueryIndex:
       name: index
@@ -464,19 +480,17 @@ components:
         - groupBy
       example: virtual
       required: false
-    pageSizeQuery:
-      name: pageSize
+    reverseQuery:
+      name: reverse
       in: query
-      description: 'Defines the number of results to return per page in a paginated response. Use this parameter to control the amount of data returned in each response.
-
-        The default value is `20`, with a maximum limit of `200`.
+      description: 'Determines the order of search results. When set to true, results are returned in reverse order. Use this parameter to reverse the sorting order of the search results. The default value is `false`.
 
         ⚠️ <small>Ignored if the `index` and `lookupValue` parameters are not present.</small> ⚠️
 
         '
       schema:
-        type: integer
-      example: 25
+        type: boolean
+      example: true
       required: false
     lookupValueQuery:
       name: lookupValue
@@ -489,28 +503,14 @@ components:
       schema:
         type: string
       required: false
-    brandIdQuery:
-      name: brandId
-      in: query
-      description: The unique identifier of the brand.
-      required: false
+    templateIdPath:
+      name: templateId
+      in: path
+      description: The unique identifier of a Template.
+      required: true
       schema:
         type: string
-      example: cde1d5c7-ba7e-46bf-8ac3-78ea2ec3f5e4
-    cursorQuery:
-      name: cursor
-      in: query
-      description: 'A pagination cursor used to retrieve the next set of results in a paginated response. Include the cursor value from the previous response to continue fetching results. This parameter is not required for the first search.
-
-        ⚠️ <small>Ignored if the `index` and `lookupValue` parameters are not present.</small> ⚠️
-
-        '
-      schema:
-        type: string
-      example: 'bfc84903-b4ea-46b0-b7cb-78157a979687
-
-        '
-      required: false
+      example: e3b7da14-a7ef-402d-a50d-50edd3015fa6
   securitySchemes:
     bearerAuth:
       type: http

@@ -213,13 +213,12 @@ description: >-
   and a self-service developer portal.
 tags:
 - Legal
-- Legal Technology
 - Legal Tech
 - Legal Documents
 - Electronic Signature
 - E-Signature
 - Document Creation
-- Document-Management
+- Document Management
 - Business Formation
 - LLC Formation
 - Registered Agent
@@ -255,6 +254,7 @@ tags_raw:
 - Partner API
 - Apigee
 - OpenAPI
+- Document-Management
 type: Index
 kind: contract
 deliveryModel:
