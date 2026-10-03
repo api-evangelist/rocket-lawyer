@@ -249,34 +249,13 @@ paths:
       deprecated: false
 components:
   schemas:
-    tamEntityClass:
-      description: The classification of the field within the entity. This defines the type or category of the field, aligning with the entity's role and characteristics.
+    templateGetResponse:
+      allOf:
+      - $ref: '#/components/schemas/template'
+    tamRole:
+      description: A list of roles that the entity plays within the interview context. Roles define the specific function or position of the entity in the interview, such as 'Applicant' or 'Employer'.
       type: string
-      example: Entity Type
-    tam:
-      description: 'The Tagged Answer Model (TAM) represents the structured format for injecting data into an interview or retrieving data from an interview. This model maps the input data to the corresponding fields and entities within the document template.
-
-        '
-      type: object
-      properties:
-        name:
-          type: string
-          description: The name of the template being used for the interview.
-          example: Employment contract
-        templateId:
-          $ref: '#/components/schemas/templateId'
-        entities:
-          type: array
-          items:
-            $ref: '#/components/schemas/tamEntity'
-        fields:
-          type: array
-          items:
-            $ref: '#/components/schemas/tamField'
-      required:
-      - name
-      - entities
-      - fields
+      example: Applicant
     fieldType:
       description: Metadata type suggesting what this field should contain and loosely describing how a UI might display it for user interaction. The field type provides hints on the nature of the data and the appropriate form input controls to use.
       type: object
@@ -293,33 +272,6 @@ components:
       - CHECKBOX
       - PHONE_NUMBER
       - PHONE_EXT
-    tamEntity:
-      type: object
-      description: Represents an entity involved in the interview process. Entities can be individuals, organizations, or properties, each playing specific roles within the context of the interview.
-      properties:
-        name:
-          $ref: '#/components/schemas/tamEntityName'
-        class:
-          $ref: '#/components/schemas/tamClass'
-        roles:
-          type: array
-          items:
-            $ref: '#/components/schemas/tamRole'
-        isCyclical:
-          type: string
-          enum:
-          - true
-          - false
-          default: false
-          description: True if this Entity is cyclical. Not present or false if not.
-      required:
-      - name
-      - class
-      - roles
-    tamRole:
-      description: A list of roles that the entity plays within the interview context. Roles define the specific function or position of the entity in the interview, such as 'Applicant' or 'Employer'.
-      type: string
-      example: Applicant
     template:
       type: object
       properties:
@@ -370,9 +322,77 @@ components:
       - longDescription
       - thumbnailRef
       - previewRef
-    templateGetResponse:
-      allOf:
-      - $ref: '#/components/schemas/template'
+    tam:
+      description: 'The Tagged Answer Model (TAM) represents the structured format for injecting data into an interview or retrieving data from an interview. This model maps the input data to the corresponding fields and entities within the document template.
+
+        '
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the template being used for the interview.
+          example: Employment contract
+        templateId:
+          $ref: '#/components/schemas/templateId'
+        entities:
+          type: array
+          items:
+            $ref: '#/components/schemas/tamEntity'
+        fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/tamField'
+      required:
+      - name
+      - entities
+      - fields
+    templatesGetResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/template'
+    tamClass:
+      type: string
+      description: 'The classification of the entity. Can be either:
+
+        - `Person`
+
+        - `Organization`
+
+        - `Property`
+
+        '
+      enum:
+      - Person
+      - Organization
+      - Property
+      example: Person
+    tamEntity:
+      type: object
+      description: Represents an entity involved in the interview process. Entities can be individuals, organizations, or properties, each playing specific roles within the context of the interview.
+      properties:
+        name:
+          $ref: '#/components/schemas/tamEntityName'
+        class:
+          $ref: '#/components/schemas/tamClass'
+        roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/tamRole'
+        isCyclical:
+          type: string
+          enum:
+          - true
+          - false
+          default: false
+          description: True if this Entity is cyclical. Not present or false if not.
+      required:
+      - name
+      - class
+      - roles
+    tamEntityClass:
+      description: The classification of the field within the entity. This defines the type or category of the field, aligning with the entity's role and characteristics.
+      type: string
+      example: Entity Type
     tamField:
       type: object
       description: Each field corresponds to a data point in the interview, allowing for the collection and retrieval of user-entered information. These fields are pre-filled with initial data and align with the template's structure, facilitating a customized and relevant interview process.
@@ -403,35 +423,7 @@ components:
       description: The name of the entity. This could be the name of a person, organization, or property involved in the interview.
       type: string
       example: Formed Entity
-    tamClass:
-      type: string
-      description: 'The classification of the entity. Can be either:
-
-        - `Person`
-
-        - `Organization`
-
-        - `Property`
-
-        '
-      enum:
-      - Person
-      - Organization
-      - Property
-      example: Person
-    templatesGetResponse:
-      type: array
-      items:
-        $ref: '#/components/schemas/template'
   parameters:
-    brandIdQuery:
-      name: brandId
-      in: query
-      description: The unique identifier of the brand.
-      required: false
-      schema:
-        type: string
-      example: cde1d5c7-ba7e-46bf-8ac3-78ea2ec3f5e4
     pageSizeQuery:
       name: pageSize
       in: query
@@ -445,20 +437,6 @@ components:
       schema:
         type: integer
       example: 25
-      required: false
-    cursorQuery:
-      name: cursor
-      in: query
-      description: 'A pagination cursor used to retrieve the next set of results in a paginated response. Include the cursor value from the previous response to continue fetching results. This parameter is not required for the first search.
-
-        ⚠️ <small>Ignored if the `index` and `lookupValue` parameters are not present.</small> ⚠️
-
-        '
-      schema:
-        type: string
-      example: 'bfc84903-b4ea-46b0-b7cb-78157a979687
-
-        '
       required: false
     templateQueryIndex:
       name: index
@@ -480,17 +458,19 @@ components:
         - groupBy
       example: virtual
       required: false
-    reverseQuery:
-      name: reverse
+    cursorQuery:
+      name: cursor
       in: query
-      description: 'Determines the order of search results. When set to true, results are returned in reverse order. Use this parameter to reverse the sorting order of the search results. The default value is `false`.
+      description: 'A pagination cursor used to retrieve the next set of results in a paginated response. Include the cursor value from the previous response to continue fetching results. This parameter is not required for the first search.
 
         ⚠️ <small>Ignored if the `index` and `lookupValue` parameters are not present.</small> ⚠️
 
         '
       schema:
-        type: boolean
-      example: true
+        type: string
+      example: 'bfc84903-b4ea-46b0-b7cb-78157a979687
+
+        '
       required: false
     lookupValueQuery:
       name: lookupValue
@@ -511,6 +491,26 @@ components:
       schema:
         type: string
       example: e3b7da14-a7ef-402d-a50d-50edd3015fa6
+    reverseQuery:
+      name: reverse
+      in: query
+      description: 'Determines the order of search results. When set to true, results are returned in reverse order. Use this parameter to reverse the sorting order of the search results. The default value is `false`.
+
+        ⚠️ <small>Ignored if the `index` and `lookupValue` parameters are not present.</small> ⚠️
+
+        '
+      schema:
+        type: boolean
+      example: true
+      required: false
+    brandIdQuery:
+      name: brandId
+      in: query
+      description: The unique identifier of the brand.
+      required: false
+      schema:
+        type: string
+      example: cde1d5c7-ba7e-46bf-8ac3-78ea2ec3f5e4
   securitySchemes:
     bearerAuth:
       type: http
