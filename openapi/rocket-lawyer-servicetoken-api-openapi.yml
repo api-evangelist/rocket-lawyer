@@ -97,28 +97,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    ServiceTokenResponse:
-      required:
-      - purpose
-      - expirationTime
-      - token
-      properties:
-        purpose:
-          type: string
-          title: Purpose
-          description: echoes request value
-          example: api.rocketlawyer.com/binder-party-access
-        expirationTime:
-          type: integer
-          title: Expiration Time
-          description: echoes request value
-          example: 1607803932
-        token:
-          type: string
-          format: jwt
-          title: Service Token
-          description: "Service Token in JWT format\n#### JWT decoded payload\nService Data `srv` contains:\n- Custom properties that were present in request\n- System values automatically added by service (e.g. brand and partner)\n```\n{\n  \"iss\": \"rocketlawyer.com\",\n  \"aud\": \"rocketlawyer.com/service-tokens\",\n  \"exp\": 1671776542,\n  \"iat\": 1633971684,\n  \"srv\": {\n    \"originalTenantId\": \"6bbddc2c-9c7c-4ead-9ca9-bda4fd78acc5\",\n    \"expirationTime\": 1671776542,\n    \"upid\": \"d790696c-a0d8-4ba2-ad65-0092e89904ac\",\n    \"partnerId\": \"0d790f9d-7ff9-4bc2-8577-255eaf4594c0\",                \n    \"originalClientId\": \"7fb9c003-b777-40c6-ade0-ac945c9d710b\",\n    \"purpose\": \"api.rocketlawyer.com/demo/things\",\n    \"brandId\": \"5ded0acb-2cd2-405f-9568-996e480ff466\",\n  }\n}\n```\n"
-          example: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJyb2NrZXRsYXd5ZXIuY29tIiwiYXVkIjoicm9ja2V0bGF3eWVyLmNvbS9zZXJ2aWNlLXRva2VucyIsImV4cCI6MTY3MTc3NjU0MiwiaWF0IjoxNjMzOTcxNjg0LCJzcnYiOnsib3JpZ2luYWxUZW5hbnRJZCI6IjZiYmRkYzJjLTljN2MtNGVhZC05Y2E5LWJkYTRmZDc4YWNjNSIsImV4cGlyYXRpb25UaW1lIjoxNjcxNzc2NTQyLCJwYXJ0bmVySWQiOiIwZDc5MGY5ZC03ZmY5LTRiYzItODU3Ny0yNTVlYWY0NTk0YzAiLCJvcmlnaW5hbENsaWVudElkIjoiN2ZiOWMwMDMtYjc3Ny00MGM2LWFkZTAtYWM5NDVjOWQ3MTBiIiwicHVycG9zZSI6ImFwaS5yb2NrZXRsYXd5ZXIuY29tL2RlbW8vdGhpbmdzIiwiYnJhbmRJZCI6IjVkZWQwYWNiLTJjZDItNDA1Zi05NTY4LTk5NmU0ODBmZjQ2NiIsIm93bmVyIjoidXNlcjEifX0.<content redacted> '
     ServiceTokenRequest:
       required:
       - purpose
@@ -143,6 +121,28 @@ components:
         type: string
         title: Purpose dependent properties
         description: "Custom properties that depend on the purpose. For instance, where restricting by party then Universal Party Identifier `upid` is required, where restricting by interview (rocketdoc purpose) then `interviewId` is required. Request is deemed invalid (400) if request does not contain the required fields for the purpose. \n### Binders\n```\n{\n  \"purpose\" : \"api.rocketlawyer.com/binder-party-access\",\n  \"expirationTime\" : 1671776542,\n  \"upid\" : \"d25eb612-17c2-4e58-9700-28bfa25e0df0\"\n}\n```\n"
+    ServiceTokenResponse:
+      required:
+      - purpose
+      - expirationTime
+      - token
+      properties:
+        purpose:
+          type: string
+          title: Purpose
+          description: echoes request value
+          example: api.rocketlawyer.com/binder-party-access
+        expirationTime:
+          type: integer
+          title: Expiration Time
+          description: echoes request value
+          example: 1607803932
+        token:
+          type: string
+          format: jwt
+          title: Service Token
+          description: "Service Token in JWT format\n#### JWT decoded payload\nService Data `srv` contains:\n- Custom properties that were present in request\n- System values automatically added by service (e.g. brand and partner)\n```\n{\n  \"iss\": \"rocketlawyer.com\",\n  \"aud\": \"rocketlawyer.com/service-tokens\",\n  \"exp\": 1671776542,\n  \"iat\": 1633971684,\n  \"srv\": {\n    \"originalTenantId\": \"6bbddc2c-9c7c-4ead-9ca9-bda4fd78acc5\",\n    \"expirationTime\": 1671776542,\n    \"upid\": \"d790696c-a0d8-4ba2-ad65-0092e89904ac\",\n    \"partnerId\": \"0d790f9d-7ff9-4bc2-8577-255eaf4594c0\",                \n    \"originalClientId\": \"7fb9c003-b777-40c6-ade0-ac945c9d710b\",\n    \"purpose\": \"api.rocketlawyer.com/demo/things\",\n    \"brandId\": \"5ded0acb-2cd2-405f-9568-996e480ff466\",\n  }\n}\n```\n"
+          example: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJyb2NrZXRsYXd5ZXIuY29tIiwiYXVkIjoicm9ja2V0bGF3eWVyLmNvbS9zZXJ2aWNlLXRva2VucyIsImV4cCI6MTY3MTc3NjU0MiwiaWF0IjoxNjMzOTcxNjg0LCJzcnYiOnsib3JpZ2luYWxUZW5hbnRJZCI6IjZiYmRkYzJjLTljN2MtNGVhZC05Y2E5LWJkYTRmZDc4YWNjNSIsImV4cGlyYXRpb25UaW1lIjoxNjcxNzc2NTQyLCJwYXJ0bmVySWQiOiIwZDc5MGY5ZC03ZmY5LTRiYzItODU3Ny0yNTVlYWY0NTk0YzAiLCJvcmlnaW5hbENsaWVudElkIjoiN2ZiOWMwMDMtYjc3Ny00MGM2LWFkZTAtYWM5NDVjOWQ3MTBiIiwicHVycG9zZSI6ImFwaS5yb2NrZXRsYXd5ZXIuY29tL2RlbW8vdGhpbmdzIiwiYnJhbmRJZCI6IjVkZWQwYWNiLTJjZDItNDA1Zi05NTY4LTk5NmU0ODBmZjQ2NiIsIm93bmVyIjoidXNlcjEifX0.<content redacted> '
   securitySchemes:
     BearerTokenAuth:
       type: http
