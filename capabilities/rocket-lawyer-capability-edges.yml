@@ -1,0 +1,25 @@
+slug: rocket-lawyer
+provider: Rocket Lawyer
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: Binders
+  spec_file: rocket-lawyer-binders-api-openapi.yml
+  capability_id: BC-150.10
+  capability_id_l1: BC-150
+  capability_name: Contract Management
+  confidence: 0.8
+  evidence: '''the server-side contract by which complete documents can be managed and signed using the
+    RocketSign® & Binders API'' ... POST /binders/{binderId}/parties, SignaturesIn, SignCancellationOut'
+  reason: Operations manage legal document packets, parties, signatures and finalisation — electronic
+    signing of contracts, i.e. contract lifecycle management.
